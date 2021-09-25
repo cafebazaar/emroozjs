@@ -13,6 +13,8 @@
     "baseUrl": ".",
     "paths": {
       "@lib/*": ["lib/*"],
+      "@lib": ["lib/index.ts"],
+      "@lib-shared/*": ["lib-shared/*"],
     }
   },
   "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.vue", "env.d.ts"]

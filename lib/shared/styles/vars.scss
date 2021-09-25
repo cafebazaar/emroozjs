@@ -1,0 +1,39 @@
+$cl-white: #fff !default;
+
+$cl-primary-color: #0EA960 !default;
+$cl-border-radius: 4px !default;
+$cl-background-color: $cl-white !default;
+$cl-border: 1px solid #EAEEF4 !default;
+$cl-transition-duration: 0.3s !default;
+$cl-text-color: #606266 !default;
+
+$cl-font-size: 14px !default;
+$cl-small-font-size: 12px !default;
+
+// Button
+$cl-button-background-color: $cl-primary-color !default;
+$cl-button-border-radius: $cl-border-radius !default;
+$cl-button-color: $cl-white !default;
+$cl-button-disabled-color: #909399 !default;
+$cl-button-disabled-background-color: #EAEEF4 !default;
+
+// Calendar Grid
+$cl-calendar-grid-header-color: #C0C4CC !default;
+$cl-calendar-grid-active-color: $cl-primary-color !default;
+$cl-calendar-grid-active-background-color: #E7F7F0 !default;
+$cl-calendar-grid-active-text-color: $cl-white !default;
+$cl-calendar-grid-item-font-size: $cl-small-font-size !default;
+$cl-calendar-grid-border: $cl-border !default;
+$cl-calendar-grid-border-radius: $cl-border-radius !default;
+
+// Mostly Used
+$cl-mostly-used-font-size: $cl-font-size !default;
+$cl-mostly-used-active-color: $cl-primary-color !default;
+$cl-mostly-used-transition-duration: $cl-transition-duration !default;
+
+// Calendar Footer
+$cl-footer-report-text-color: #909399 !default;
+$cl-footer-font-size: $cl-font-size !default;
+
+// Controllers
+$cl-controllers-font-size: $cl-font-size !default;

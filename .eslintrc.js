@@ -29,6 +29,7 @@ module.exports = {
       alias: {
         map: [
           ['@lib', './lib'],
+          ['@lib-shared', './lib/shared'],
         ],
         extensions: ['.js', '.ts', '.vue'],
       },

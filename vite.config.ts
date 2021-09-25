@@ -14,6 +14,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@lib': resolve('./lib'),
+      '@lib-shared': resolve('./lib/shared'),
     },
   },
 });

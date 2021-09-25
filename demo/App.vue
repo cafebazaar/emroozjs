@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Calendar } from '@lib/index';
+import './stylesheets/main.scss';
+import { Calendar } from '@lib';
 </script>
 
 <template>

@@ -1,0 +1,7 @@
+body, body button {
+  font-family: IRANSans, Ubuntu, 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  &[dir=ltr]{
+    font-family: EnIRANSans, Ubuntu, 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+}
