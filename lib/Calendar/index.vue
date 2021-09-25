@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { Calendar } from '@lib/index';
+const a = 'SALAM';
 </script>
 
 <template>
-  <Calendar />
+  <span>
+    {{ a }}
+  </span>
 </template>

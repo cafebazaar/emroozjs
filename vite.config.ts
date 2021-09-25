@@ -1,6 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import path from 'path';
+
+const resolve = (addr: string) => path.resolve(__dirname, addr);
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,7 +13,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@lib': './lib',
+      '@lib': resolve('./lib'),
     },
   },
 });

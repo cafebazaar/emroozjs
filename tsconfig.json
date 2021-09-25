@@ -15,5 +15,5 @@
       "@lib/*": ["lib/*"],
     }
   },
-  "include": ["demo/**/*.ts", "demo/**/*.d.ts", "demo/**/*.tsx", "demo/**/*.vue"]
+  "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.vue", "env.d.ts"]
 }
