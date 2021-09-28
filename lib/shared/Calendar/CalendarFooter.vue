@@ -1,14 +1,25 @@
 <script setup lang="ts">
+import { computed } from 'vue-demi';
 import Button from './shared/components/Button.vue';
 import useCalendar from './shared/hooks/useCalendar';
 
-const { strings } = useCalendar();
+const { strings, fromDate, toDate } = useCalendar();
+
+const datePreviewString = computed(() => {
+  if (!fromDate.value || !toDate.value) return '';
+
+  return `
+    ${fromDate.value[2]} ${strings.value.monthNames[fromDate.value[1]]}
+    ${strings.value.to}
+    ${toDate.value[2]} ${strings.value.monthNames[toDate.value[1]]}
+    `;
+});
 </script>
 
 <template>
   <div class="CalendarFooter">
     <span class="CalendarFooter__report">
-      ۱۲ اردیبهشت تا ۲۳ اردیبهشت
+      {{ datePreviewString }}
     </span>
 
     <Button>

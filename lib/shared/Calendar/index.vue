@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide } from 'vue-demi';
+import { provide, toRefs } from 'vue-demi';
 import CalendarMostlyUsed from './CalendarMostlyUsed.vue';
 import CalendarSlider from './CalendarSlider/index.vue';
 import CalendarFooter from './CalendarFooter.vue';
@@ -17,11 +17,13 @@ const props = defineProps<{
   setToDate: SetDateRangeItem,
 }>();
 
+const refProps = toRefs(props);
+
 provide('date', props.date);
-provide('strings', props.strings);
-provide('fromDate', props.fromDate);
-provide('toDate', props.toDate);
-provide('currentDate', props.currentDate);
+provide('strings', refProps.strings);
+provide('fromDate', refProps.fromDate);
+provide('toDate', refProps.toDate);
+provide('currentDate', refProps.currentDate);
 provide('setFromDate', props.setFromDate);
 provide('setToDate', props.setToDate);
 </script>

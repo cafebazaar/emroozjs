@@ -7,8 +7,8 @@ import useCalendar from '../shared/hooks/useCalendar';
 const { currentDate, date } = useCalendar();
 
 const currentFirstDate = ref({
-  year: currentDate[0],
-  month: currentDate[1],
+  year: currentDate.value[0],
+  month: currentDate.value[1],
 });
 
 const currentSecondDate = computed(() => date.getNextMonth(

@@ -26,6 +26,7 @@ const strings: CalendarStrings = {
       'Su',
     ],
     action: 'Apply',
+    to: 'To',
   },
   fa: {
     monthNames: [
@@ -52,6 +53,7 @@ const strings: CalendarStrings = {
       'ج',
     ],
     action: 'اعمال تاریخ',
+    to: 'تا',
   },
 };
 

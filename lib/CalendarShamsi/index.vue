@@ -35,17 +35,23 @@ const currentDate = toJalali(
   new Date().getDate(),
 );
 
-const setLocalFromDate: SetDateRangeItem = (date) => {
-  if (!date) return props.setFromDate(date);
+const setLocalFromDate: SetDateRangeItem = (fromDate) => {
+  if (!fromDate) {
+    props.setFromDate(fromDate);
+    return;
+  }
 
-  const gDate = toGregorian(date[0], date[1], date[2]);
+  const gDate = toGregorian(fromDate[0], fromDate[1], fromDate[2]);
   props.setFromDate(new Date(gDate[0], gDate[1], gDate[2]));
 };
 
-const setLocalToDate: SetDateRangeItem = (date) => {
-  if (!date) return props.setToDate(date);
+const setLocalToDate: SetDateRangeItem = (toDate) => {
+  if (!toDate) {
+    props.setToDate(toDate);
+    return;
+  }
 
-  const gDate = toGregorian(date[0], date[1], date[2]);
+  const gDate = toGregorian(toDate[0], toDate[1], toDate[2]);
   props.setToDate(new Date(gDate[0], gDate[1], gDate[2]));
 };
 
