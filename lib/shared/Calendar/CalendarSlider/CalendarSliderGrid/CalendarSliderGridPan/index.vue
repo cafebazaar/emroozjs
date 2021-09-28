@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { TupleDate } from '@lib/shared/types';
-import { computed } from 'vue-demi';
-import useCalendar from '../shared/hooks/useCalendar';
+import { computed, toRef } from 'vue-demi';
+import useCalendar from '../../../shared/hooks/useCalendar';
+import useDateCompares from './useDateCompares';
 
 const props = defineProps<{
   headerNames: string[];
@@ -12,63 +12,26 @@ const props = defineProps<{
   currentMonth: number;
 }>();
 
-const { fromDate, toDate, date } = useCalendar();
+const currentMonth = toRef(props, 'currentMonth');
+const currentYear = toRef(props, 'currentYear');
+
+const { fromDate, toDate } = useCalendar();
+const {
+  isMiddle, isBeforeStartingEdge, isEdge, isEndingRangeEdge, isStartingRangeEdge,
+} = useDateCompares({
+  fromDate, toDate, currentMonth, currentYear,
+});
 
 const emit = defineEmits<{(e: 'selectDate', day: number): number }>();
 
-function isStartingRangeEdge(toBeComparedDate: TupleDate) {
-  // There is no range!
-  if (!fromDate.value || !toDate.value) return false;
-
-  if (fromDate.value && toBeComparedDate.toString() === fromDate.value.toString()) {
-    return true;
-  }
-  return false;
-}
-
-function isEndingRangeEdge(toBeComparedDate: TupleDate) {
-  // There is no range!
-  if (!fromDate.value || !toDate.value) return false;
-
-  if (toDate.value && toBeComparedDate.toString() === toDate.value.toString()) {
-    return true;
-  }
-  return false;
-}
-
-function isEdge(toBeComparedDate: TupleDate) {
-  if (fromDate.value && toBeComparedDate.toString() === fromDate.value.toString()) {
-    return true;
-  }
-  if (toDate.value && toBeComparedDate.toString() === toDate.value.toString()) {
-    return true;
-  }
-  return false;
-}
-
-function isMiddle(toBeComparedDate: TupleDate) {
-  if (!fromDate.value || !toDate.value) return false;
-
-  if (
-    date.compare(fromDate.value, toBeComparedDate) === 1
-    && date.compare(toBeComparedDate, toDate.value) === 1
-  ) return true;
-
-  return false;
-}
-
-function isBeforeStartingEdge(toBeComparedDate: TupleDate) {
-  if (!fromDate.value) return false;
-
-  return date.compare(fromDate.value, toBeComparedDate) === -1;
-}
+const isRangeSelected = computed(() => fromDate.value && toDate.value);
 
 function selectDate(day: number) {
   // toDate should not be less than fromDate
   if (
     fromDate.value
     && !toDate.value
-    && isBeforeStartingEdge([props.currentYear, props.currentMonth, day])
+    && isBeforeStartingEdge(day)
   ) return;
 
   emit('selectDate', day);
@@ -97,7 +60,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
       :key="`${i}-${index}`"
       class="CalendarGrid__item CalendarGrid__item--empty"
       :class="{
-        'CalendarGrid__item--active': isMiddle([currentYear, currentMonth, 1]),
+        'CalendarGrid__item--active': isMiddle(0),
       }"
       @click="selectDate(i)"
     >
@@ -108,17 +71,19 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
       :key="`${currentYear}-${currentMonth}-${i}`"
       class="CalendarGrid__item"
       :class="{
-        'CalendarGrid__item--active': isMiddle([currentYear, currentMonth, i]),
-        'CalendarGrid__item--active-start': isStartingRangeEdge([currentYear, currentMonth, i]),
-        'CalendarGrid__item--active-end': isEndingRangeEdge([currentYear, currentMonth, i]),
-        'CalendarGrid__item--disabled': isBeforeStartingEdge([currentYear, currentMonth, i]),
+        'CalendarGrid__item--active': isMiddle(i),
+        'CalendarGrid__item--active-start':
+          isStartingRangeEdge(i) && isRangeSelected,
+        'CalendarGrid__item--active-end': isEndingRangeEdge(i),
+        'CalendarGrid__item--disabled':
+          isBeforeStartingEdge(i) && !isRangeSelected,
       }"
       @click="selectDate(i)"
     >
       <span
         class="CalendarGrid__item-inner"
         :class="{
-          'CalendarGrid__item-inner--active': isEdge([currentYear, currentMonth, i]),
+          'CalendarGrid__item-inner--active': isEdge(i),
         }"
       >
         {{ i }}
@@ -129,7 +94,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
       :key="`${i}-${index}`"
       class="CalendarGrid__item CalendarGrid__item--empty"
       :class="{
-        'CalendarGrid__item--active': isMiddle([currentYear, currentMonth, monthDays]),
+        'CalendarGrid__item--active': isMiddle(monthDays),
       }"
       @click="selectDate(i)"
     >
@@ -139,7 +104,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
 </template>
 
 <style lang="scss" scoped>
-@import '../shared/styles/vars.scss';
+@import '../../../shared/styles/vars.scss';
 .CalendarGrid {
   border: $cl-calendar-grid-border;
 

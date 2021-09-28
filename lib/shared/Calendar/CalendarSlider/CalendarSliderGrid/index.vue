@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue-demi';
-import useCalendar from '../shared/hooks/useCalendar';
-import CalendarGrid from './CalendarGrid.vue';
+import useCalendar from '../../shared/hooks/useCalendar';
+import CalendarGrid from './CalendarSliderGridPan/index.vue';
 
 const {
   date, strings, fromDate, toDate, setFromDate, setToDate,

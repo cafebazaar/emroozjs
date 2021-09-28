@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CalendarSliderGrid from './CalendarSliderGrid.vue';
+import CalendarSliderGrid from './CalendarSliderGrid/index.vue';
 
 const props = defineProps<{
   currentFirstMonth: number;
