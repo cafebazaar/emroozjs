@@ -27,7 +27,7 @@ const headerItems = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
 </template>
 
 <style lang="scss" scoped>
-@import '../styles/vars.scss';
+@import '../shared/styles/vars.scss';
 .CalendarGrid {
   border: $cl-calendar-grid-border;
 

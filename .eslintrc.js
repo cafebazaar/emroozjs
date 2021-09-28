@@ -23,6 +23,14 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "ts": "never",
+      }
+   ]
   },
   settings: {
     'import/resolver': {

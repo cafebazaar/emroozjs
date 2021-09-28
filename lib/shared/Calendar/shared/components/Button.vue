@@ -3,7 +3,7 @@ import { toRef } from 'vue-demi';
 
 interface Props {
   icon?: boolean;
-  disabled?: false;
+  disabled?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {

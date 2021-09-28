@@ -1,6 +1,6 @@
-import Calendar from './Calendar/index.vue';
+import CalendarContainer from './CalendarContainer.vue';
 
 export {
   // eslint-disable-next-line import/prefer-default-export
-  Calendar,
+  CalendarContainer as Calendar,
 };

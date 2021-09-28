@@ -19,7 +19,7 @@ import CalendarFooter from './CalendarFooter.vue';
 </template>
 
 <style lang="scss" scoped>
-  @import '../shared/styles/vars.scss';
+  @import './shared/styles/vars.scss';
   .Calendar {
     direction: rtl;
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Button from '@lib-shared/components/Button.vue';
+import Button from '../shared/components/Button.vue';
 import ArrowLeft from './icons/ArrowLeft.vue';
 import ArrowRight from './icons/ArrowRight.vue';
 </script>
@@ -32,7 +32,7 @@ import ArrowRight from './icons/ArrowRight.vue';
 </template>
 
 <style lang="scss" scoped>
-@import '../../shared/styles/vars.scss';
+@import '../shared/styles/vars.scss';
   .CalendarSliderControllers {
     font-size: $cl-controllers-font-size;
 

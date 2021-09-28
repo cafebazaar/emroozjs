@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import CalendarGrid from '@lib/shared/components/CalendarGrid.vue';
+import CalendarSliderGrid from './CalendarSliderGrid.vue';
 
 </script>
 
 <template>
   <div class="CalendarSliderContent">
-    <CalendarGrid />
+    <CalendarSliderGrid />
 
-    <CalendarGrid />
+    <CalendarSliderGrid />
   </div>
 </template>
 

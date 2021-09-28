@@ -21,7 +21,7 @@
 </template>
 
 <style lang="scss" scoped>
-  @import '../shared/styles/vars.scss';
+  @import './shared/styles/vars.scss';
   .CalendarMostlyUsed {
     font-size: $cl-mostly-used-font-size;
     display: flex;
