@@ -26,6 +26,8 @@ $cl-calendar-grid-item-font-size: $cl-small-font-size !default;
 $cl-calendar-grid-border: $cl-border !default;
 $cl-calendar-grid-border-radius: $cl-border-radius !default;
 $cl-calendar-grid-disabled-color: #d0d0d2;
+$cl-calendar-grid-hover-color: $cl-primary-color;
+$cl-calendar-grid-transition-duration: $cl-transition-duration;
 
 // Mostly Used
 $cl-mostly-used-font-size: $cl-font-size !default;

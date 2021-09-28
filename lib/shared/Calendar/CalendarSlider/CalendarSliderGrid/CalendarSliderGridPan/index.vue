@@ -17,7 +17,7 @@ const currentYear = toRef(props, 'currentYear');
 
 const { fromDate, toDate } = useCalendar();
 const {
-  isMiddle, isBeforeStartingEdge, isEdge, isEndingRangeEdge, isStartingRangeEdge,
+  isMiddle, isBeforeStartingEdge, isEdge, isEndingRangeEdge, isStartingRangeEdge, isToday,
 } = useDateCompares({
   fromDate, toDate, currentMonth, currentYear,
 });
@@ -77,6 +77,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
         'CalendarGrid__item--active-end': isEndingRangeEdge(i),
         'CalendarGrid__item--disabled':
           isBeforeStartingEdge(i) && !isRangeSelected,
+        'CalendarGrid__item--today': isToday(i),
       }"
       @click="selectDate(i)"
     >
@@ -116,6 +117,10 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
   flex-wrap: wrap;
 
   &__item {
+    $item: &;
+
+    transition-duration: $cl-calendar-grid-transition-duration;
+
     width: 27px;
     height: 20px;
 
@@ -170,7 +175,19 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
       }
     }
 
+    &--today:not(#{$item}--active):not(#{$item}--disabled) {
+      color: $cl-calendar-grid-hover-color;
+    }
+
+    &:not(#{$item}--header):not(#{$item}--active):not(#{$item}--disabled) {
+      &:hover {
+        color: $cl-calendar-grid-hover-color;
+      }
+    }
+
     &-inner {
+      transition-duration: $cl-calendar-grid-transition-duration;
+
       border-radius: 50%;
 
       width: 20px;

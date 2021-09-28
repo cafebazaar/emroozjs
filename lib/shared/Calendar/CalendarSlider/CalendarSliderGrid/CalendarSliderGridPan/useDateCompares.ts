@@ -11,7 +11,7 @@ export default function useDateCompares(
     currentMonth: Ref<number>; currentYear: Ref<number>
   },
 ) {
-  const { date } = useCalendar();
+  const { date, currentDate } = useCalendar();
 
   function createDateTupleByDay(day: number): TupleDate {
     return [currentYear.value, currentMonth.value, day];
@@ -96,11 +96,18 @@ export default function useDateCompares(
     return date.compare(fromDate.value, toBeComparedDayTuple) === -1;
   }
 
+  function isToday(toBeComparedDay: number) {
+    const toBeComparedDayTuple = createDateTupleByDay(toBeComparedDay);
+
+    return currentDate.value.toString() === toBeComparedDayTuple.toString();
+  }
+
   return {
     isBeforeStartingEdge,
     isMiddle,
     isEdge,
     isEndingRangeEdge,
     isStartingRangeEdge,
+    isToday,
   };
 }
