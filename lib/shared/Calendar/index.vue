@@ -4,7 +4,7 @@ import CalendarMostlyUsed from './CalendarMostlyUsed.vue';
 import CalendarSlider from './CalendarSlider/index.vue';
 import CalendarFooter from './CalendarFooter.vue';
 import {
-  CalendarDate, CalendarLanguageStrings, CurrentDate, DateRangeItem,
+  CalendarDate, CalendarLanguageStrings, CurrentDate, DateRangeItem, SetDateRangeItem,
 } from '../types';
 
 const props = defineProps<{
@@ -13,6 +13,8 @@ const props = defineProps<{
   fromDate: DateRangeItem,
   toDate: DateRangeItem,
   currentDate: CurrentDate,
+  setFromDate: SetDateRangeItem,
+  setToDate: SetDateRangeItem,
 }>();
 
 provide('date', props.date);
@@ -20,6 +22,8 @@ provide('strings', props.strings);
 provide('fromDate', props.fromDate);
 provide('toDate', props.toDate);
 provide('currentDate', props.currentDate);
+provide('setFromDate', props.setFromDate);
+provide('setToDate', props.setToDate);
 </script>
 
 <template>

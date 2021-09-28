@@ -25,4 +25,11 @@ export interface CalendarStrings {
 export type TupleDate = [year: number, month: number, day: number];
 
 export type DateRangeItem = TupleDate | null;
+export type SetDateRangeItem = (date: DateRangeItem) => void;
+
 export type CurrentDate = TupleDate;
+
+export type UnifyDateRangeItem = Date | null;
+export type SetUnifyDateRangeItem = (date: UnifyDateRangeItem) => void;
+
+export type Lang = 'fa' | 'en';
