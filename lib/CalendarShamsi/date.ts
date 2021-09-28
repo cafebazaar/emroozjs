@@ -21,9 +21,33 @@ const date: CalendarDate = {
     return monthDays[month]({ year });
   },
   getFirstDayOfMonth({ year, month }) {
-    const date = toGregorian(year, month, 1);
-    const dateObj = new Date(date[0], date[1], date[2]);
-    return dateObj.getDay();
+    const gDate = toGregorian(year, month, 1);
+    const dateObj = new Date(gDate[0], gDate[1], gDate[2]);
+    return (dateObj.getDay() + 1) % 7;
+  },
+  getNextMonth({ year, month }) {
+    if (month >= 11) {
+      return {
+        month: 0,
+        year: year + 1,
+      };
+    }
+    return {
+      month: month + 1,
+      year,
+    };
+  },
+  getPrevMonth({ year, month }) {
+    if (month <= 0) {
+      return {
+        month: 11,
+        year: year - 1,
+      };
+    }
+    return {
+      month: month - 1,
+      year,
+    };
   },
 };
 

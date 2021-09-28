@@ -1,8 +1,25 @@
 <script setup lang="ts">
+import { provide } from 'vue-demi';
 import CalendarMostlyUsed from './CalendarMostlyUsed.vue';
 import CalendarSlider from './CalendarSlider/index.vue';
 import CalendarFooter from './CalendarFooter.vue';
+import {
+  CalendarDate, CalendarLanguageStrings, CurrentDate, DateRangeItem,
+} from '../types';
 
+const props = defineProps<{
+  date: CalendarDate,
+  strings: CalendarLanguageStrings;
+  fromDate: DateRangeItem,
+  toDate: DateRangeItem,
+  currentDate: CurrentDate,
+}>();
+
+provide('date', props.date);
+provide('strings', props.strings);
+provide('fromDate', props.fromDate);
+provide('toDate', props.toDate);
+provide('currentDate', props.currentDate);
 </script>
 
 <template>

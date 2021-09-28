@@ -3,6 +3,8 @@
  * Credits to https://github.com/farhadi/JalaliJSCalendar
  */
 
+import { TupleDate } from "../shared/types";
+
 const JalaliDate = {
   g_days_in_month: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
   j_days_in_month: [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29],
@@ -10,7 +12,7 @@ const JalaliDate = {
 
 export function toGregorian(j_y: any, j_m: any, j_d: any) {
   j_y = parseInt(j_y);
-  j_m = parseInt(j_m);
+  j_m = parseInt(j_m) + 1;
   j_d = parseInt(j_d);
   const jy = j_y - 979;
   const jm = j_m - 1;
@@ -51,12 +53,12 @@ export function toGregorian(j_y: any, j_m: any, j_d: any) {
   const gm = i + 1;
   const gd = g_day_no + 1;
 
-  return [gy, gm, gd] as [year: number, month: number, day: number];
+  return [gy, gm - 1, gd] as TupleDate;
 }
 
 export function toJalali(g_y: string | number, g_m: string | number, g_d: string | number) {
   g_y = parseInt(String(g_y));
-  g_m = parseInt(String(g_m));
+  g_m = parseInt(String(g_m)) + 1;
   g_d = parseInt(String(g_d));
   const gy = g_y - 1600;
   const gm = g_m - 1;
@@ -90,5 +92,5 @@ export function toJalali(g_y: string | number, g_m: string | number, g_d: string
   const jm = i + 1;
   const jd = j_day_no + 1;
 
-  return [jy, jm, jd] as [year: number, month: number, day: number];
+  return [jy, jm - 1, jd] as TupleDate;
 }

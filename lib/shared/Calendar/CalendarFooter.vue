@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import Button from './shared/components/Button.vue';
+import useCalendar from './shared/hooks/useCalendar';
+
+const { strings } = useCalendar();
 </script>
 
 <template>
@@ -9,7 +12,7 @@ import Button from './shared/components/Button.vue';
     </span>
 
     <Button>
-      اعمال تاریخ
+      {{ strings.action }}
     </Button>
   </div>
 </template>

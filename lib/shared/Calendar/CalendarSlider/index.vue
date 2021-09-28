@@ -1,15 +1,63 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue-demi';
 import CalendarSliderControllers from './CalendarSliderControllers.vue';
 import CalendarSliderContent from './CalendarSliderContent.vue';
+import useCalendar from '../shared/hooks/useCalendar';
+
+const { currentDate, date } = useCalendar();
+
+const currentFirstDate = ref({
+  year: currentDate[0],
+  month: currentDate[1],
+});
+
+const currentSecondDate = computed(() => date.getNextMonth(
+  { year: currentFirstDate.value.year, month: currentFirstDate.value.month },
+));
+
+function incrementStartingMonth() {
+  const { month, year } = date.getNextMonth({
+    month: currentFirstDate.value.month,
+    year: currentFirstDate.value.year,
+  });
+  currentFirstDate.value = {
+    year,
+    month,
+  };
+}
+
+function decreaseStartingMonth() {
+  const { month, year } = date.getPrevMonth({
+    month: currentFirstDate.value.month,
+    year: currentFirstDate.value.year,
+  });
+  currentFirstDate.value = {
+    year,
+    month,
+  };
+}
 </script>
 
 <template>
   <div class="CalendarSlider">
     <header>
-      <CalendarSliderControllers />
+      <CalendarSliderControllers
+        :first-month="currentFirstDate.month"
+        :first-year="currentFirstDate.year"
+        :second-month="currentSecondDate.month"
+        :second-year="currentSecondDate.year"
+        @prev="decreaseStartingMonth"
+        @next="incrementStartingMonth"
+      />
     </header>
 
-    <CalendarSliderContent class="CalendarSlider__content" />
+    <CalendarSliderContent
+      :current-first-month="currentFirstDate.month"
+      :current-first-year="currentFirstDate.year"
+      :current-second-month="currentSecondDate.month"
+      :current-second-year="currentSecondDate.year"
+      class="CalendarSlider__content"
+    />
   </div>
 </template>
 

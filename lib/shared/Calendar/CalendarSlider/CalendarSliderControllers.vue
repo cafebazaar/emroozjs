@@ -1,19 +1,33 @@
 <script setup lang="ts">
 import Button from '../shared/components/Button.vue';
+import useCalendar from '../shared/hooks/useCalendar';
 import ArrowLeft from './icons/ArrowLeft.vue';
 import ArrowRight from './icons/ArrowRight.vue';
+
+const { strings } = useCalendar();
+
+const props = defineProps<{
+  firstMonth: number;
+  firstYear: number;
+  secondMonth: number;
+  secondYear: number;
+}>();
+
+const emit = defineEmits<{(e: 'next'): void; (e: 'prev'): void;}>();
+
 </script>
 <template>
   <div class="CalendarSliderControllers">
     <div>
       <Button
-        disabled
         icon
+        @click="emit('prev')"
       >
         <ArrowRight />
       </Button>
       <span class="CalendarSliderControllers__month">
-        اردیبهشت
+        {{ strings.monthNames[props.firstMonth] }}
+        {{ props.firstYear }}
       </span>
     </div>
     <div>
@@ -22,9 +36,13 @@ import ArrowRight from './icons/ArrowRight.vue';
           CalendarSliderControllers__month CalendarSliderControllers__month--reversed
         "
       >
-        خرداد
+        {{ strings.monthNames[props.secondMonth] }}
+        {{ props.secondYear }}
       </span>
-      <Button icon>
+      <Button
+        icon
+        @click="emit('next')"
+      >
         <ArrowLeft />
       </Button>
     </div>
