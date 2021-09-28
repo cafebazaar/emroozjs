@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { DateRangeItem } from '@lib/shared/types';
 import { computed } from 'vue-demi';
 import useCalendar from '../../shared/hooks/useCalendar';
 import CalendarGrid from './CalendarSliderGridPan/index.vue';
@@ -13,16 +14,23 @@ const props = defineProps<{
 }>();
 
 function selectDate(day: number) {
+  const toBeSelectedDate: DateRangeItem = [props.currentYear, props.currentMonth, day];
+
   if (!fromDate.value) {
-    setFromDate([props.currentYear, props.currentMonth, day]);
+    setFromDate(toBeSelectedDate);
     return;
   }
   if (!toDate.value) {
-    setToDate([props.currentYear, props.currentMonth, day]);
+    // If fromDate is equal to toDate, toDate should be deselected
+    if (fromDate.value.toString() === toBeSelectedDate.toString()) {
+      setFromDate(null);
+      return;
+    }
+    setToDate(toBeSelectedDate);
     return;
   }
 
-  setFromDate([props.currentYear, props.currentMonth, day]);
+  setFromDate(toBeSelectedDate);
   setToDate(null);
 }
 
