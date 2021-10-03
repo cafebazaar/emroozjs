@@ -32,7 +32,7 @@ const date: CalendarDate = {
   },
   getLastDayOfMonth({ year, month }) {
     const dateObj = new Date(year, month, this.getMonthDays({ year, month }));
-    return (dateObj.getDay() + 1) % 7;
+    return dateObj.getDay() % 7;
   },
   getNextMonth({ year, month }) {
     if (month >= 11) {
