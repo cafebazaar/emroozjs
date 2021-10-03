@@ -47,7 +47,7 @@ const allowedDates = toRef(props, 'allowedDates');
 
 const CalendarComponent = computed(() => CALENDAR_TYPE_TO_COMPONENR[props.type]);
 
-const direction = computed(() => (lang.value === 'fa' ? 'rtl' : ltr));
+const direction = computed(() => (lang.value === 'fa' ? 'rtl' : 'ltr'));
 </script>
 
 <template>
