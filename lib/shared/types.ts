@@ -25,6 +25,8 @@ export type AllowedDates = ((date: Date) => boolean) | null;
 
 export type Lang = 'fa' | 'en';
 
+export type CalendarType = 'shamsi' | 'miladi';
+
 interface DateInfo {
   year: number;
   month: number;

@@ -1,23 +1,35 @@
 <script setup lang="ts">
-import { toRef, ref, Ref } from 'vue-demi';
-import CalendarShamsi from './CalendarShamsi/index.vue';
+import {
+  toRef, ref, Ref, computed, defineAsyncComponent,
+} from 'vue-demi';
 import {
   AllowedDates,
+  CalendarType,
   CommonDates,
   Lang, SetUnifyDateRangeItem, UnifyDateRangeItem,
 } from './shared/types';
 
+const CalendarShamsi = defineAsyncComponent(() => import('./CalendarShamsi/index.vue'));
+const CalendarMiladi = defineAsyncComponent(() => import('./CalendarMiladi/index.vue'));
+
 interface Props {
   lang?: Lang;
   commonDates?: CommonDates;
-  allowedDates?: AllowedDates,
+  allowedDates?: AllowedDates;
+  type?: CalendarType
 }
 
 const props = withDefaults(defineProps<Props>(), {
   lang: 'fa',
   commonDates: () => [],
   allowedDates: () => null,
+  type: 'shamsi',
 });
+
+const CALENDAR_TYPE_TO_COMPONENR = {
+  shamsi: CalendarShamsi,
+  miladi: CalendarMiladi,
+};
 
 const fromDate: Ref<UnifyDateRangeItem> = ref(null);
 const toDate: Ref<UnifyDateRangeItem> = ref(null);
@@ -32,10 +44,13 @@ const setToDate: SetUnifyDateRangeItem = (date) => {
 
 const lang = toRef(props, 'lang');
 const allowedDates = toRef(props, 'allowedDates');
+
+const CalendarComponent = computed(() => CALENDAR_TYPE_TO_COMPONENR[props.type]);
 </script>
 
 <template>
-  <CalendarShamsi
+  <Component
+    :is="CalendarComponent"
     :lang="lang"
     :from-date="fromDate"
     :to-date="toDate"
