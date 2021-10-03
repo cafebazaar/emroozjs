@@ -6,7 +6,7 @@ import ArrowLeft from './icons/ArrowLeft.vue';
 import ArrowRight from './icons/ArrowRight.vue';
 import SlideAnimation from '../shared/components/SlideAnimation.vue';
 
-const { strings, lang } = useCalendar();
+const { strings, direction } = useCalendar();
 
 const props = defineProps<{
   firstMonth: number;
@@ -17,8 +17,8 @@ const props = defineProps<{
 
 const emit = defineEmits<{(e: 'next'): void; (e: 'prev'): void;}>();
 
-const ArrowStart = computed(() => (lang.value === 'en' ? ArrowLeft : ArrowRight));
-const ArrowEnd = computed(() => (lang.value === 'en' ? ArrowRight : ArrowLeft));
+const ArrowStart = computed(() => (direction.value === 'ltr' ? ArrowLeft : ArrowRight));
+const ArrowEnd = computed(() => (direction.value === 'ltr' ? ArrowRight : ArrowLeft));
 
 const isAnimationInverted = ref(false);
 

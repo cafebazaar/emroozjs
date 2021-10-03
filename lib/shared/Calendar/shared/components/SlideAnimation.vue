@@ -6,7 +6,7 @@ interface Props {
   isInverted?: boolean;
 }
 
-const { lang } = useCalendar();
+const { direction } = useCalendar();
 
 const props = withDefaults(defineProps<Props>(), {
   isInverted: false,
@@ -14,10 +14,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 const animationName = computed(() => {
   if (props.isInverted) {
-    if (lang.value === 'fa') return 'em-slide-prev';
+    if (direction.value === 'rtl') return 'em-slide-prev';
     return 'em-slide';
   }
-  if (lang.value === 'fa') return 'em-slide';
+  if (direction.value === 'rtl') return 'em-slide';
   return 'em-slide-prev';
 });
 </script>

@@ -3,6 +3,7 @@ import { computed, toRef } from 'vue-demi';
 import {
   AllowedDates,
   CommonDates,
+  Direction,
   Lang, SetDateRangeItem, SetUnifyDateRangeItem, TupleDate, UnifyDateRangeItem,
 } from '@lib/shared/types';
 import Calendar from '../shared/Calendar/index.vue';
@@ -12,6 +13,7 @@ import strings from './strings';
 
 const props = defineProps<{
   lang: Lang;
+  direction: Direction;
   fromDate: UnifyDateRangeItem;
   toDate: UnifyDateRangeItem;
   setFromDate:SetUnifyDateRangeItem;
@@ -70,7 +72,7 @@ const allowedDates = toRef(props, 'allowedDates');
 <template>
   <Calendar
     :date="date"
-    :lang="lang"
+    :direction="direction"
     :from-date="fromDateTuple"
     :to-date="toDateTuple"
     :strings="selectedLanguageStrings"

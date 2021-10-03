@@ -46,6 +46,8 @@ const lang = toRef(props, 'lang');
 const allowedDates = toRef(props, 'allowedDates');
 
 const CalendarComponent = computed(() => CALENDAR_TYPE_TO_COMPONENR[props.type]);
+
+const direction = computed(() => (lang.value === 'fa' ? 'rtl' : ltr));
 </script>
 
 <template>
@@ -56,6 +58,7 @@ const CalendarComponent = computed(() => CALENDAR_TYPE_TO_COMPONENR[props.type])
     <Component
       :is="CalendarComponent"
       :lang="lang"
+      :direction="direction"
       :from-date="fromDate"
       :to-date="toDate"
       :set-from-date="setFromDate"

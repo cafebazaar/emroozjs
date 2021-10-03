@@ -6,7 +6,7 @@ import CalendarFooter from './CalendarFooter.vue';
 import {
   AllowedDates,
   CalendarDate, CalendarLanguageStrings, CurrentDate,
-  DateRangeItem, Lang, LocalCommonDates, SetDateRangeItem,
+  DateRangeItem, Direction, LocalCommonDates, SetDateRangeItem,
 } from '../types';
 
 const props = defineProps<{
@@ -16,7 +16,7 @@ const props = defineProps<{
   toDate: DateRangeItem,
   currentDate: CurrentDate,
   commonDates: LocalCommonDates,
-  lang: Lang,
+  direction: Direction,
   setFromDate: SetDateRangeItem,
   setToDate: SetDateRangeItem,
   allowedDates: AllowedDates,
@@ -29,7 +29,7 @@ provide('strings', refProps.strings);
 provide('fromDate', refProps.fromDate);
 provide('toDate', refProps.toDate);
 provide('currentDate', refProps.currentDate);
-provide('lang', refProps.lang);
+provide('direction', refProps.direction);
 provide('commonDates', reactive(refProps.commonDates.value));
 provide('setFromDate', props.setFromDate);
 provide('setToDate', props.setToDate);
