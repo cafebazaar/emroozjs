@@ -6,7 +6,7 @@ import CalendarFooter from './CalendarFooter.vue';
 import {
   AllowedDates,
   CalendarDate, CalendarLanguageStrings, CurrentDate,
-  DateRangeItem, LocalCommonDates, SetDateRangeItem,
+  DateRangeItem, Lang, LocalCommonDates, SetDateRangeItem,
 } from '../types';
 
 const props = defineProps<{
@@ -16,6 +16,7 @@ const props = defineProps<{
   toDate: DateRangeItem,
   currentDate: CurrentDate,
   commonDates: LocalCommonDates,
+  lang: Lang,
   setFromDate: SetDateRangeItem,
   setToDate: SetDateRangeItem,
   allowedDates: AllowedDates,
@@ -28,6 +29,7 @@ provide('strings', refProps.strings);
 provide('fromDate', refProps.fromDate);
 provide('toDate', refProps.toDate);
 provide('currentDate', refProps.currentDate);
+provide('lang', refProps.lang);
 provide('commonDates', reactive(refProps.commonDates.value));
 provide('setFromDate', props.setFromDate);
 provide('setToDate', props.setToDate);
@@ -35,7 +37,9 @@ provide('allowedDates', props.allowedDates);
 </script>
 
 <template>
-  <div class="Calendar">
+  <div
+    class="Calendar"
+  >
     <div class="Calendar__content">
       <CalendarCommonDates class="Calendar__common-dates" />
 
@@ -48,9 +52,12 @@ provide('allowedDates', props.allowedDates);
 </template>
 
 <style lang="scss" scoped>
-  @import './shared/styles/vars.scss';
+  @import './shared/styles/imports.scss';
   .Calendar {
     direction: rtl;
+    @include ltr {
+      direction: ltr;
+    }
 
     background-color: $cl-background-color;
     border-radius: $cl-border-radius;

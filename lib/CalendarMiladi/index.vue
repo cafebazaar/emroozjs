@@ -70,6 +70,7 @@ const allowedDates = toRef(props, 'allowedDates');
 <template>
   <Calendar
     :date="date"
+    :lang="lang"
     :from-date="fromDateTuple"
     :to-date="toDateTuple"
     :strings="selectedLanguageStrings"

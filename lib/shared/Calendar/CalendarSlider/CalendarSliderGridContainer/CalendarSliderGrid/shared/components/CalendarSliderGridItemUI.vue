@@ -71,7 +71,7 @@ const {
 </template>
 
 <style lang="scss" scoped>
-@import '../../../../../shared/styles/vars.scss';
+@import '../../../../../shared/styles/imports.scss';
 .CalendarSliderGridItemUI {
   transition-duration: $cl-calendar-grid-transition-duration;
 
@@ -120,6 +120,16 @@ const {
           $cl-calendar-grid-active-background-color 50%,
           $cl-calendar-grid-active-background-color 100%
         );
+      @include ltr {
+        background:
+          linear-gradient(
+            to right,
+            transparent 0%,
+            transparent 50%,
+            $cl-calendar-grid-active-background-color 50%,
+            $cl-calendar-grid-active-background-color 100%
+        );
+      }
     }
     &-end {
       background:
@@ -130,6 +140,16 @@ const {
           $cl-calendar-grid-active-background-color 50%,
           $cl-calendar-grid-active-background-color 100%
         );
+      @include ltr {
+        background:
+          linear-gradient(
+            to left,
+            transparent 0%,
+            transparent 50%,
+            $cl-calendar-grid-active-background-color 50%,
+            $cl-calendar-grid-active-background-color 100%
+          );
+      }
     }
   }
 

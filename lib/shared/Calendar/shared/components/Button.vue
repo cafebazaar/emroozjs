@@ -28,7 +28,7 @@ const disabled = toRef(props, 'disabled');
 </template>
 
 <style lang="scss" scoped>
-  @import '../styles/vars.scss';
+  @import '../styles/imports.scss';
   .Button {
     background-color: $cl-button-background-color;
     border-radius: $cl-button-border-radius;

@@ -29,13 +29,14 @@ const {
 </template>
 
 <style lang="scss" scoped>
-@import '../shared/styles/vars.scss';
+@import '../shared/styles/imports.scss';
 .CalendarCommonDates {
   font-size: $cl-mostly-used-font-size;
   display: flex;
   flex-direction: column;
 
-  padding-left: 16px;
+  @include endPadding(1.6);
+
   box-sizing: border-box;
 
   overflow: hidden;

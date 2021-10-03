@@ -29,7 +29,7 @@ const datePreviewString = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import './shared/styles/vars.scss';
+@import './shared/styles/imports.scss';
 .CalendarFooter {
   height: 54px;
 

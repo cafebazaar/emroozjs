@@ -43,7 +43,7 @@ const isActive = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import '../shared/styles/vars.scss';
+@import '../shared/styles/imports.scss';
 .CalendarCommonDatesItem {
   cursor: pointer;
   transition: $cl-mostly-used-transition-duration;

@@ -66,7 +66,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
 </template>
 
 <style lang="scss" scoped>
-@import '../../../shared/styles/vars.scss';
+@import '../../../shared/styles/imports.scss';
 .CalendarGrid {
   border: $cl-calendar-grid-border;
 

@@ -49,14 +49,19 @@ const CalendarComponent = computed(() => CALENDAR_TYPE_TO_COMPONENR[props.type])
 </script>
 
 <template>
-  <Component
-    :is="CalendarComponent"
+  <div
+    class="EMRoot"
     :lang="lang"
-    :from-date="fromDate"
-    :to-date="toDate"
-    :set-from-date="setFromDate"
-    :set-to-date="setToDate"
-    :common-dates="commonDates"
-    :allowed-dates="allowedDates"
-  />
+  >
+    <Component
+      :is="CalendarComponent"
+      :lang="lang"
+      :from-date="fromDate"
+      :to-date="toDate"
+      :set-from-date="setFromDate"
+      :set-to-date="setToDate"
+      :common-dates="commonDates"
+      :allowed-dates="allowedDates"
+    />
+  </div>
 </template>

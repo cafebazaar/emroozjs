@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { computed, watch } from 'vue-demi';
 import Button from '../shared/components/Button.vue';
 import useCalendar from '../shared/hooks/useCalendar';
 import ArrowLeft from './icons/ArrowLeft.vue';
 import ArrowRight from './icons/ArrowRight.vue';
 
-const { strings } = useCalendar();
+const { strings, lang } = useCalendar();
 
 const props = defineProps<{
   firstMonth: number;
@@ -15,6 +16,8 @@ const props = defineProps<{
 
 const emit = defineEmits<{(e: 'next'): void; (e: 'prev'): void;}>();
 
+const ArrowStart = computed(() => (lang.value === 'en' ? ArrowLeft : ArrowRight));
+const ArrowEnd = computed(() => (lang.value === 'en' ? ArrowRight : ArrowLeft));
 </script>
 <template>
   <div class="CalendarSliderControllers">
@@ -23,7 +26,7 @@ const emit = defineEmits<{(e: 'next'): void; (e: 'prev'): void;}>();
         icon
         @click="emit('prev')"
       >
-        <ArrowRight />
+        <ArrowStart />
       </Button>
       <span class="CalendarSliderControllers__month">
         {{ strings.monthNames[props.firstMonth] }}
@@ -43,14 +46,14 @@ const emit = defineEmits<{(e: 'next'): void; (e: 'prev'): void;}>();
         icon
         @click="emit('next')"
       >
-        <ArrowLeft />
+        <ArrowEnd />
       </Button>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import '../shared/styles/vars.scss';
+@import '../shared/styles/imports.scss';
   .CalendarSliderControllers {
     font-size: $cl-controllers-font-size;
 
@@ -58,12 +61,12 @@ const emit = defineEmits<{(e: 'next'): void; (e: 'prev'): void;}>();
     justify-content: space-between;
 
     &__month {
-      $month-margin: 20px;
-      margin-right: $month-margin;
+      $month-margin: 2;
+      @include startMargin($month-margin);
 
       &--reversed {
         margin-right: 0;
-        margin-left: $month-margin;
+        @include endMargin($month-margin);
       }
     }
   }
