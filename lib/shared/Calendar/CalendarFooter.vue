@@ -9,9 +9,9 @@ const datePreviewString = computed(() => {
   if (!fromDate.value || !toDate.value) return '';
 
   return `
-    ${fromDate.value[2]} ${strings.value.monthNames[fromDate.value[1]]}
+    ${fromDate.value[2]} ${strings.value.monthNames[fromDate.value[1]]} ${toDate.value[0]}
     ${strings.value.to}
-    ${toDate.value[2]} ${strings.value.monthNames[toDate.value[1]]}
+    ${toDate.value[2]} ${strings.value.monthNames[toDate.value[1]]} ${toDate.value[0]}
     `;
 });
 </script>
