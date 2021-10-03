@@ -73,9 +73,9 @@ const date: CalendarDate = {
   tupleToDate(tuple: TupleDate) {
     return new Date(tuple[0], tuple[1], tuple[2]);
   },
-  getDayNumber(tuple: TupleDate) {
+  isClosed(tuple: TupleDate) {
     const dateObj = new Date(tuple[0], tuple[1], tuple[2]);
-    return dateObj.getDay();
+    return [0, 6].includes(dateObj.getDay());
   },
 };
 

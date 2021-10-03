@@ -82,8 +82,6 @@ export default function useDateCompares(
     () => currentDate.value.toString() === toBeComparedDayTuple.value.toString(),
   );
 
-  const isFriday = computed(() => date.getDayNumber(toBeComparedDayTuple.value) === 5);
-
   return {
     isBeforeStartingEdge,
     isMiddle,
@@ -91,6 +89,5 @@ export default function useDateCompares(
     isEndingRangeEdge,
     isStartingRangeEdge,
     isToday,
-    isFriday,
   };
 }

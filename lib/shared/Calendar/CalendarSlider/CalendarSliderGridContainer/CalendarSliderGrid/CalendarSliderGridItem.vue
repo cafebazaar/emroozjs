@@ -28,7 +28,6 @@ const {
   isToday,
   isEdge,
   isBeforeStartingEdge,
-  isFriday,
 } = useDateCompares({ currentMonth, currentYear, currentDay });
 
 const dateOfTuple = computed(
@@ -36,6 +35,9 @@ const dateOfTuple = computed(
 );
 
 const isDisabled = computed(() => isBeforeStartingEdge.value || !allowedDates?.(dateOfTuple.value));
+const isClosed = computed(
+  () => date.isClosed([currentYear.value, currentMonth.value, currentDay.value]),
+);
 
 function checkAndEmitClicked() {
   if (isDisabled.value) return;
@@ -52,7 +54,7 @@ function checkAndEmitClicked() {
     :is-today="isToday"
     :is-edge="isEdge"
     :is-disabled="isDisabled"
-    :is-closed="isFriday"
+    :is-closed="isClosed"
     @click="checkAndEmitClicked"
   >
     {{ currentDay }}
