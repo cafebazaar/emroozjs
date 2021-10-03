@@ -38,6 +38,7 @@ export interface CalendarDate {
   getPrevMonth: (dateInfo: DateInfo) => DateInfo;
   compare: (lDate: TupleDate, rDate: TupleDate) => -1 | 0 | 1;
   tupleToDate: (tuple: TupleDate) => Date;
+  getDayNumber: (tuple: TupleDate) => number;
 }
 
 export interface CalendarLanguageStrings {

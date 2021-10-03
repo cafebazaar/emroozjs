@@ -10,6 +10,7 @@ interface Props {
   isEmpty?: boolean;
   isDisabled?: boolean;
   isEdge?: boolean;
+  isClosed?: boolean;
 }
 
 interface Events {
@@ -25,6 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
   isEmpty: false,
   isDisabled: false,
   isEdge: false,
+  isClosed: false,
 });
 
 const emit = defineEmits<Events>();
@@ -38,6 +40,7 @@ const {
   isEmpty,
   isDisabled,
   isEdge,
+  isClosed,
 } = toRefs(props);
 </script>
 
@@ -52,6 +55,7 @@ const {
       'CalendarSliderGridItemUI--active-end': isActiveEnd,
       'CalendarSliderGridItemUI--disabled': isDisabled,
       'CalendarSliderGridItemUI--today': isToday,
+      'CalendarSliderGridItemUI--closed': isClosed,
     }"
     @click="emit('click')"
   >
@@ -98,6 +102,10 @@ const {
   &--disabled {
     cursor: not-allowed;
     color: $cl-calendar-grid-disabled-color;
+  }
+
+  &--closed {
+    color: $cl-calendar-grid-closed-color;
   }
 
   &--active {

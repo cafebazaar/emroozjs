@@ -73,6 +73,11 @@ const date: CalendarDate = {
     const gDate = toGregorian(...tuple);
     return new Date(gDate[0], gDate[1], gDate[2]);
   },
+  getDayNumber(tuple: TupleDate) {
+    const gDate = toGregorian(...tuple);
+    const dateObj = new Date(gDate[0], gDate[1], gDate[2]);
+    return dateObj.getDay();
+  },
 };
 
 export default date;

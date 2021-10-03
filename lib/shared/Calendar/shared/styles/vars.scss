@@ -6,6 +6,7 @@ $cl-background-color: $cl-white !default;
 $cl-border: 1px solid #EAEEF4 !default;
 $cl-transition-duration: 0.2s !default;
 $cl-text-color: #606266 !default;
+$cl-red-color: #F56C6C !default;
 
 $cl-font-size: 14px !default;
 $cl-small-font-size: 12px !default;
@@ -25,11 +26,12 @@ $cl-calendar-grid-active-text-color: $cl-white !default;
 $cl-calendar-grid-item-font-size: $cl-small-font-size !default;
 $cl-calendar-grid-border: $cl-border !default;
 $cl-calendar-grid-border-radius: $cl-border-radius !default;
-$cl-calendar-grid-disabled-color: #d0d0d2;
-$cl-calendar-grid-hover-color: $cl-primary-color;
-$cl-calendar-grid-transition-duration: $cl-transition-duration;
+$cl-calendar-grid-disabled-color: #d0d0d2 !default;
+$cl-calendar-grid-hover-color: $cl-primary-color !default;
+$cl-calendar-grid-transition-duration: $cl-transition-duration !default;
+$cl-calendar-grid-closed-color: $cl-red-color !default;
 
-// Mostly Used
+// Common Dates
 $cl-mostly-used-font-size: $cl-font-size !default;
 $cl-mostly-used-active-color: $cl-primary-color !default;
 $cl-mostly-used-transition-duration: $cl-transition-duration !default;

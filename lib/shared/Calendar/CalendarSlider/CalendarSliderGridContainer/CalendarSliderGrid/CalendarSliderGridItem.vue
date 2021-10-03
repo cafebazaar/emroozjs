@@ -28,6 +28,7 @@ const {
   isToday,
   isEdge,
   isBeforeStartingEdge,
+  isFriday,
 } = useDateCompares({ currentMonth, currentYear, currentDay });
 
 const dateOfTuple = computed(
@@ -45,6 +46,7 @@ const isDisabled = computed(() => isBeforeStartingEdge.value || !allowedDates?.(
     :is-today="isToday"
     :is-edge="isEdge"
     :is-disabled="isDisabled"
+    :is-closed="isFriday"
     @click="emit('click')"
   >
     {{ currentDay }}
