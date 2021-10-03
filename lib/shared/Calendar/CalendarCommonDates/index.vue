@@ -35,7 +35,7 @@ const {
   display: flex;
   flex-direction: column;
 
-  @include endPadding(1.6);
+  @include endPadding(1.6 * $cl-global-padding);
 
   box-sizing: border-box;
 

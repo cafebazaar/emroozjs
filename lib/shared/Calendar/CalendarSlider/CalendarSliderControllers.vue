@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, watch } from 'vue-demi';
+import { computed, ref } from 'vue-demi';
 import Button from '../shared/components/Button.vue';
 import useCalendar from '../shared/hooks/useCalendar';
 import ArrowLeft from './icons/ArrowLeft.vue';
 import ArrowRight from './icons/ArrowRight.vue';
+import SlideAnimation from '../shared/components/SlideAnimation.vue';
 
 const { strings, lang } = useCalendar();
 
@@ -18,56 +19,79 @@ const emit = defineEmits<{(e: 'next'): void; (e: 'prev'): void;}>();
 
 const ArrowStart = computed(() => (lang.value === 'en' ? ArrowLeft : ArrowRight));
 const ArrowEnd = computed(() => (lang.value === 'en' ? ArrowRight : ArrowLeft));
+
+const isAnimationInverted = ref(false);
+
+function next() {
+  isAnimationInverted.value = false;
+  emit('next');
+}
+
+function prev() {
+  isAnimationInverted.value = true;
+  emit('prev');
+}
 </script>
 <template>
   <div class="CalendarSliderControllers">
-    <div>
-      <Button
-        icon
-        @click="emit('prev')"
+    <Button
+      icon
+      @click="prev"
+    >
+      <ArrowStart />
+    </Button>
+    <div class="CalendarSliderControllers__month-wrapper">
+      <SlideAnimation
+        :is-inverted="isAnimationInverted"
       >
-        <ArrowStart />
-      </Button>
-      <span class="CalendarSliderControllers__month">
-        {{ strings.monthNames[props.firstMonth] }}
-        {{ props.firstYear }}
-      </span>
+        <span
+          :key="`${props.firstYear}-${props.firstMonth}`"
+          class="CalendarSliderControllers__month"
+        >
+          {{ strings.monthNames[props.firstMonth] }}
+          {{ props.firstYear }}
+        </span>
+
+        <span
+          :key="`${props.secondYear}-${props.secondMonth}`"
+          class="CalendarSliderControllers__month"
+        >
+          {{ strings.monthNames[props.secondMonth] }}
+          {{ props.secondYear }}
+        </span>
+      </SlideAnimation>
     </div>
-    <div>
-      <span
-        class="
-          CalendarSliderControllers__month CalendarSliderControllers__month--reversed
-        "
-      >
-        {{ strings.monthNames[props.secondMonth] }}
-        {{ props.secondYear }}
-      </span>
-      <Button
-        icon
-        @click="emit('next')"
-      >
-        <ArrowEnd />
-      </Button>
-    </div>
+    <Button
+      icon
+      @click="next"
+    >
+      <ArrowEnd />
+    </Button>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import '../shared/styles/imports.scss';
-  .CalendarSliderControllers {
-    font-size: $cl-controllers-font-size;
+.CalendarSliderControllers {
+  font-size: $cl-controllers-font-size;
 
+  display: flex;
+  align-items: center;
+
+  &__month-wrapper {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    flex: 1;
+    position: relative;
 
-    &__month {
-      $month-margin: 2;
-      @include startMargin($month-margin);
-
-      &--reversed {
-        margin-right: 0;
-        @include endMargin($month-margin);
-      }
-    }
+    padding: 0 $cl-global-padding;
   }
+
+  &__month {
+    transition-duration: 0.5s;
+    transition-property: transform, opacity;
+    display: inline-block;
+  }
+}
 </style>

@@ -6,36 +6,36 @@
 
 @mixin startMargin($val) {
   @include ltr() {
-    margin-left: $cl-global-margin * $val;
+    margin-left: $val;
     margin-right: unset;
   }
 
-  margin-right: $cl-global-margin * $val;
+  margin-right: $val;
 }
 
 @mixin endMargin($val) {
   @include ltr() {
-    margin-right: $cl-global-margin * $val;
+    margin-right: $val;
     margin-left: unset;
   }
 
-  margin-left: $cl-global-margin * $val;
+  margin-left: $val;
 }
 
 @mixin startPadding($val) {
   @include ltr() {
-    padding-left: $cl-global-margin * $val;
+    padding-left: $val;
     padding-right: unset;
   }
 
-  padding-right: $cl-global-margin * $val;
+  padding-right: $val;
 }
 
 @mixin endPadding($val) {
   @include ltr() {
-    padding-right: $cl-global-margin * $val;
+    padding-right: $val;
     padding-left: unset;
   }
 
-  padding-left: $cl-global-margin * $val;
+  padding-left: $val;
 }
