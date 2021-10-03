@@ -2,7 +2,7 @@
 import { DateRangeItem } from '@lib/shared/types';
 import { computed } from 'vue-demi';
 import useCalendar from '../../shared/hooks/useCalendar';
-import CalendarGrid from './CalendarSliderGridPan/index.vue';
+import CalendarGrid from './CalendarSliderGrid/index.vue';
 
 const {
   date, strings, fromDate, toDate, setFromDate, setToDate,

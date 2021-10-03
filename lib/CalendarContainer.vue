@@ -2,6 +2,7 @@
 import { toRef, ref, Ref } from 'vue-demi';
 import CalendarShamsi from './CalendarShamsi/index.vue';
 import {
+  AllowedDates,
   CommonDates,
   Lang, SetUnifyDateRangeItem, UnifyDateRangeItem,
 } from './shared/types';
@@ -9,11 +10,13 @@ import {
 interface Props {
   lang?: Lang;
   commonDates?: CommonDates;
+  allowedDates?: AllowedDates,
 }
 
 const props = withDefaults(defineProps<Props>(), {
   lang: 'fa',
   commonDates: () => [],
+  allowedDates: () => null,
 });
 
 const fromDate: Ref<UnifyDateRangeItem> = ref(null);
@@ -28,6 +31,7 @@ const setToDate: SetUnifyDateRangeItem = (date) => {
 };
 
 const lang = toRef(props, 'lang');
+const allowedDates = toRef(props, 'allowedDates');
 </script>
 
 <template>
@@ -38,5 +42,6 @@ const lang = toRef(props, 'lang');
     :set-from-date="setFromDate"
     :set-to-date="setToDate"
     :common-dates="commonDates"
+    :allowed-dates="allowedDates"
   />
 </template>

@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { computed, toRef } from 'vue-demi';
 import {
+  AllowedDates,
   CommonDates,
   Lang, SetDateRangeItem, SetUnifyDateRangeItem, UnifyDateRangeItem,
 } from '@lib/shared/types';
-import { computed } from 'vue-demi';
 import Calendar from '../shared/Calendar/index.vue';
 import { toGregorian, toJalali } from './convertor';
 
@@ -17,6 +18,7 @@ const props = defineProps<{
   setFromDate:SetUnifyDateRangeItem;
   setToDate:SetUnifyDateRangeItem;
   commonDates: CommonDates,
+  allowedDates: AllowedDates;
 }>();
 
 const fromShamsiDate = computed(() => (props.fromDate ? toJalali(
@@ -64,6 +66,8 @@ const localCommonDates = computed(() => props.commonDates.map(({ from, to, label
   to: toJalali(to.getFullYear(), to.getMonth(), to.getDate()),
   label,
 })));
+
+const allowedDates = toRef(props, 'allowedDates');
 </script>
 
 <template>
@@ -74,6 +78,7 @@ const localCommonDates = computed(() => props.commonDates.map(({ from, to, label
     :strings="selectedLanguageStrings"
     :current-date="currentDate"
     :common-dates="localCommonDates"
+    :allowed-dates="allowedDates"
     :set-from-date="setLocalFromDate"
     :set-to-date="setLocalToDate"
   />

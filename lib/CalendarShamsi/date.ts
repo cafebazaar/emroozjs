@@ -69,6 +69,10 @@ const date: CalendarDate = {
     }
     return 0;
   },
+  tupleToDate(tuple: TupleDate) {
+    const gDate = toGregorian(...tuple);
+    return new Date(gDate[0], gDate[1], gDate[2]);
+  },
 };
 
 export default date;

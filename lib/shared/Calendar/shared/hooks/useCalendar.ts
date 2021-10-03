@@ -1,8 +1,9 @@
+import { inject, Ref } from 'vue-demi';
 import {
+  AllowedDates,
   CalendarDate, CalendarLanguageStrings, CurrentDate,
   DateRangeItem, LocalCommonDates, SetDateRangeItem,
 } from '@lib/shared/types';
-import { inject, Ref } from 'vue-demi';
 
 export default function useCalendar(): {
   date: CalendarDate;
@@ -13,6 +14,7 @@ export default function useCalendar(): {
   commonDates: LocalCommonDates;
   setFromDate: SetDateRangeItem;
   setToDate: SetDateRangeItem;
+  allowedDates: AllowedDates;
   } {
   return {
     date: inject('date') as CalendarDate,
@@ -23,5 +25,6 @@ export default function useCalendar(): {
     commonDates: inject('commonDates') as LocalCommonDates,
     setFromDate: inject('setFromDate') as SetDateRangeItem,
     setToDate: inject('setToDate') as SetDateRangeItem,
+    allowedDates: inject('allowedDates') as AllowedDates,
   };
 }

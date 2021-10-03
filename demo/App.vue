@@ -13,5 +13,6 @@ lastWeek.setDate(lastWeek.getDate() - 7);
       from: lastWeek,
       to: new Date(),
     }]"
+    :allowed-dates="(d) => d.getDate() % 2 === 0"
   />
 </template>

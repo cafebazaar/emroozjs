@@ -4,6 +4,7 @@ import CalendarCommonDates from './CalendarCommonDates/index.vue';
 import CalendarSlider from './CalendarSlider/index.vue';
 import CalendarFooter from './CalendarFooter.vue';
 import {
+  AllowedDates,
   CalendarDate, CalendarLanguageStrings, CurrentDate,
   DateRangeItem, LocalCommonDates, SetDateRangeItem,
 } from '../types';
@@ -17,6 +18,7 @@ const props = defineProps<{
   commonDates: LocalCommonDates,
   setFromDate: SetDateRangeItem,
   setToDate: SetDateRangeItem,
+  allowedDates: AllowedDates,
 }>();
 
 const refProps = toRefs(props);
@@ -29,6 +31,7 @@ provide('currentDate', refProps.currentDate);
 provide('commonDates', reactive(refProps.commonDates.value));
 provide('setFromDate', props.setFromDate);
 provide('setToDate', props.setToDate);
+provide('allowedDates', props.allowedDates);
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue-demi';
 import CalendarSliderControllers from './CalendarSliderControllers.vue';
-import CalendarSliderContent from './CalendarSliderContent.vue';
 import useCalendar from '../shared/hooks/useCalendar';
+import CalendarSliderGridContainer from './CalendarSliderGridContainer/index.vue';
 
 const { currentDate, date } = useCalendar();
 
@@ -51,13 +51,17 @@ function decreaseStartingMonth() {
       />
     </header>
 
-    <CalendarSliderContent
-      :current-first-month="currentFirstDate.month"
-      :current-first-year="currentFirstDate.year"
-      :current-second-month="currentSecondDate.month"
-      :current-second-year="currentSecondDate.year"
-      class="CalendarSlider__content"
-    />
+    <div class="CalendarSlider__content">
+      <CalendarSliderGridContainer
+        :current-month="currentFirstDate.month"
+        :current-year="currentFirstDate.year"
+      />
+
+      <CalendarSliderGridContainer
+        :current-month="currentSecondDate.month"
+        :current-year="currentSecondDate.year"
+      />
+    </div>
   </div>
 </template>
 
@@ -70,6 +74,8 @@ function decreaseStartingMonth() {
     flex: 1;
 
     margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
   }
 }
 </style>

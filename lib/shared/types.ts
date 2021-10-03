@@ -21,6 +21,8 @@ export type LocalCommonDate = {
 };
 export type LocalCommonDates = LocalCommonDate[];
 
+export type AllowedDates = ((date: Date) => boolean) | null;
+
 export type Lang = 'fa' | 'en';
 
 interface DateInfo {
@@ -35,6 +37,7 @@ export interface CalendarDate {
   getNextMonth: (dateInfo: DateInfo) => DateInfo;
   getPrevMonth: (dateInfo: DateInfo) => DateInfo;
   compare: (lDate: TupleDate, rDate: TupleDate) => -1 | 0 | 1;
+  tupleToDate: (tuple: TupleDate) => Date;
 }
 
 export interface CalendarLanguageStrings {
