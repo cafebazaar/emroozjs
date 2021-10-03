@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { provide, toRefs, reactive } from 'vue-demi';
-import CalendarMostlyUsed from './CalendarMostlyUsed.vue';
+import CalendarCommonDates from './CalendarCommonDates/index.vue';
 import CalendarSlider from './CalendarSlider/index.vue';
 import CalendarFooter from './CalendarFooter.vue';
 import {
@@ -34,7 +34,7 @@ provide('setToDate', props.setToDate);
 <template>
   <div class="Calendar">
     <div class="Calendar__content">
-      <CalendarMostlyUsed class="Calendar__mostly-used" />
+      <CalendarCommonDates class="Calendar__common-dates" />
 
       <CalendarSlider class="Calendar__slider" />
     </div>
@@ -67,7 +67,7 @@ provide('setToDate', props.setToDate);
       margin-bottom: 20px;
     }
 
-    &__mostly-used {
+    &__common-dates {
       flex-basis: 160px;
     }
 
