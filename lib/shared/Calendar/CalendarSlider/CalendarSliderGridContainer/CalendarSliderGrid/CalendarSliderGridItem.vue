@@ -36,6 +36,12 @@ const dateOfTuple = computed(
 );
 
 const isDisabled = computed(() => isBeforeStartingEdge.value || !allowedDates?.(dateOfTuple.value));
+
+function checkAndEmitClicked() {
+  if (isDisabled.value) return;
+
+  emit('click');
+}
 </script>
 
 <template>
@@ -47,7 +53,7 @@ const isDisabled = computed(() => isBeforeStartingEdge.value || !allowedDates?.(
     :is-edge="isEdge"
     :is-disabled="isDisabled"
     :is-closed="isFriday"
-    @click="emit('click')"
+    @click="checkAndEmitClicked"
   >
     {{ currentDay }}
   </CalendarSliderGridItemUI>
