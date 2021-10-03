@@ -27,6 +27,7 @@ const strings: CalendarStrings = {
     ],
     action: 'Apply',
     to: 'To',
+    commonDates: 'Common Dates',
   },
   fa: {
     monthNames: [
@@ -54,6 +55,7 @@ const strings: CalendarStrings = {
     ],
     action: 'اعمال تاریخ',
     to: 'تا',
+    commonDates: 'زمان‌های پر استفاده',
   },
 };
 

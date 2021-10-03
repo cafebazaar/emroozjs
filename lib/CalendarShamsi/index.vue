@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {
+  CommonDates,
   Lang, SetDateRangeItem, SetUnifyDateRangeItem, UnifyDateRangeItem,
 } from '@lib/shared/types';
 import { computed } from 'vue-demi';
@@ -15,6 +16,7 @@ const props = defineProps<{
   toDate: UnifyDateRangeItem;
   setFromDate:SetUnifyDateRangeItem;
   setToDate:SetUnifyDateRangeItem;
+  commonDates: CommonDates,
 }>();
 
 const fromShamsiDate = computed(() => (props.fromDate ? toJalali(
@@ -56,6 +58,12 @@ const setLocalToDate: SetDateRangeItem = (toDate) => {
 };
 
 const selectedLanguageStrings = computed(() => strings[props.lang]);
+
+const localCommonDates = computed(() => props.commonDates.map(({ from, to, label }) => ({
+  from: toJalali(from.getFullYear(), from.getMonth(), from.getDate()),
+  to: toJalali(to.getFullYear(), to.getMonth(), to.getDate()),
+  label,
+})));
 </script>
 
 <template>
@@ -65,6 +73,7 @@ const selectedLanguageStrings = computed(() => strings[props.lang]);
     :to-date="toShamsiDate"
     :strings="selectedLanguageStrings"
     :current-date="currentDate"
+    :common-dates="localCommonDates"
     :set-from-date="setLocalFromDate"
     :set-to-date="setLocalToDate"
   />

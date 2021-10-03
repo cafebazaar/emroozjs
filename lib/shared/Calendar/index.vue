@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { provide, toRefs } from 'vue-demi';
+import { provide, toRefs, reactive } from 'vue-demi';
 import CalendarMostlyUsed from './CalendarMostlyUsed.vue';
 import CalendarSlider from './CalendarSlider/index.vue';
 import CalendarFooter from './CalendarFooter.vue';
 import {
-  CalendarDate, CalendarLanguageStrings, CurrentDate, DateRangeItem, SetDateRangeItem,
+  CalendarDate, CalendarLanguageStrings, CurrentDate,
+  DateRangeItem, LocalCommonDates, SetDateRangeItem,
 } from '../types';
 
 const props = defineProps<{
@@ -13,6 +14,7 @@ const props = defineProps<{
   fromDate: DateRangeItem,
   toDate: DateRangeItem,
   currentDate: CurrentDate,
+  commonDates: LocalCommonDates,
   setFromDate: SetDateRangeItem,
   setToDate: SetDateRangeItem,
 }>();
@@ -24,6 +26,7 @@ provide('strings', refProps.strings);
 provide('fromDate', refProps.fromDate);
 provide('toDate', refProps.toDate);
 provide('currentDate', refProps.currentDate);
+provide('commonDates', reactive(refProps.commonDates.value));
 provide('setFromDate', props.setFromDate);
 provide('setToDate', props.setToDate);
 </script>

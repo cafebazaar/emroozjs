@@ -8,6 +8,19 @@ export type CurrentDate = TupleDate;
 export type UnifyDateRangeItem = Date | null;
 export type SetUnifyDateRangeItem = (date: UnifyDateRangeItem) => void;
 
+type CommonDate = {
+  from: Date;
+  to: Date;
+  label: string;
+};
+export type CommonDates = CommonDate[];
+export type LocalCommonDate = {
+  from: TupleDate;
+  to: TupleDate;
+  label: string;
+};
+export type LocalCommonDates = LocalCommonDate[];
+
 export type Lang = 'fa' | 'en';
 
 interface DateInfo {
@@ -29,6 +42,7 @@ export interface CalendarLanguageStrings {
   readonly dayHeaderNames: string[];
   readonly action: string;
   readonly to: string;
+  readonly commonDates: string;
 }
 
 export interface CalendarStrings {
