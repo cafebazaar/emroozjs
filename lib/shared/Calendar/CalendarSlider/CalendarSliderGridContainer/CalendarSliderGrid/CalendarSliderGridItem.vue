@@ -28,6 +28,7 @@ const {
   isToday,
   isEdge,
   isBeforeStartingEdge,
+  isRangeSelected,
 } = useDateCompares({ currentMonth, currentYear, currentDay });
 
 const dateOfTuple = computed(
@@ -35,7 +36,19 @@ const dateOfTuple = computed(
 );
 
 const isDisabled = computed(
-  () => isBeforeStartingEdge.value || !allowedDates?.(dateOfTuple.value),
+  () => {
+    if (!isRangeSelected.value) {
+      if (allowedDates) {
+        return !allowedDates(dateOfTuple.value) || isBeforeStartingEdge.value;
+      }
+
+      return isBeforeStartingEdge.value;
+    }
+
+    if (allowedDates) { return !allowedDates(dateOfTuple.value); }
+
+    return false;
+  },
 );
 const isClosed = computed(
   () => date.isClosed([currentYear.value, currentMonth.value, currentDay.value]),

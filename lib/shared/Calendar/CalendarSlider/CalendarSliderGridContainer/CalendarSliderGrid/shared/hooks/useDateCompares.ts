@@ -19,9 +19,11 @@ export default function useDateCompares(
     () => [currentYear.value, currentMonth.value, currentDay.value],
   );
 
+  const isRangeSelected = computed(() => Boolean(fromDate.value && toDate.value));
+
   const isStartingRangeEdge = computed(() => {
     // There is no range!
-    if (!fromDate.value || !toDate.value) return false;
+    if (!isRangeSelected.value) return false;
 
     if (
       fromDate.value
@@ -34,7 +36,7 @@ export default function useDateCompares(
 
   const isEndingRangeEdge = computed(() => {
     // There is no range!
-    if (!fromDate.value || !toDate.value) return false;
+    if (!isRangeSelected.value) return false;
 
     if (
       toDate.value
@@ -62,11 +64,11 @@ export default function useDateCompares(
   });
 
   const isMiddle = computed(() => {
-    if (!fromDate.value || !toDate.value) return false;
+    if (!isRangeSelected.value) return false;
 
     if (
-      date.compare(fromDate.value, toBeComparedDayTuple.value) === 1
-      && date.compare(toBeComparedDayTuple.value, toDate.value) === 1
+      date.compare(fromDate.value as TupleDate, toBeComparedDayTuple.value) === 1
+      && date.compare(toBeComparedDayTuple.value, toDate.value as TupleDate) === 1
     ) return true;
 
     return false;
@@ -89,5 +91,6 @@ export default function useDateCompares(
     isEndingRangeEdge,
     isStartingRangeEdge,
     isToday,
+    isRangeSelected,
   };
 }
