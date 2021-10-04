@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {
-  toRef, ref, Ref, computed, defineAsyncComponent,
+  toRef, ref, Ref, computed,
 } from 'vue-demi';
 import {
   AllowedDates,
@@ -8,9 +8,8 @@ import {
   CommonDates,
   Lang, SetUnifyDateRangeItem, UnifyDateRangeItem,
 } from './shared/types';
-
-const CalendarShamsi = defineAsyncComponent(() => import('./CalendarShamsi/index.vue'));
-const CalendarMiladi = defineAsyncComponent(() => import('./CalendarMiladi/index.vue'));
+import CalendarShamsi from './CalendarShamsi/index.vue';
+import CalendarMiladi from './CalendarMiladi/index.vue';
 
 interface Props {
   lang?: Lang;
