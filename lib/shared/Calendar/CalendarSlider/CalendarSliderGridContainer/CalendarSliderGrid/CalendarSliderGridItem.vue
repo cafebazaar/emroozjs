@@ -34,7 +34,9 @@ const dateOfTuple = computed(
   () => date.tupleToDate([currentYear.value, currentMonth.value, currentDay.value]),
 );
 
-const isDisabled = computed(() => isBeforeStartingEdge.value || !allowedDates?.(dateOfTuple.value));
+const isDisabled = computed(
+  () => isBeforeStartingEdge.value || !allowedDates?.(dateOfTuple.value),
+);
 const isClosed = computed(
   () => date.isClosed([currentYear.value, currentMonth.value, currentDay.value]),
 );

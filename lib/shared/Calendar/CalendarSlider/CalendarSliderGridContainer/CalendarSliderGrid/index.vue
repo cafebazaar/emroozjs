@@ -70,7 +70,9 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
 .CalendarGrid {
   border: $cl-calendar-grid-border;
 
-  width: 189px;
+  width: 191px;
+
+  box-sizing: border-box;
 
   border-radius: $cl-calendar-grid-border-radius;
 
