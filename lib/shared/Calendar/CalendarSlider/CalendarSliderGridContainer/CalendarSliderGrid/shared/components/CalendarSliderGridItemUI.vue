@@ -99,13 +99,13 @@ const {
     cursor: default;
   }
 
+  &--closed {
+    color: $cl-calendar-grid-closed-color;
+  }
+
   &--disabled {
     cursor: not-allowed;
     color: $cl-calendar-grid-disabled-color;
-  }
-
-  &--closed {
-    color: $cl-calendar-grid-closed-color;
   }
 
   &--active {

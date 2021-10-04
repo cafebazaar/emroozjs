@@ -34,6 +34,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
     <CalendarSliderGridItemUI
       v-for="i of props.headerNames"
       :key="i"
+      is-header
     >
       {{ i }}
     </CalendarSliderGridItemUI>

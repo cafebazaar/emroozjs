@@ -25,7 +25,6 @@ function toggleLang() {
       from: lastWeek,
       to: new Date(),
     }]"
-    :allowed-dates="(d) => d.getDate() % 2 === 0"
     :type="isShamsi ? 'shamsi' : 'miladi'"
     :lang="isPersian ? 'fa' : 'en'"
   />
