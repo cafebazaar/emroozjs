@@ -41,9 +41,15 @@ provide('allowedDates', props.allowedDates);
 <template>
   <div
     class="RangePicker"
+    :class="{
+      'RangePicker--with-common-dates': commonDates?.length
+    }"
   >
     <div class="RangePicker__content">
-      <RangePickerCommonDates class="RangePicker__common-dates" />
+      <RangePickerCommonDates
+        v-if="commonDates?.length"
+        class="RangePicker__common-dates"
+      />
 
       <RangePickerSlider class="RangePicker__slider" />
     </div>
@@ -68,7 +74,11 @@ provide('allowedDates', props.allowedDates);
 
     border: $em-border;
     padding: 16px 24px;
-    width: 600px;
+    max-width: 440px;
+
+    &--with-common-dates {
+      max-width: 600px;
+    }
 
     &__content {
       display: flex;
