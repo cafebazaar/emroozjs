@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'shamsi',
 });
 
-const CALENDAR_TYPE_TO_COMPONENR = {
+const RANGE_PICKER_TYPE_TO_COMPONENT = {
   shamsi: RangePickerShamsi,
   miladi: RangePickerMiladi,
 };
@@ -44,7 +44,7 @@ const setToDate: SetUnifyDateRangeItem = (date) => {
 const lang = toRef(props, 'lang');
 const allowedDates = toRef(props, 'allowedDates');
 
-const CalendarComponent = computed(() => CALENDAR_TYPE_TO_COMPONENR[props.type]);
+const CalendarComponent = computed(() => RANGE_PICKER_TYPE_TO_COMPONENT[props.type]);
 
 const direction = computed(() => (lang.value === 'fa' ? 'rtl' : 'ltr'));
 </script>
