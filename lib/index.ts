@@ -1,6 +1,6 @@
-import CalendarContainer from './CalendarContainer.vue';
+import RangePicker from './RangePicker/index.vue';
 
 export {
   // eslint-disable-next-line import/prefer-default-export
-  CalendarContainer as Calendar,
+  RangePicker as EMRangePicker,
 };

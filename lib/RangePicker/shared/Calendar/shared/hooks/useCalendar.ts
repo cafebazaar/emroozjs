@@ -3,7 +3,7 @@ import {
   AllowedDates,
   CalendarDate, CalendarLanguageStrings, CurrentDate,
   DateRangeItem, Direction, LocalCommonDates, SetDateRangeItem,
-} from '@lib/shared/types';
+} from '@lib/RangePicker/shared/types';
 
 export default function useCalendar(): {
   date: CalendarDate;

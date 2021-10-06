@@ -1,4 +1,4 @@
-import { CalendarStrings } from '@lib/shared/types';
+import { CalendarStrings } from '@lib/RangePicker/shared/types';
 
 const strings: CalendarStrings = {
   en: {

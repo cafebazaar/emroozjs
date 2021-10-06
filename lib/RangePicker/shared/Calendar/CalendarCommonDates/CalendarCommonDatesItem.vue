@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TupleDate } from '@lib/shared/types';
+import { TupleDate } from '@lib/RangePicker/shared/types';
 import { computed } from 'vue-demi';
 import useCalendar from '../shared/hooks/useCalendar';
 

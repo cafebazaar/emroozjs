@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import useCalendar from '@lib/shared/Calendar/shared/hooks/useCalendar';
 import { toRefs, computed } from 'vue-demi';
+import useCalendar from '../../../shared/hooks/useCalendar';
 import CalendarSliderGridItemUI from './shared/components/CalendarSliderGridItemUI.vue';
 import useDateCompares from './shared/hooks/useDateCompares';
 

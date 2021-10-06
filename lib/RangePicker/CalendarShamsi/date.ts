@@ -1,25 +1,19 @@
-import { CalendarDate, TupleDate } from '@lib/shared/types';
+import { CalendarDate, TupleDate } from '@lib/RangePicker/shared/types';
+import { toGregorian } from './convertor';
 
 const monthDays = [
   () => 31,
-  ({ year }: { year: number }) => {
-    if (year % 400 === 0) return 29;
-    if (year % 4 === 0) {
-      if (year % 100 === 0) return 28;
-      return 29;
-    }
-    return 28;
-  },
   () => 31,
-  () => 30,
   () => 31,
-  () => 30,
+  () => 31,
   () => 31,
   () => 31,
   () => 30,
-  () => 31,
   () => 30,
-  () => 31,
+  () => 30,
+  () => 30,
+  () => 30,
+  ({ year }: { year: number }) => (year % 4 === 3 ? 30 : 29),
 ];
 
 const date: CalendarDate = {
@@ -27,12 +21,14 @@ const date: CalendarDate = {
     return monthDays[month]({ year });
   },
   getFirstDayOfMonth({ year, month }) {
-    const dateObj = new Date(year, month, 1);
-    return dateObj.getDay() % 7;
+    const gDate = toGregorian(year, month, 1);
+    const dateObj = new Date(gDate[0], gDate[1], gDate[2]);
+    return (dateObj.getDay() + 1) % 7;
   },
   getLastDayOfMonth({ year, month }) {
-    const dateObj = new Date(year, month, this.getMonthDays({ year, month }));
-    return dateObj.getDay() % 7;
+    const gDate = toGregorian(year, month, this.getMonthDays({ year, month }));
+    const dateObj = new Date(gDate[0], gDate[1], gDate[2]);
+    return (dateObj.getDay() + 1) % 7;
   },
   getNextMonth({ year, month }) {
     if (month >= 11) {
@@ -59,8 +55,11 @@ const date: CalendarDate = {
     };
   },
   compare(lDate: TupleDate, rDate: TupleDate) {
-    const lDateObj = new Date(lDate[0], lDate[1], lDate[2]);
-    const rDateObj = new Date(rDate[0], rDate[1], rDate[2]);
+    const lGDate = toGregorian(...lDate);
+    const rGDate = toGregorian(...rDate);
+
+    const lDateObj = new Date(lGDate[0], lGDate[1], lGDate[2]);
+    const rDateObj = new Date(rGDate[0], rGDate[1], rGDate[2]);
 
     if (lDateObj.valueOf() > rDateObj.valueOf()) {
       return -1;
@@ -71,11 +70,13 @@ const date: CalendarDate = {
     return 0;
   },
   tupleToDate(tuple: TupleDate) {
-    return new Date(tuple[0], tuple[1], tuple[2]);
+    const gDate = toGregorian(...tuple);
+    return new Date(gDate[0], gDate[1], gDate[2]);
   },
   isClosed(tuple: TupleDate) {
-    const dateObj = new Date(tuple[0], tuple[1], tuple[2]);
-    return [0, 6].includes(dateObj.getDay());
+    const gDate = toGregorian(...tuple);
+    const dateObj = new Date(gDate[0], gDate[1], gDate[2]);
+    return dateObj.getDay() === 5;
   },
 };
 

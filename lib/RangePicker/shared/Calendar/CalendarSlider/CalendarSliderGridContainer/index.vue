@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DateRangeItem } from '@lib/shared/types';
+import { DateRangeItem } from '@lib/RangePicker/shared/types';
 import { computed } from 'vue-demi';
 import useCalendar from '../../shared/hooks/useCalendar';
 import CalendarGrid from './CalendarSliderGrid/index.vue';

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import './stylesheets/main.scss';
 import { ref } from 'vue';
-import { Calendar } from '@lib';
+import { EMRangePicker } from '@lib';
 
 const lastWeek = new Date();
 lastWeek.setDate(lastWeek.getDate() - 7);
@@ -19,7 +19,7 @@ function toggleLang() {
 </script>
 
 <template>
-  <Calendar
+  <EMRangePicker
     :common-dates="[{
       label: 'یک هفته اخیر',
       from: lastWeek,
