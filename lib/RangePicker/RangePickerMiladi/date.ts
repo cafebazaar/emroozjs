@@ -1,4 +1,5 @@
-import { RangePickerDate, TupleDate } from '@lib/RangePicker/shared/types';
+import { RangePickerDate } from '@lib/RangePicker/shared/types';
+import { TupleDate } from '@lib/shared/types';
 
 const monthDays = [
   () => 31,

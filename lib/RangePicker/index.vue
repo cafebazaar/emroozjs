@@ -3,10 +3,10 @@ import {
   toRef, ref, Ref, computed,
 } from 'vue-demi';
 import {
-  AllowedDates,
-  CalendarType,
+  AllowedDates, CalendarType, Lang, SetUnifyDateItem, UnifyDateItem,
+} from '@lib/shared/types';
+import {
   CommonDates,
-  Lang, SetUnifyDateRangeItem, UnifyDateRangeItem,
 } from './shared/types';
 import RangePickerShamsi from './RangePickerShamsi/index.vue';
 import RangePickerMiladi from './RangePickerMiladi/index.vue';
@@ -15,7 +15,7 @@ interface Props {
   lang?: Lang;
   commonDates?: CommonDates;
   allowedDates?: AllowedDates;
-  type?: CalendarType
+  type?: CalendarType;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -30,14 +30,14 @@ const RANGE_PICKER_TYPE_TO_COMPONENT = {
   miladi: RangePickerMiladi,
 };
 
-const fromDate: Ref<UnifyDateRangeItem> = ref(null);
-const toDate: Ref<UnifyDateRangeItem> = ref(null);
+const fromDate: Ref<UnifyDateItem> = ref(null);
+const toDate: Ref<UnifyDateItem> = ref(null);
 
-const setFromDate: SetUnifyDateRangeItem = (date) => {
+const setFromDate: SetUnifyDateItem = (date) => {
   fromDate.value = date;
 };
 
-const setToDate: SetUnifyDateRangeItem = (date) => {
+const setToDate: SetUnifyDateItem = (date) => {
   toDate.value = date;
 };
 

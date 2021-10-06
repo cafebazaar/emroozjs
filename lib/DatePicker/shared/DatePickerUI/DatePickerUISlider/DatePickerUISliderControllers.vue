@@ -1,17 +1,48 @@
 <script setup lang="ts">
+import { ref } from 'vue-demi';
 import StartingArrowButton from '@lib/shared/components/arrow-buttons/StartingArrowButton.vue';
 import EndingArrowButton from '@lib/shared/components/arrow-buttons/EndingArrowButton.vue';
+import useDatePicker from '../shared/hooks/useDatePicker';
+
+interface Props {
+  currentMonth: number;
+  currentYear: number;
+}
+
+const props = defineProps<Props>();
+
+const emit = defineEmits<{(e: 'next'): void; (e: 'prev'): void;}>();
+
+const { strings } = useDatePicker();
+
+const isAnimationInverted = ref(false);
+
+function next() {
+  isAnimationInverted.value = false;
+  emit('next');
+}
+
+function prev() {
+  isAnimationInverted.value = true;
+  emit('prev');
+}
 </script>
 
 <template>
   <div class="DatePickerUISliderControllers">
-    <StartingArrowButton direction="rtl" />
+    <StartingArrowButton
+      direction="rtl"
+      @click="prev"
+    />
 
     <span class="DatePickerUISliderControllers__month">
-      شهریور 1400
+      {{ strings.monthNames[props.currentMonth] }} {{ props.currentYear }}
     </span>
 
-    <EndingArrowButton direction="rtl" />
+    <EndingArrowButton
+      direction="rtl"
+      @click="next"
+    />
   </div>
 </template>
 

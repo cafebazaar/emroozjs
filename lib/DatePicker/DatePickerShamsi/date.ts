@@ -1,6 +1,6 @@
-import { RangePickerDate } from '@lib/RangePicker/shared/types';
 import { TupleDate } from '@lib/shared/types';
 import { toGregorian } from '@lib/shared/utilities/convertor';
+import { DatePickerDate } from '../shared/types';
 
 const monthDays = [
   () => 31,
@@ -17,7 +17,7 @@ const monthDays = [
   ({ year }: { year: number }) => (year % 4 === 3 ? 30 : 29),
 ];
 
-const date: RangePickerDate = {
+const date: DatePickerDate = {
   getMonthDays({ year, month }) {
     return monthDays[month]({ year });
   },
@@ -54,21 +54,6 @@ const date: RangePickerDate = {
       month: month - 1,
       year,
     };
-  },
-  compare(lDate: TupleDate, rDate: TupleDate) {
-    const lGDate = toGregorian(...lDate);
-    const rGDate = toGregorian(...rDate);
-
-    const lDateObj = new Date(lGDate[0], lGDate[1], lGDate[2]);
-    const rDateObj = new Date(rGDate[0], rGDate[1], rGDate[2]);
-
-    if (lDateObj.valueOf() > rDateObj.valueOf()) {
-      return -1;
-    }
-    if (lDateObj.valueOf() < rDateObj.valueOf()) {
-      return 1;
-    }
-    return 0;
   },
   tupleToDate(tuple: TupleDate) {
     const gDate = toGregorian(...tuple);

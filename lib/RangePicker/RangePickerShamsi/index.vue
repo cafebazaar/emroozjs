@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, toRef } from 'vue-demi';
-import { Direction, Lang } from '@lib/shared/types';
 import {
-  AllowedDates,
+  AllowedDates, Direction, Lang, SetDateItem, SetUnifyDateItem, UnifyDateItem,
+} from '@lib/shared/types';
+import { toGregorian, toJalali } from '@lib/shared/utilities/convertor';
+import {
   CommonDates,
-  SetDateRangeItem, SetUnifyDateRangeItem, UnifyDateRangeItem,
 } from '../shared/types';
 import RangePicker from '../shared/RangePicker/index.vue';
-import { toGregorian, toJalali } from './convertor';
 
 import date from './date';
 import strings from './strings';
@@ -15,10 +15,10 @@ import strings from './strings';
 const props = defineProps<{
   lang: Lang;
   direction: Direction;
-  fromDate: UnifyDateRangeItem;
-  toDate: UnifyDateRangeItem;
-  setFromDate:SetUnifyDateRangeItem;
-  setToDate:SetUnifyDateRangeItem;
+  fromDate: UnifyDateItem;
+  toDate: UnifyDateItem;
+  setFromDate:SetUnifyDateItem;
+  setToDate:SetUnifyDateItem;
   commonDates: CommonDates,
   allowedDates: AllowedDates;
 }>();
@@ -41,7 +41,7 @@ const currentDate = toJalali(
   new Date().getDate(),
 );
 
-const setLocalFromDate: SetDateRangeItem = (fromDate) => {
+const setLocalFromDate: SetDateItem = (fromDate) => {
   if (!fromDate) {
     props.setFromDate(fromDate);
     return;
@@ -51,7 +51,7 @@ const setLocalFromDate: SetDateRangeItem = (fromDate) => {
   props.setFromDate(new Date(gDate[0], gDate[1], gDate[2]));
 };
 
-const setLocalToDate: SetDateRangeItem = (toDate) => {
+const setLocalToDate: SetDateItem = (toDate) => {
   if (!toDate) {
     props.setToDate(toDate);
     return;

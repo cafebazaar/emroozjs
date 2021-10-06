@@ -1,6 +1,31 @@
 <script setup lang="ts">
+import { toRefs, provide } from 'vue-demi';
+import {
+  AllowedDates, CurrentDate, DateItem, Direction, SetDateItem,
+} from '@lib/shared/types';
 import DatePickerUISlider from './DatePickerUISlider/index.vue';
 import DatePickerUIFooter from './DatePickerUIFooter.vue';
+import { DatePickerDate, DatePickerLanguageStrings } from '../types';
+
+const props = defineProps<{
+  date: DatePickerDate,
+  strings: DatePickerLanguageStrings;
+  currentDate: CurrentDate,
+  direction: Direction,
+  selectedDate: DateItem,
+  setSelectedDate: SetDateItem,
+  allowedDates: AllowedDates,
+}>();
+
+const refProps = toRefs(props);
+
+provide('date', props.date);
+provide('strings', refProps.strings);
+provide('selectedDate', refProps.selectedDate);
+provide('currentDate', refProps.currentDate);
+provide('direction', refProps.direction);
+provide('setSelectedDate', props.setSelectedDate);
+provide('allowedDates', props.allowedDates);
 </script>
 
 <template>
@@ -23,7 +48,7 @@ import DatePickerUIFooter from './DatePickerUIFooter.vue';
   border-radius: $em-border-radius;
   border: $em-border;
 
-  width: 240px;
+  width: 241px;
 
   box-sizing: border-box;
 

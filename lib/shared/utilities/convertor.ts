@@ -3,7 +3,7 @@
  * Credits to https://github.com/farhadi/JalaliJSCalendar
  */
 
-import { TupleDate } from "../shared/types";
+import { TupleDate } from "../types";
 
 const JalaliDate = {
   g_days_in_month: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],

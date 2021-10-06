@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { DateItem } from '@lib/shared/types';
 import { computed } from 'vue-demi';
-import useCalendar from '../../shared/hooks/useRangePicker';
-import RangePickerSliderGrid from './RangePickerSliderGrid/index.vue';
+import useDatePicker from '../../shared/hooks/useDatePicker';
+import DatePickerUISliderGrid from './DatePickerUISliderGrid/index.vue';
 
 const {
-  date, strings, fromDate, toDate, setFromDate, setToDate,
-} = useCalendar();
+  date, strings, selectedDate, setSelectedDate,
+} = useDatePicker();
 
 const props = defineProps<{
   currentYear: number;
@@ -16,22 +16,13 @@ const props = defineProps<{
 function selectDate(day: number) {
   const toBeSelectedDate: DateItem = [props.currentYear, props.currentMonth, day];
 
-  if (!fromDate.value) {
-    setFromDate(toBeSelectedDate);
-    return;
-  }
-  if (!toDate.value) {
-    // If fromDate is equal to toDate, toDate should be deselected
-    if (fromDate.value.toString() === toBeSelectedDate.toString()) {
-      setFromDate(null);
-      return;
-    }
-    setToDate(toBeSelectedDate);
+  // If selectedDate is equal to toDate, toDate should be deselected
+  if (selectedDate.value?.toString() === toBeSelectedDate.toString()) {
+    setSelectedDate(null);
     return;
   }
 
-  setFromDate(toBeSelectedDate);
-  setToDate(null);
+  setSelectedDate(toBeSelectedDate);
 }
 
 const firstDayOfMonth = computed(() => date.getFirstDayOfMonth({
@@ -51,11 +42,12 @@ const monthDays = computed(() => date.getMonthDays({
 </script>
 
 <template>
-  <RangePickerSliderGrid
+  <DatePickerUISliderGrid
+    class="DatePickerUISlider__grid"
+    :header-names="strings.dayHeaderNames"
     :first-day-of-month="firstDayOfMonth"
     :last-day-of-month="lastDayOfMonth"
     :month-days="monthDays"
-    :header-names="strings.dayHeaderNames"
     :current-month="props.currentMonth"
     :current-year="props.currentYear"
     @select-date="selectDate"

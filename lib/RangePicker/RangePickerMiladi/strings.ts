@@ -1,4 +1,4 @@
-import { RangePickerStrings } from '@lib/RangePicker/shared/types';
+import { RangePickerStrings } from '../shared/types';
 
 const strings: RangePickerStrings = {
   en: {

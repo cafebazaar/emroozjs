@@ -6,19 +6,19 @@ import RangePickerFooter from './RangePickerFooter.vue';
 import {
   AllowedDates,
   RangePickerDate, RangePickerLanguageStrings, CurrentDate,
-  DateRangeItem, Direction, LocalCommonDates, SetDateRangeItem,
+  DateItem, Direction, LocalCommonDates, SetDateItem,
 } from '../types';
 
 const props = defineProps<{
   date: RangePickerDate,
   strings: RangePickerLanguageStrings;
-  fromDate: DateRangeItem,
-  toDate: DateRangeItem,
+  fromDate: DateItem,
+  toDate: DateItem,
   currentDate: CurrentDate,
   commonDates: LocalCommonDates,
   direction: Direction,
-  setFromDate: SetDateRangeItem,
-  setToDate: SetDateRangeItem,
+  setFromDate: SetDateItem,
+  setToDate: SetDateItem,
   allowedDates: AllowedDates,
 }>();
 

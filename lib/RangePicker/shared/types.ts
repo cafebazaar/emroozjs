@@ -1,12 +1,4 @@
-export type TupleDate = [year: number, month: number, day: number];
-
-export type DateRangeItem = TupleDate | null;
-export type SetDateRangeItem = (date: DateRangeItem) => void;
-
-export type CurrentDate = TupleDate;
-
-export type UnifyDateRangeItem = Date | null;
-export type SetUnifyDateRangeItem = (date: UnifyDateRangeItem) => void;
+import { DateInfo, TupleDate } from '@lib/shared/types';
 
 type CommonDate = {
   from: Date;
@@ -20,15 +12,6 @@ export type LocalCommonDate = {
   label: string;
 };
 export type LocalCommonDates = LocalCommonDate[];
-
-export type AllowedDates = ((date: Date) => boolean) | null;
-
-export type CalendarType = 'shamsi' | 'miladi';
-
-interface DateInfo {
-  year: number;
-  month: number;
-}
 
 export interface RangePickerDate {
   getMonthDays: (dateInfo: DateInfo) => number;

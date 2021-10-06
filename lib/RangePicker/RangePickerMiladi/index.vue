@@ -4,7 +4,7 @@ import {
   AllowedDates,
   CommonDates,
   Direction,
-  Lang, SetDateRangeItem, SetUnifyDateRangeItem, TupleDate, UnifyDateRangeItem,
+  Lang, SetDateItem, SetUnifyDateItem, TupleDate, UnifyDateItem,
 } from '../shared/types';
 import RangePicker from '../shared/RangePicker/index.vue';
 
@@ -14,10 +14,10 @@ import strings from './strings';
 const props = defineProps<{
   lang: Lang;
   direction: Direction;
-  fromDate: UnifyDateRangeItem;
-  toDate: UnifyDateRangeItem;
-  setFromDate:SetUnifyDateRangeItem;
-  setToDate:SetUnifyDateRangeItem;
+  fromDate: UnifyDateItem;
+  toDate: UnifyDateItem;
+  setFromDate:SetUnifyDateItem;
+  setToDate:SetUnifyDateItem;
   commonDates: CommonDates,
   allowedDates: AllowedDates;
 }>();
@@ -40,7 +40,7 @@ const currentDate: TupleDate = [
   new Date().getDate(),
 ];
 
-const setLocalFromDate: SetDateRangeItem = (fromDate) => {
+const setLocalFromDate: SetDateItem = (fromDate) => {
   if (!fromDate) {
     props.setFromDate(null);
     return;
@@ -49,7 +49,7 @@ const setLocalFromDate: SetDateRangeItem = (fromDate) => {
   props.setFromDate(new Date(fromDate[0], fromDate[1], fromDate[2]));
 };
 
-const setLocalToDate: SetDateRangeItem = (toDate) => {
+const setLocalToDate: SetDateItem = (toDate) => {
   if (!toDate) {
     props.setToDate(null);
     return;
