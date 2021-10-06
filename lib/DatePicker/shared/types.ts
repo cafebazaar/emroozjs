@@ -1,14 +1,6 @@
-import { DateInfo, TupleDate } from '@lib/shared/types';
+import { GeneralDateUtil } from '@lib/shared/types';
 
-export interface DatePickerDate {
-  getMonthDays: (dateInfo: DateInfo) => number;
-  getFirstDayOfMonth: (dateInfo: DateInfo) => number;
-  getLastDayOfMonth: (dateInfo: DateInfo) => number;
-  getNextMonth: (dateInfo: DateInfo) => DateInfo;
-  getPrevMonth: (dateInfo: DateInfo) => DateInfo;
-  tupleToDate: (tuple: TupleDate) => Date;
-  isClosed: (tuple: TupleDate) => boolean;
-}
+export type DatePickerDate = GeneralDateUtil;
 
 export interface DatePickerLanguageStrings {
   readonly monthNames: string[];

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, toRef } from 'vue-demi';
 import {
-  AllowedDates,
+  Direction, Lang, SetUnifyDateItem, AllowedDates, TupleDate, UnifyDateItem, SetDateItem,
+} from '@lib/shared/types';
+import {
   CommonDates,
-  Direction,
-  Lang, SetDateItem, SetUnifyDateItem, TupleDate, UnifyDateItem,
 } from '../shared/types';
 import RangePicker from '../shared/RangePicker/index.vue';
 

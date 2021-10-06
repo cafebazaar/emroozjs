@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { provide, toRefs, reactive } from 'vue-demi';
+import {
+  AllowedDates, CurrentDate, DateItem, Direction, SetDateItem,
+} from '@lib/shared/types';
 import RangePickerCommonDates from './RangePickerCommonDates/index.vue';
 import RangePickerSlider from './RangePickerSlider/index.vue';
 import RangePickerFooter from './RangePickerFooter.vue';
 import {
-  AllowedDates,
-  RangePickerDate, RangePickerLanguageStrings, CurrentDate,
-  DateItem, Direction, LocalCommonDates, SetDateItem,
+  RangePickerDate, RangePickerLanguageStrings,
+  LocalCommonDates,
 } from '../types';
 
 const props = defineProps<{

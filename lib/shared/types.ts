@@ -20,3 +20,13 @@ export interface DateInfo {
   year: number;
   month: number;
 }
+
+export type GeneralDateUtil = {
+  getMonthDays: (dateInfo: DateInfo) => number;
+  getFirstDayOfMonth: (dateInfo: DateInfo) => number;
+  getLastDayOfMonth: (dateInfo: DateInfo) => number;
+  getNextMonth: (dateInfo: DateInfo) => DateInfo;
+  getPrevMonth: (dateInfo: DateInfo) => DateInfo;
+  tupleToDate: (tuple: TupleDate) => Date;
+  isClosed: (tuple: TupleDate) => boolean;
+};

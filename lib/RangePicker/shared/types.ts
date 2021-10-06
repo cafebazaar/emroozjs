@@ -1,4 +1,4 @@
-import { DateInfo, TupleDate } from '@lib/shared/types';
+import { GeneralDateUtil, TupleDate } from '@lib/shared/types';
 
 type CommonDate = {
   from: Date;
@@ -13,15 +13,8 @@ export type LocalCommonDate = {
 };
 export type LocalCommonDates = LocalCommonDate[];
 
-export interface RangePickerDate {
-  getMonthDays: (dateInfo: DateInfo) => number;
-  getFirstDayOfMonth: (dateInfo: DateInfo) => number;
-  getLastDayOfMonth: (dateInfo: DateInfo) => number;
-  getNextMonth: (dateInfo: DateInfo) => DateInfo;
-  getPrevMonth: (dateInfo: DateInfo) => DateInfo;
+export interface RangePickerDate extends GeneralDateUtil {
   compare: (lDate: TupleDate, rDate: TupleDate) => -1 | 0 | 1;
-  tupleToDate: (tuple: TupleDate) => Date;
-  isClosed: (tuple: TupleDate) => boolean;
 }
 
 export interface RangePickerLanguageStrings {
