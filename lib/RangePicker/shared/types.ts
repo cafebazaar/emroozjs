@@ -34,7 +34,7 @@ interface DateInfo {
   month: number;
 }
 
-export interface CalendarDate {
+export interface RangePickerDate {
   getMonthDays: (dateInfo: DateInfo) => number;
   getFirstDayOfMonth: (dateInfo: DateInfo) => number;
   getLastDayOfMonth: (dateInfo: DateInfo) => number;
@@ -45,7 +45,7 @@ export interface CalendarDate {
   isClosed: (tuple: TupleDate) => boolean;
 }
 
-export interface CalendarLanguageStrings {
+export interface RangePickerLanguageStrings {
   readonly monthNames: string[];
   readonly dayHeaderNames: string[];
   readonly action: string;
@@ -53,7 +53,7 @@ export interface CalendarLanguageStrings {
   readonly commonDates: string;
 }
 
-export interface CalendarStrings {
-  readonly fa: CalendarLanguageStrings,
-  readonly en: CalendarLanguageStrings,
+export interface RangePickerStrings {
+  readonly fa: RangePickerLanguageStrings,
+  readonly en: RangePickerLanguageStrings,
 }

@@ -8,8 +8,8 @@ import {
   CommonDates,
   Lang, SetUnifyDateRangeItem, UnifyDateRangeItem,
 } from './shared/types';
-import CalendarShamsi from './CalendarShamsi/index.vue';
-import CalendarMiladi from './CalendarMiladi/index.vue';
+import RangePickerShamsi from './RangePickerShamsi/index.vue';
+import RangePickerMiladi from './RangePickerMiladi/index.vue';
 
 interface Props {
   lang?: Lang;
@@ -26,8 +26,8 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const CALENDAR_TYPE_TO_COMPONENR = {
-  shamsi: CalendarShamsi,
-  miladi: CalendarMiladi,
+  shamsi: RangePickerShamsi,
+  miladi: RangePickerMiladi,
 };
 
 const fromDate: Ref<UnifyDateRangeItem> = ref(null);
