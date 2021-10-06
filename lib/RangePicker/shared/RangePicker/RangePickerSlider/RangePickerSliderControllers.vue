@@ -82,7 +82,7 @@ function prev() {
   }
 
   &__month {
-    transition-duration: 0.5s;
+    transition-duration: $em-transition-duration;
     transition-property: transform, opacity;
     display: inline-block;
   }

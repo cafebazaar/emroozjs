@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue-demi';
 import Button from '@lib/shared/components/Button.vue';
+import VerticalSlideAnimation from '@lib/shared/components/VerticalSlideAnimation.vue';
 import useDatePicker from './shared/hooks/useDatePicker';
 
 const { strings, selectedDate } = useDatePicker();
@@ -16,9 +17,14 @@ const datePreviewString = computed(() => {
 
 <template>
   <div class="DatePickerUIFooter">
-    <span class="DatePickerUIFooter__report">
-      {{ datePreviewString }}
-    </span>
+    <VerticalSlideAnimation>
+      <span
+        :key="datePreviewString"
+        class="DatePickerUIFooter__report"
+      >
+        {{ datePreviewString }}
+      </span>
+    </VerticalSlideAnimation>
 
     <Button>
       {{ strings.action }}
@@ -37,6 +43,8 @@ const datePreviewString = computed(() => {
   &__report {
     color: $em-footer-report-text-color;
     font-size: $em-footer-font-size;
+
+    transition-duration: $em-transition-duration;
   }
 }
 </style>

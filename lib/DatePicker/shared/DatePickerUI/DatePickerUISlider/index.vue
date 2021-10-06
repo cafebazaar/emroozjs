@@ -83,7 +83,7 @@ function prevMonth() {
     margin-top: $em-global-margin;
     margin-bottom: $em-global-margin * 2;
 
-    transition-duration: 0.5s;
+    transition-duration: $em-transition-duration;
     transition-property: transform, opacity;
 
     height: 100%;

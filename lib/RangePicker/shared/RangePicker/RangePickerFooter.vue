@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue-demi';
 import Button from '@lib/shared/components/Button.vue';
+import VerticalSlideAnimation from '@lib/shared/components/VerticalSlideAnimation.vue';
 import useCalendar from './shared/hooks/useRangePicker';
 
 const { strings, fromDate, toDate } = useCalendar();
@@ -18,9 +19,14 @@ const datePreviewString = computed(() => {
 
 <template>
   <div class="RangePickerFooter">
-    <span class="RangePickerFooter__report">
-      {{ datePreviewString }}
-    </span>
+    <VerticalSlideAnimation>
+      <span
+        :key="datePreviewString"
+        class="RangePickerFooter__report"
+      >
+        {{ datePreviewString }}
+      </span>
+    </VerticalSlideAnimation>
 
     <Button>
       {{ strings.action }}
@@ -40,6 +46,8 @@ const datePreviewString = computed(() => {
   &__report {
     color: $em-footer-report-text-color;
     font-size: $em-footer-font-size;
+
+    transition-duration: $em-transition-duration;
   }
 }
 </style>
