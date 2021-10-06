@@ -28,11 +28,11 @@ const disabled = toRef(props, 'disabled');
 </template>
 
 <style lang="scss" scoped>
-  @import '../styles/imports.scss';
+
   .Button {
-    background-color: $cl-button-background-color;
-    border-radius: $cl-button-border-radius;
-    color: $cl-button-color;
+    background-color: $em-button-background-color;
+    border-radius: $em-button-border-radius;
+    color: $em-button-color;
 
     cursor: pointer;
 
@@ -48,8 +48,8 @@ const disabled = toRef(props, 'disabled');
     }
 
     &--disabled {
-      background-color: $cl-button-disabled-background-color;
-      color: $cl-button-disabled-color;
+      background-color: $em-button-disabled-background-color;
+      color: $em-button-disabled-color;
       cursor: not-allowed;
     }
   }

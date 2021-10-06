@@ -43,14 +43,14 @@ const isActive = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import '../shared/styles/imports.scss';
+
 .RangePickerCommonDatesItem {
   cursor: pointer;
-  transition: $cl-mostly-used-transition-duration;
+  transition: $em-range-picker-mostly-used-transition-duration;
 
   user-select: none;
 
-  color: $cl-text-color;
+  color: $em-text-color;
 
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -61,11 +61,11 @@ const isActive = computed(() => {
   }
 
   &:hover {
-    color: $cl-mostly-used-active-color;
+    color: $em-range-picker-mostly-used-active-color;
   }
 
   &--active {
-    color: $cl-mostly-used-active-color;
+    color: $em-range-picker-mostly-used-active-color;
   }
 }
 </style>

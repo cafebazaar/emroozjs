@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue-demi';
-import Button from '../shared/components/Button.vue';
+import Button from '@lib/shared/components/Button.vue';
+import SlideAnimation from '@lib/shared/components/SlideAnimation.vue';
 import useCalendar from '../shared/hooks/useRangePicker';
 import ArrowLeft from './icons/ArrowLeft.vue';
 import ArrowRight from './icons/ArrowRight.vue';
-import SlideAnimation from '../shared/components/SlideAnimation.vue';
 
 const { strings, direction } = useCalendar();
 
@@ -42,6 +42,7 @@ function prev() {
     </Button>
     <div class="RangePickerSliderControllers__month-wrapper">
       <SlideAnimation
+        :direction="direction"
         :is-inverted="isAnimationInverted"
       >
         <span
@@ -71,9 +72,9 @@ function prev() {
 </template>
 
 <style lang="scss" scoped>
-@import '../shared/styles/imports.scss';
+
 .RangePickerSliderControllers {
-  font-size: $cl-controllers-font-size;
+  font-size: $em-range-picker-controllers-font-size;
 
   display: flex;
   align-items: center;
@@ -85,7 +86,7 @@ function prev() {
     flex: 1;
     position: relative;
 
-    padding: 0 $cl-global-padding;
+    padding: 0 $em-global-padding;
   }
 
   &__month {

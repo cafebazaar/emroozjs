@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue-demi';
-import Button from './shared/components/Button.vue';
+import Button from '@lib/shared/components/Button.vue';
 import useCalendar from './shared/hooks/useRangePicker';
 
 const { strings, fromDate, toDate } = useCalendar();
@@ -29,7 +29,6 @@ const datePreviewString = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import './shared/styles/imports.scss';
 .RangePickerFooter {
   height: 54px;
 
@@ -41,8 +40,8 @@ const datePreviewString = computed(() => {
   align-items: center;
 
   &__report {
-    color: $cl-footer-report-text-color;
-    font-size: $cl-footer-font-size;
+    color: $em-range-picker-footer-report-text-color;
+    font-size: $em-range-picker-footer-font-size;
   }
 }
 </style>

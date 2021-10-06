@@ -71,9 +71,9 @@ const {
 </template>
 
 <style lang="scss" scoped>
-@import '../../../../../shared/styles/imports.scss';
+
 .RangePickerSliderGridItemUI {
-  transition-duration: $cl-calendar-grid-transition-duration;
+  transition-duration: $em-range-picker-grid-transition-duration;
 
   width: 27px;
   height: 20px;
@@ -85,13 +85,13 @@ const {
   align-items: center;
   justify-content: center;
 
-  font-size: $cl-calendar-grid-item-font-size;
-  color: $cl-text-color;
+  font-size: $em-range-picker-grid-item-font-size;
+  color: $em-text-color;
 
   margin: 4px 0;
 
   &--header {
-    color: $cl-calendar-grid-header-color;
+    color: $em-range-picker-grid-header-color;
     cursor: default;
   }
 
@@ -100,16 +100,16 @@ const {
   }
 
   &--closed {
-    color: $cl-calendar-grid-closed-color;
+    color: $em-range-picker-grid-closed-color;
   }
 
   &--disabled {
     cursor: not-allowed;
-    color: $cl-calendar-grid-disabled-color;
+    color: $em-range-picker-grid-disabled-color;
   }
 
   &--active {
-    background: $cl-calendar-grid-active-background-color;
+    background: $em-range-picker-grid-active-background-color;
 
     &-start {
       background:
@@ -117,8 +117,8 @@ const {
           to left,
           transparent 0%,
           transparent 50%,
-          $cl-calendar-grid-active-background-color 50%,
-          $cl-calendar-grid-active-background-color 100%
+          $em-range-picker-grid-active-background-color 50%,
+          $em-range-picker-grid-active-background-color 100%
         );
       @include ltr {
         background:
@@ -126,8 +126,8 @@ const {
             to right,
             transparent 0%,
             transparent 50%,
-            $cl-calendar-grid-active-background-color 50%,
-            $cl-calendar-grid-active-background-color 100%
+            $em-range-picker-grid-active-background-color 50%,
+            $em-range-picker-grid-active-background-color 100%
         );
       }
     }
@@ -137,8 +137,8 @@ const {
           to right,
           transparent 0%,
           transparent 50%,
-          $cl-calendar-grid-active-background-color 50%,
-          $cl-calendar-grid-active-background-color 100%
+          $em-range-picker-grid-active-background-color 50%,
+          $em-range-picker-grid-active-background-color 100%
         );
       @include ltr {
         background:
@@ -146,25 +146,25 @@ const {
             to left,
             transparent 0%,
             transparent 50%,
-            $cl-calendar-grid-active-background-color 50%,
-            $cl-calendar-grid-active-background-color 100%
+            $em-range-picker-grid-active-background-color 50%,
+            $em-range-picker-grid-active-background-color 100%
           );
       }
     }
   }
 
   &--today:not(&--active):not(&--disabled) {
-    color: $cl-calendar-grid-hover-color;
+    color: $em-range-picker-grid-hover-color;
   }
 
   &:not(&--header):not(&--active):not(&--disabled) {
     &:hover {
-      color: $cl-calendar-grid-hover-color;
+      color: $em-range-picker-grid-hover-color;
     }
   }
 
   &__inner {
-    transition-duration: $cl-calendar-grid-transition-duration;
+    transition-duration: $em-range-picker-grid-transition-duration;
 
     border-radius: 50%;
 
@@ -175,8 +175,8 @@ const {
     justify-content: center;
 
     &--active {
-      background-color: $cl-calendar-grid-active-color;
-      color: $cl-calendar-grid-active-text-color;
+      background-color: $em-range-picker-grid-active-color;
+      color: $em-range-picker-grid-active-text-color;
     }
   }
 }

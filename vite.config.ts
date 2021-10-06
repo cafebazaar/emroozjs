@@ -18,6 +18,13 @@ export default defineConfig({
       '@lib-shared': resolve('./lib/shared'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import \'@lib/shared/styles/imports.scss\';',
+      },
+    },
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'lib/index.ts'),

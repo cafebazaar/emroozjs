@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue-demi';
-import useCalendar from '../hooks/useRangePicker';
 
 interface Props {
   isInverted?: boolean;
+  direction: 'rtl' | 'ltr';
 }
-
-const { direction } = useCalendar();
 
 const props = withDefaults(defineProps<Props>(), {
   isInverted: false,
@@ -14,10 +12,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 const animationName = computed(() => {
   if (props.isInverted) {
-    if (direction.value === 'rtl') return 'em-slide-prev';
+    if (props.direction === 'rtl') return 'em-slide-prev';
     return 'em-slide';
   }
-  if (direction.value === 'rtl') return 'em-slide';
+  if (props.direction === 'rtl') return 'em-slide';
   return 'em-slide-prev';
 });
 </script>

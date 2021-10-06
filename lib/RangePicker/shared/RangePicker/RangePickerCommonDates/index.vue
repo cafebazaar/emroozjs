@@ -29,13 +29,13 @@ const {
 </template>
 
 <style lang="scss" scoped>
-@import '../shared/styles/imports.scss';
+
 .RangePickerCommonDates {
-  font-size: $cl-mostly-used-font-size;
+  font-size: $em-range-picker-mostly-used-font-size;
   display: flex;
   flex-direction: column;
 
-  @include endPadding(1.6 * $cl-global-padding);
+  @include endPadding(1.6 * $em-global-padding);
 
   box-sizing: border-box;
 

@@ -67,15 +67,15 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
 </template>
 
 <style lang="scss" scoped>
-@import '../../../shared/styles/imports.scss';
+
 .RangePickerGrid {
-  border: $cl-calendar-grid-border;
+  border: $em-range-picker-grid-border;
 
   width: 191px;
 
   box-sizing: border-box;
 
-  border-radius: $cl-calendar-grid-border-radius;
+  border-radius: $em-range-picker-grid-border-radius;
 
   display: flex;
   flex-wrap: wrap;

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue-demi';
+import SlideAnimation from '@lib/shared/components/SlideAnimation.vue';
 import RangePickerSliderControllers from './RangePickerSliderControllers.vue';
 import useCalendar from '../shared/hooks/useRangePicker';
 import RangePickerSliderGridContainer from './RangePickerSliderGridContainer/index.vue';
-import SlideAnimation from '../shared/components/SlideAnimation.vue';
 
-const { currentDate, date } = useCalendar();
+const { currentDate, date, direction } = useCalendar();
 
 const currentFirstDate = ref({
   year: currentDate.value[0],
@@ -63,6 +63,7 @@ function decreaseStartingMonth() {
     <div class="RangePickerSlider__content">
       <SlideAnimation
         :is-inverted="isAnimationInverted"
+        :direction="direction"
       >
         <RangePickerSliderGridContainer
           :key="`${currentFirstDate.year}-${currentFirstDate.month}`"

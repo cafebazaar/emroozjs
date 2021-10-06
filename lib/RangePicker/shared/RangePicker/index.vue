@@ -52,20 +52,19 @@ provide('allowedDates', props.allowedDates);
 </template>
 
 <style lang="scss" scoped>
-  @import './shared/styles/imports.scss';
   .RangePicker {
     direction: rtl;
     @include ltr {
       direction: ltr;
     }
 
-    background-color: $cl-background-color;
-    border-radius: $cl-border-radius;
+    background-color: $em-background-color;
+    border-radius: $em-border-radius;
 
     display: flex;
     flex-direction: column;
 
-    border: $cl-border;
+    border: $em-border;
     padding: 16px 24px;
     width: 600px;
     height: 310px;
@@ -86,7 +85,7 @@ provide('allowedDates', props.allowedDates);
     }
 
     &__footer {
-      border-top: $cl-border;
+      border-top: $em-border;
     }
   }
 </style>
