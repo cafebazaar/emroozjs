@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed, toRef } from 'vue-demi';
+import { Direction, Lang } from '@lib/shared/types';
 import {
   AllowedDates,
   CommonDates,
-  Lang, SetDateRangeItem, SetUnifyDateRangeItem, UnifyDateRangeItem, Direction,
+  SetDateRangeItem, SetUnifyDateRangeItem, UnifyDateRangeItem,
 } from '../shared/types';
 import RangePicker from '../shared/RangePicker/index.vue';
 import { toGregorian, toJalali } from './convertor';

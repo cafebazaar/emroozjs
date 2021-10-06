@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import './stylesheets/main.scss';
 import { ref } from 'vue';
-import { EMRangePicker } from '@lib';
+import { EMRangePicker, EMDatePicker } from '@lib';
 
 const lastWeek = new Date();
 lastWeek.setDate(lastWeek.getDate() - 7);
@@ -35,4 +35,6 @@ function toggleLang() {
   <button @click="toggleLang">
     تاگل زبان
   </button>
+  <hr>
+  <EMDatePicker />
 </template>

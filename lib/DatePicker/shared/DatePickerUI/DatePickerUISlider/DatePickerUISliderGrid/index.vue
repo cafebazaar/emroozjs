@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { computed, toRef } from 'vue-demi';
 import GridItemUI from '@lib/shared/components/GridItemUI.vue';
-import RangePickerSliderGridEmptyItem from './RangePickerSliderGridEmptyItem.vue';
-import RangePickerSliderGridItem from './RangePickerSliderGridItem.vue';
+import DatePickerUISliderGridItem from './DatePickerUISliderGridItem.vue';
 
 const props = defineProps<{
   headerNames: string[];
@@ -30,7 +29,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
 </script>
 
 <template>
-  <div class="RangePickerSliderGrid">
+  <div class="DatePickerUISliderGrid">
     <GridItemUI
       v-for="i of props.headerNames"
       :key="i"
@@ -39,15 +38,13 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
       {{ i }}
     </GridItemUI>
 
-    <RangePickerSliderGridEmptyItem
+    <GridItemUI
       v-for="(_, index) in emptyFirstDays"
       :key="`0-${index}`"
-      :current-year="currentYear"
-      :current-month="currentMonth"
-      :current-day="0"
+      is-empty
     />
 
-    <RangePickerSliderGridItem
+    <DatePickerUISliderGridItem
       v-for="currentDay in dayItems"
       :key="`${currentYear}-${currentMonth}-${currentDay}`"
       :current-year="currentYear"
@@ -56,19 +53,17 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
       @click="() => selectDate(currentDay)"
     />
 
-    <RangePickerSliderGridEmptyItem
+    <GridItemUI
       v-for="(_, index) in emptyLastDays"
       :key="`${monthDays}-${index}`"
-      :current-year="currentYear"
-      :current-month="currentMonth"
-      :current-day="monthDays"
+      is-empty
     />
   </div>
 </template>
 
 <style lang="scss" scoped>
 
-.RangePickerSliderGrid {
+.DatePickerUISliderGrid {
   border: $em-grid-border;
 
   width: 191px;

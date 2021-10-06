@@ -46,7 +46,7 @@ const isActive = computed(() => {
 
 .RangePickerCommonDatesItem {
   cursor: pointer;
-  transition: $em-range-picker-mostly-used-transition-duration;
+  transition: $em-mostly-used-transition-duration;
 
   user-select: none;
 
@@ -61,11 +61,11 @@ const isActive = computed(() => {
   }
 
   &:hover {
-    color: $em-range-picker-mostly-used-active-color;
+    color: $em-mostly-used-active-color;
   }
 
   &--active {
-    color: $em-range-picker-mostly-used-active-color;
+    color: $em-mostly-used-active-color;
   }
 }
 </style>

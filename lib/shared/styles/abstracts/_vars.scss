@@ -21,29 +21,28 @@ $em-button-color: $em-white !default;
 $em-button-disabled-color: #909399 !default;
 $em-button-disabled-background-color: #EAEEF4 !default;
 
-// RangePicker
-
-// RangePicker Grid
-$em-range-picker-grid-header-color: #C0C4CC !default;
-$em-range-picker-grid-active-color: $em-primary-color !default;
-$em-range-picker-grid-active-background-color: #E7F7F0 !default;
-$em-range-picker-grid-active-text-color: $em-white !default;
-$em-range-picker-grid-item-font-size: $em-small-font-size !default;
-$em-range-picker-grid-border: $em-border !default;
-$em-range-picker-grid-border-radius: $em-border-radius !default;
-$em-range-picker-grid-disabled-color: #d0d0d2 !default;
-$em-range-picker-grid-hover-color: $em-primary-color !default;
-$em-range-picker-grid-transition-duration: $em-transition-duration !default;
-$em-range-picker-grid-closed-color: $em-red-color !default;
+// Grid
+$em-grid-header-color: #C0C4CC !default;
+$em-grid-active-color: $em-primary-color !default;
+$em-grid-active-background-color: #E7F7F0 !default;
+$em-grid-active-text-color: $em-white !default;
+$em-grid-item-font-size: $em-small-font-size !default;
+$em-grid-border: $em-border !default;
+$em-grid-border-radius: $em-border-radius !default;
+$em-grid-disabled-color: #d0d0d2 !default;
+$em-grid-hover-color: $em-primary-color !default;
+$em-grid-transition-duration: $em-transition-duration !default;
+$em-grid-closed-color: $em-red-color !default;
 
 // Common Dates
-$em-range-picker-mostly-used-font-size: $em-font-size !default;
-$em-range-picker-mostly-used-active-color: $em-primary-color !default;
-$em-range-picker-mostly-used-transition-duration: $em-transition-duration !default;
+$em-mostly-used-font-size: $em-font-size !default;
+$em-mostly-used-active-color: $em-primary-color !default;
+$em-mostly-used-transition-duration: $em-transition-duration !default;
 
-// RangePicker Footer
-$em-range-picker-footer-report-text-color: #909399 !default;
-$em-range-picker-footer-font-size: $em-font-size !default;
+// Footer
+$em-footer-report-text-color: #909399 !default;
+$em-footer-font-size: $em-font-size !default;
+$em-footer-border-top: $em-border !default;
 
 // Controllers
-$em-range-picker-controllers-font-size: $em-font-size !default;
+$em-controllers-font-size: $em-font-size !default;

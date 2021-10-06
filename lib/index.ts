@@ -1,6 +1,7 @@
 import RangePicker from './RangePicker/index.vue';
+import DatePicker from './DatePicker/index.vue';
 
 export {
-  // eslint-disable-next-line import/prefer-default-export
   RangePicker as EMRangePicker,
+  DatePicker as EMDatePicker,
 };

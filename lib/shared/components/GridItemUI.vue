@@ -46,23 +46,23 @@ const {
 
 <template>
   <div
-    class="RangePickerSliderGridItemUI"
+    class="GridItemUI"
     :class="{
-      'RangePickerSliderGridItemUI--header': isHeader,
-      'RangePickerSliderGridItemUI--empty': isEmpty,
-      'RangePickerSliderGridItemUI--active': isMiddle,
-      'RangePickerSliderGridItemUI--active-start': isActiveStart,
-      'RangePickerSliderGridItemUI--active-end': isActiveEnd,
-      'RangePickerSliderGridItemUI--disabled': isDisabled,
-      'RangePickerSliderGridItemUI--today': isToday,
-      'RangePickerSliderGridItemUI--closed': isClosed,
+      'GridItemUI--header': isHeader,
+      'GridItemUI--empty': isEmpty,
+      'GridItemUI--active': isMiddle,
+      'GridItemUI--active-start': isActiveStart,
+      'GridItemUI--active-end': isActiveEnd,
+      'GridItemUI--disabled': isDisabled,
+      'GridItemUI--today': isToday,
+      'GridItemUI--closed': isClosed,
     }"
     @click="emit('click')"
   >
     <span
-      class="RangePickerSliderGridItemUI__inner"
+      class="GridItemUI__inner"
       :class="{
-        'RangePickerSliderGridItemUI__inner--active': isEdge,
+        'GridItemUI__inner--active': isEdge,
       }"
     >
       <slot />
@@ -72,8 +72,8 @@ const {
 
 <style lang="scss" scoped>
 
-.RangePickerSliderGridItemUI {
-  transition-duration: $em-range-picker-grid-transition-duration;
+.GridItemUI {
+  transition-duration: $em-grid-transition-duration;
 
   width: 27px;
   height: 20px;
@@ -85,13 +85,13 @@ const {
   align-items: center;
   justify-content: center;
 
-  font-size: $em-range-picker-grid-item-font-size;
+  font-size: $em-grid-item-font-size;
   color: $em-text-color;
 
   margin: 4px 0;
 
   &--header {
-    color: $em-range-picker-grid-header-color;
+    color: $em-grid-header-color;
     cursor: default;
   }
 
@@ -100,16 +100,16 @@ const {
   }
 
   &--closed {
-    color: $em-range-picker-grid-closed-color;
+    color: $em-grid-closed-color;
   }
 
   &--disabled {
     cursor: not-allowed;
-    color: $em-range-picker-grid-disabled-color;
+    color: $em-grid-disabled-color;
   }
 
   &--active {
-    background: $em-range-picker-grid-active-background-color;
+    background: $em-grid-active-background-color;
 
     &-start {
       background:
@@ -117,8 +117,8 @@ const {
           to left,
           transparent 0%,
           transparent 50%,
-          $em-range-picker-grid-active-background-color 50%,
-          $em-range-picker-grid-active-background-color 100%
+          $em-grid-active-background-color 50%,
+          $em-grid-active-background-color 100%
         );
       @include ltr {
         background:
@@ -126,8 +126,8 @@ const {
             to right,
             transparent 0%,
             transparent 50%,
-            $em-range-picker-grid-active-background-color 50%,
-            $em-range-picker-grid-active-background-color 100%
+            $em-grid-active-background-color 50%,
+            $em-grid-active-background-color 100%
         );
       }
     }
@@ -137,8 +137,8 @@ const {
           to right,
           transparent 0%,
           transparent 50%,
-          $em-range-picker-grid-active-background-color 50%,
-          $em-range-picker-grid-active-background-color 100%
+          $em-grid-active-background-color 50%,
+          $em-grid-active-background-color 100%
         );
       @include ltr {
         background:
@@ -146,25 +146,25 @@ const {
             to left,
             transparent 0%,
             transparent 50%,
-            $em-range-picker-grid-active-background-color 50%,
-            $em-range-picker-grid-active-background-color 100%
+            $em-grid-active-background-color 50%,
+            $em-grid-active-background-color 100%
           );
       }
     }
   }
 
   &--today:not(&--active):not(&--disabled) {
-    color: $em-range-picker-grid-hover-color;
+    color: $em-grid-hover-color;
   }
 
   &:not(&--header):not(&--active):not(&--disabled) {
     &:hover {
-      color: $em-range-picker-grid-hover-color;
+      color: $em-grid-hover-color;
     }
   }
 
   &__inner {
-    transition-duration: $em-range-picker-grid-transition-duration;
+    transition-duration: $em-grid-transition-duration;
 
     border-radius: 50%;
 
@@ -175,8 +175,8 @@ const {
     justify-content: center;
 
     &--active {
-      background-color: $em-range-picker-grid-active-color;
-      color: $em-range-picker-grid-active-text-color;
+      background-color: $em-grid-active-color;
+      color: $em-grid-active-text-color;
     }
   }
 }

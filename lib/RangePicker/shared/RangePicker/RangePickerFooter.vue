@@ -30,9 +30,7 @@ const datePreviewString = computed(() => {
 
 <style lang="scss" scoped>
 .RangePickerFooter {
-  height: 54px;
-
-  padding-top: 16px;
+  padding-top: $em-global-padding * 1.6;
   box-sizing: border-box;
 
   display: flex;
@@ -40,8 +38,8 @@ const datePreviewString = computed(() => {
   align-items: center;
 
   &__report {
-    color: $em-range-picker-footer-report-text-color;
-    font-size: $em-range-picker-footer-font-size;
+    color: $em-footer-report-text-color;
+    font-size: $em-footer-font-size;
   }
 }
 </style>

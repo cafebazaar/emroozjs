@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue-demi';
+import { ref } from 'vue-demi';
 import Button from '@lib/shared/components/Button.vue';
 import SlideAnimation from '@lib/shared/components/SlideAnimation.vue';
+import StartingArrowButton from '@lib/shared/components/arrow-buttons/StartingArrowButton.vue';
+import EndingArrowButton from '@lib/shared/components/arrow-buttons/EndingArrowButton.vue';
 import useCalendar from '../shared/hooks/useRangePicker';
-import ArrowLeft from './icons/ArrowLeft.vue';
-import ArrowRight from './icons/ArrowRight.vue';
 
 const { strings, direction } = useCalendar();
 
@@ -16,9 +16,6 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{(e: 'next'): void; (e: 'prev'): void;}>();
-
-const ArrowStart = computed(() => (direction.value === 'ltr' ? ArrowLeft : ArrowRight));
-const ArrowEnd = computed(() => (direction.value === 'ltr' ? ArrowRight : ArrowLeft));
 
 const isAnimationInverted = ref(false);
 
@@ -34,12 +31,10 @@ function prev() {
 </script>
 <template>
   <div class="RangePickerSliderControllers">
-    <Button
-      icon
+    <StartingArrowButton
+      :direction="direction"
       @click="prev"
-    >
-      <ArrowStart />
-    </Button>
+    />
     <div class="RangePickerSliderControllers__month-wrapper">
       <SlideAnimation
         :direction="direction"
@@ -62,19 +57,17 @@ function prev() {
         </span>
       </SlideAnimation>
     </div>
-    <Button
-      icon
+    <EndingArrowButton
+      :direction="direction"
       @click="next"
-    >
-      <ArrowEnd />
-    </Button>
+    />
   </div>
 </template>
 
 <style lang="scss" scoped>
 
 .RangePickerSliderControllers {
-  font-size: $em-range-picker-controllers-font-size;
+  font-size: $em-controllers-font-size;
 
   display: flex;
   align-items: center;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { toRefs } from 'vue-demi';
-import RangePickerSliderGridItemUI from './shared/components/RangePickerSliderGridItemUI.vue';
+import GridItemUI from '@lib/shared/components/GridItemUI.vue';
 import useDateCompares from './shared/hooks/useDateCompares';
 
 interface Props {
@@ -18,7 +18,7 @@ const {
 </script>
 
 <template>
-  <RangePickerSliderGridItemUI
+  <GridItemUI
     :is-middle="isMiddle"
     is-empty
   />

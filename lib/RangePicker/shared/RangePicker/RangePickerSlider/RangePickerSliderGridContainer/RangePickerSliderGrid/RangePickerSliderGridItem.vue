@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { toRefs, computed } from 'vue-demi';
+import GridItemUI from '@lib/shared/components/GridItemUI.vue';
 import useCalendar from '../../../shared/hooks/useRangePicker';
-import RangePickerSliderGridItemUI from './shared/components/RangePickerSliderGridItemUI.vue';
 import useDateCompares from './shared/hooks/useDateCompares';
 
 interface Props {
@@ -62,7 +62,7 @@ function checkAndEmitClicked() {
 </script>
 
 <template>
-  <RangePickerSliderGridItemUI
+  <GridItemUI
     :is-middle="isMiddle"
     :is-active-start="isStartingRangeEdge"
     :is-active-end="isEndingRangeEdge"
@@ -73,5 +73,5 @@ function checkAndEmitClicked() {
     @click="checkAndEmitClicked"
   >
     {{ currentDay }}
-  </RangePickerSliderGridItemUI>
+  </GridItemUI>
 </template>

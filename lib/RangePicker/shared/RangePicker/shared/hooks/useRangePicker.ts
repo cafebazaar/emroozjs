@@ -2,8 +2,9 @@ import { inject, Ref } from 'vue-demi';
 import {
   AllowedDates,
   RangePickerDate, RangePickerLanguageStrings, CurrentDate,
-  DateRangeItem, Direction, LocalCommonDates, SetDateRangeItem,
+  DateRangeItem, LocalCommonDates, SetDateRangeItem,
 } from '@lib/RangePicker/shared/types';
+import { Direction } from '@lib/shared/types';
 
 export default function useCalendar(): {
   date: RangePickerDate;

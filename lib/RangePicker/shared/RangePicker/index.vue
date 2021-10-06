@@ -67,7 +67,6 @@ provide('allowedDates', props.allowedDates);
     border: $em-border;
     padding: 16px 24px;
     width: 600px;
-    height: 310px;
 
     &__content {
       display: flex;
@@ -85,7 +84,7 @@ provide('allowedDates', props.allowedDates);
     }
 
     &__footer {
-      border-top: $em-border;
+      border-top: $em-footer-border-top;
     }
   }
 </style>

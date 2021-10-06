@@ -31,7 +31,7 @@ const {
 <style lang="scss" scoped>
 
 .RangePickerCommonDates {
-  font-size: $em-range-picker-mostly-used-font-size;
+  font-size: $em-mostly-used-font-size;
   display: flex;
   flex-direction: column;
 

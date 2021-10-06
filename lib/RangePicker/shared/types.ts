@@ -23,10 +23,6 @@ export type LocalCommonDates = LocalCommonDate[];
 
 export type AllowedDates = ((date: Date) => boolean) | null;
 
-export type Lang = 'fa' | 'en';
-
-export type Direction = 'rtl' | 'ltr';
-
 export type CalendarType = 'shamsi' | 'miladi';
 
 interface DateInfo {
