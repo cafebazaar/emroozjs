@@ -6,6 +6,7 @@ import {
   Lang, AllowedDates, CalendarType, UnifyDateItem, SetUnifyDateItem,
 } from '@lib/shared/types';
 import DatePickerShamsi from './DatePickerShamsi/index.vue';
+import DatePickerMiladi from './DatePickerMiladi/index.vue';
 
 interface Props {
   lang?: Lang;
@@ -22,7 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const DATE_PICKER_TYPE_TO_COMPONENT = {
   shamsi: DatePickerShamsi,
-  miladi: null,
+  miladi: DatePickerMiladi,
 };
 
 const selectedDate: Ref<UnifyDateItem> = ref(null);

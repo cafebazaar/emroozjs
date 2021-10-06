@@ -36,5 +36,8 @@ function toggleLang() {
     تاگل زبان
   </button>
   <hr>
-  <EMDatePicker />
+  <EMDatePicker
+    :type="isShamsi ? 'shamsi' : 'miladi'"
+    :lang="isPersian ? 'fa' : 'en'"
+  />
 </template>

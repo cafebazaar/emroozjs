@@ -13,7 +13,7 @@ const props = defineProps<Props>();
 
 const emit = defineEmits<{(e: 'next'): void; (e: 'prev'): void;}>();
 
-const { strings } = useDatePicker();
+const { strings, direction } = useDatePicker();
 
 const isAnimationInverted = ref(false);
 
@@ -31,7 +31,7 @@ function prev() {
 <template>
   <div class="DatePickerUISliderControllers">
     <StartingArrowButton
-      direction="rtl"
+      :direction="direction"
       @click="prev"
     />
 
@@ -40,7 +40,7 @@ function prev() {
     </span>
 
     <EndingArrowButton
-      direction="rtl"
+      :direction="direction"
       @click="next"
     />
   </div>
