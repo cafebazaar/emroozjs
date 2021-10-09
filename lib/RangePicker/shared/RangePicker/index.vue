@@ -74,10 +74,10 @@ provide('allowedDates', props.allowedDates);
 
     border: $em-border;
     padding: 16px 24px;
-    max-width: 440px;
+    max-width: 400px;
 
     &--with-common-dates {
-      max-width: 600px;
+      max-width: 560px;
     }
 
     &__content {
