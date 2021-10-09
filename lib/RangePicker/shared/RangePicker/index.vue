@@ -76,6 +76,7 @@ provide('allowedDates', props.allowedDates);
 
     border: $em-border;
     padding: 16px 24px;
+    width: 100%;
     max-width: 400px;
 
     &--with-common-dates {
