@@ -7,6 +7,8 @@ $em-border: 1px solid #EAEEF4 !default;
 $em-transition-duration: 0.3s !default;
 $em-text-color: #606266 !default;
 $em-red-color: #F56C6C !default;
+$em-gray-color: #d0d0d2 !default;
+$em-dark-gray: #C0C4CC !default;
 
 $em-font-size: 14px !default;
 $em-small-font-size: 12px !default;
@@ -22,14 +24,14 @@ $em-button-disabled-color: #909399 !default;
 $em-button-disabled-background-color: #EAEEF4 !default;
 
 // Grid
-$em-grid-header-color: #C0C4CC !default;
+$em-grid-header-color: $em-dark-gray !default;
 $em-grid-active-color: $em-primary-color !default;
 $em-grid-active-background-color: #E7F7F0 !default;
 $em-grid-active-text-color: $em-white !default;
 $em-grid-item-font-size: $em-small-font-size !default;
 $em-grid-border: $em-border !default;
 $em-grid-border-radius: $em-border-radius !default;
-$em-grid-disabled-color: #d0d0d2 !default;
+$em-grid-disabled-color: $em-gray-color !default;
 $em-grid-hover-color: $em-primary-color !default;
 $em-grid-transition-duration: $em-transition-duration !default;
 $em-grid-closed-color: $em-red-color !default;

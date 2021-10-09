@@ -11,7 +11,7 @@ import {
   LocalCommonDates,
 } from '../types';
 
-const props = defineProps<{
+interface Props {
   date: RangePickerDate,
   strings: RangePickerLanguageStrings;
   fromDate: DateItem,
@@ -22,7 +22,9 @@ const props = defineProps<{
   setFromDate: SetDateItem,
   setToDate: SetDateItem,
   allowedDates: AllowedDates,
-}>();
+}
+
+const props = defineProps<Props>();
 
 const refProps = toRefs(props);
 

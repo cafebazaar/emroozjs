@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import './stylesheets/main.scss';
 import { ref } from 'vue';
-import { EMRangePicker, EMDatePicker } from '@lib';
+import { EMRangePicker, EMDatePicker, EMRangePickerInput } from '@lib';
 
 const lastWeek = new Date();
 lastWeek.setDate(lastWeek.getDate() - 7);
@@ -19,27 +19,34 @@ function toggleLang() {
 </script>
 
 <template>
-  <EMRangePicker
-    :type="isShamsi ? 'shamsi' : 'miladi'"
-    :lang="isPersian ? 'fa' : 'en'"
-    :common-dates="[
-      {
-        to: new Date(),
-        from: lastWeek,
-        label: 'هفته اخیر'
-      }
-    ]"
-  />
+  <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <EMRangePicker
+      :type="isShamsi ? 'shamsi' : 'miladi'"
+      :lang="isPersian ? 'fa' : 'en'"
+      :common-dates="[
+        {
+          to: new Date(),
+          from: lastWeek,
+          label: 'هفته اخیر'
+        }
+      ]"
+    />
 
-  <button @click="toggleType">
-    تاگل نوع تاریخ
-  </button>
-  <button @click="toggleLang">
-    تاگل زبان
-  </button>
-  <hr>
-  <EMDatePicker
-    :type="isShamsi ? 'shamsi' : 'miladi'"
-    :lang="isPersian ? 'fa' : 'en'"
-  />
+    <button @click="toggleType">
+      تاگل نوع تاریخ
+    </button>
+    <button @click="toggleLang">
+      تاگل زبان
+    </button>
+    <hr>
+    <EMDatePicker
+      :type="isShamsi ? 'shamsi' : 'miladi'"
+      :lang="isPersian ? 'fa' : 'en'"
+    />
+    <hr>
+    <EMRangePickerInput
+      :type="isShamsi ? 'shamsi' : 'miladi'"
+      :lang="isPersian ? 'fa' : 'en'"
+    />
+  </div>
 </template>
