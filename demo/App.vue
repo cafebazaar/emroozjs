@@ -20,13 +20,15 @@ function toggleLang() {
 
 <template>
   <EMRangePicker
-    :common-dates="[{
-      label: 'یک هفته اخیر',
-      from: lastWeek,
-      to: new Date(),
-    }]"
     :type="isShamsi ? 'shamsi' : 'miladi'"
     :lang="isPersian ? 'fa' : 'en'"
+    :common-dates="[
+      {
+        to: new Date(),
+        from: lastWeek,
+        label: 'هفته اخیر'
+      }
+    ]"
   />
 
   <button @click="toggleType">

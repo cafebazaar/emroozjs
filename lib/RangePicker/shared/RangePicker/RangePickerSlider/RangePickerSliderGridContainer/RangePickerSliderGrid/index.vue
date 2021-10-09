@@ -41,10 +41,10 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
 
     <RangePickerSliderGridEmptyItem
       v-for="(_, index) in emptyFirstDays"
-      :key="`0-${index}`"
+      :key="`1-${index}`"
       :current-year="currentYear"
       :current-month="currentMonth"
-      :current-day="0"
+      :current-day="1"
     />
 
     <RangePickerSliderGridItem
