@@ -38,24 +38,19 @@ function setSelectedRangeAndEmit(rangeInfo: RangePickerSelectOutput) {
 </script>
 
 <template>
-  <div
-    class="EMRoot"
-    :lang="props.lang"
-  >
-    <div class="RangePickerInput">
-      <RangePickerInputUI
-        :value="props.value"
-        :strings="props.strings"
-        @click="toggleIsOpen"
-      />
+  <div class="RangePickerInput">
+    <RangePickerInputUI
+      :value="props.value"
+      :strings="props.strings"
+      @click="toggleIsOpen"
+    />
 
-      <RangePickerInputPopOver
-        v-show="isOpen"
-        class="RangePickerInput__input"
-        v-bind="props"
-        @select="setSelectedRangeAndEmit"
-      />
-    </div>
+    <RangePickerInputPopOver
+      v-show="isOpen"
+      class="RangePickerInput__input"
+      v-bind="props"
+      @select="setSelectedRangeAndEmit"
+    />
   </div>
 </template>
 
