@@ -3,8 +3,9 @@ import { ref } from 'vue-demi';
 import {
   AllowedDates, CalendarType, CommonDates, Lang, RangePickerSelectOutput,
 } from '@lib/shared/types';
-import RangePickerInputUI from './RangePickerInputUI.vue';
-import RangePickerInputPopOver from './RangePickerInputPopOver.vue';
+import RangePicker from '@lib/RangePicker/index.vue';
+import RangePickerInputUI from '@lib/shared/components/PickerInput/index.vue';
+import RangePickerInputPopOver from '@lib/shared/components/PickerInputPopOver.vue';
 import { RangePickerInputLanguageStrings } from '../types';
 
 // @todo: Import this from types
@@ -41,7 +42,7 @@ function setSelectedRangeAndEmit(rangeInfo: RangePickerSelectOutput) {
   <div class="RangePickerInput">
     <RangePickerInputUI
       :value="props.value"
-      :strings="props.strings"
+      :text="props.strings.rangeText"
       @click="toggleIsOpen"
     />
 
@@ -50,12 +51,19 @@ function setSelectedRangeAndEmit(rangeInfo: RangePickerSelectOutput) {
       class="RangePickerInput__input"
       v-bind="props"
       @select="setSelectedRangeAndEmit"
-    />
+    >
+      <RangePicker
+        v-bind="props"
+        @select="(rangeInfo) => emit('select', rangeInfo)"
+      />
+    </RangePickerInputPopOver>
   </div>
 </template>
 
 <style lang="scss">
 .RangePickerInput {
+  width: 100%;
+
   display: inline-block;
   position: relative;
 

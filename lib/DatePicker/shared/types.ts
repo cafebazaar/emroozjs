@@ -12,3 +12,5 @@ export interface DatePickerStrings {
   readonly fa: DatePickerLanguageStrings,
   readonly en: DatePickerLanguageStrings,
 }
+
+export type SelectDate = () => void;

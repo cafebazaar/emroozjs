@@ -3,8 +3,10 @@ import { computed } from 'vue-demi';
 import Button from '@lib/shared/components/Button.vue';
 import VerticalSlideAnimation from '@lib/shared/components/VerticalSlideAnimation.vue';
 import useDatePicker from './shared/hooks/useDatePicker';
+import useDateHelpers from './shared/hooks/useDateHelpers';
 
-const { strings, selectedDate } = useDatePicker();
+const { strings, selectedDate, selectDate } = useDatePicker();
+const { isDateSelected } = useDateHelpers();
 
 const datePreviewString = computed(() => {
   if (!selectedDate.value) return '';
@@ -26,7 +28,10 @@ const datePreviewString = computed(() => {
       </span>
     </VerticalSlideAnimation>
 
-    <Button>
+    <Button
+      :disabled="!isDateSelected"
+      @click="selectDate"
+    >
       {{ strings.action }}
     </Button>
   </div>

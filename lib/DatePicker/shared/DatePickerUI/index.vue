@@ -5,16 +5,17 @@ import {
 } from '@lib/shared/types';
 import DatePickerUISlider from './DatePickerUISlider/index.vue';
 import DatePickerUIFooter from './DatePickerUIFooter.vue';
-import { DatePickerDate, DatePickerLanguageStrings } from '../types';
+import { DatePickerDate, DatePickerLanguageStrings, SelectDate } from '../types';
 
 const props = defineProps<{
-  date: DatePickerDate,
+  date: DatePickerDate;
   strings: DatePickerLanguageStrings;
-  currentDate: CurrentDate,
-  direction: Direction,
-  selectedDate: DateItem,
-  setSelectedDate: SetDateItem,
-  allowedDates: AllowedDates,
+  currentDate: CurrentDate;
+  direction: Direction;
+  selectedDate: DateItem;
+  setSelectedDate: SetDateItem;
+  allowedDates: AllowedDates;
+  selectDate: SelectDate;
 }>();
 
 const refProps = toRefs(props);
@@ -26,6 +27,7 @@ provide('currentDate', refProps.currentDate);
 provide('direction', refProps.direction);
 provide('setSelectedDate', props.setSelectedDate);
 provide('allowedDates', props.allowedDates);
+provide('selectDate', props.selectDate);
 </script>
 
 <template>
