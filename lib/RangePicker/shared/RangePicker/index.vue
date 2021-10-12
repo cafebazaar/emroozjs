@@ -79,11 +79,10 @@ provide('selectRange', props.selectRange);
 
     border: $em-border;
     padding: 16px 24px;
-    width: 100%;
-    max-width: 400px;
+    width: 400px;
 
     &--with-common-dates {
-      max-width: 560px;
+      width: 560px;
     }
 
     &__content {
