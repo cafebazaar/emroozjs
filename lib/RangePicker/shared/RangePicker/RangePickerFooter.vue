@@ -3,8 +3,12 @@ import { computed } from 'vue-demi';
 import Button from '@lib/shared/components/Button.vue';
 import VerticalSlideAnimation from '@lib/shared/components/VerticalSlideAnimation.vue';
 import useCalendar from './shared/hooks/useRangePicker';
+import useRangeHelpers from './shared/hooks/useRangeHelpers';
 
-const { strings, fromDate, toDate } = useCalendar();
+const {
+  strings, fromDate, toDate, selectRange,
+} = useCalendar();
+const { isRangeSelected } = useRangeHelpers();
 
 const datePreviewString = computed(() => {
   if (!fromDate.value || !toDate.value) return '';
@@ -28,7 +32,10 @@ const datePreviewString = computed(() => {
       </span>
     </VerticalSlideAnimation>
 
-    <Button>
+    <Button
+      :disabled="!isRangeSelected"
+      @click="selectRange"
+    >
       {{ strings.action }}
     </Button>
   </div>

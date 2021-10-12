@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import { computed, toRef } from 'vue-demi';
 import {
-  AllowedDates, Direction, Lang, SetDateItem, SetUnifyDateItem, UnifyDateItem,
+  AllowedDates, CommonDates, Direction, Lang, SetDateItem, SetUnifyDateItem, UnifyDateItem,
 } from '@lib/shared/types';
 import { toGregorian, toJalali } from '@lib/shared/utilities/convertor';
-import {
-  CommonDates,
-} from '../shared/types';
 import RangePicker from '../shared/RangePicker/index.vue';
 
 import date from './date';
 import strings from './strings';
+import { SelectRange } from '../shared/types';
 
 const props = defineProps<{
   lang: Lang;
@@ -21,6 +19,7 @@ const props = defineProps<{
   setToDate:SetUnifyDateItem;
   commonDates: CommonDates,
   allowedDates: AllowedDates;
+  selectRange: SelectRange;
 }>();
 
 const fromShamsiDate = computed(() => (props.fromDate ? toJalali(
@@ -84,5 +83,6 @@ const allowedDates = toRef(props, 'allowedDates');
     :allowed-dates="allowedDates"
     :set-from-date="setLocalFromDate"
     :set-to-date="setLocalToDate"
+    :select-range="props.selectRange"
   />
 </template>

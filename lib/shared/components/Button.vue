@@ -6,13 +6,25 @@ interface Props {
   disabled?: boolean;
 }
 
+interface Events {
+  (e: 'click'): void;
+}
+
 const props = withDefaults(defineProps<Props>(), {
   icon: false,
   disabled: false,
 });
 
+const emit = defineEmits<Events>();
+
 const icon = toRef(props, 'icon');
 const disabled = toRef(props, 'disabled');
+
+function checkAndEmitClick() {
+  if (!disabled.value) {
+    emit('click');
+  }
+}
 </script>
 
 <template>
@@ -22,6 +34,7 @@ const disabled = toRef(props, 'disabled');
       'Button--icon': icon,
       'Button--disabled': disabled
     }"
+    @click="checkAndEmitClick"
   >
     <slot />
   </button>

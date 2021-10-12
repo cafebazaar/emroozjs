@@ -9,6 +9,7 @@ import RangePickerFooter from './RangePickerFooter.vue';
 import {
   RangePickerDate, RangePickerLanguageStrings,
   LocalCommonDates,
+  SelectRange,
 } from '../types';
 
 interface Props {
@@ -22,6 +23,7 @@ interface Props {
   setFromDate: SetDateItem,
   setToDate: SetDateItem,
   allowedDates: AllowedDates,
+  selectRange: SelectRange,
 }
 
 const props = defineProps<Props>();
@@ -38,6 +40,7 @@ provide('commonDates', reactive(refProps.commonDates.value));
 provide('setFromDate', props.setFromDate);
 provide('setToDate', props.setToDate);
 provide('allowedDates', props.allowedDates);
+provide('selectRange', props.selectRange);
 </script>
 
 <template>

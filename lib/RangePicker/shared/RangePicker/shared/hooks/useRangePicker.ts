@@ -2,6 +2,7 @@ import { inject, Ref } from 'vue-demi';
 import {
   RangePickerDate, RangePickerLanguageStrings,
   LocalCommonDates,
+  SelectRange,
 } from '@lib/RangePicker/shared/types';
 import {
   AllowedDates, CurrentDate, DateItem, Direction, SetDateItem,
@@ -18,6 +19,7 @@ export default function useRangePicker(): {
   setFromDate: SetDateItem;
   setToDate: SetDateItem;
   allowedDates: AllowedDates;
+  selectRange: SelectRange;
   } {
   return {
     date: inject('date') as RangePickerDate,
@@ -30,5 +32,6 @@ export default function useRangePicker(): {
     setFromDate: inject('setFromDate') as SetDateItem,
     setToDate: inject('setToDate') as SetDateItem,
     allowedDates: inject('allowedDates') as AllowedDates,
+    selectRange: inject('selectRange') as SelectRange,
   };
 }

@@ -1,9 +1,17 @@
 <script setup lang="ts">
+import { RangePickerInputLanguageStrings } from '../types';
 import ArrowDownIcon from './ArrowDownIcon.vue';
+
+interface Props {
+  value: string;
+  strings: RangePickerInputLanguageStrings;
+}
 
 interface Events {
   (e: 'click'): void;
 }
+
+const props = defineProps<Props>();
 
 const emit = defineEmits<Events>();
 </script>
@@ -14,12 +22,12 @@ const emit = defineEmits<Events>();
     @click="emit('click')"
   >
     <span class="RangePickerInputUI__text">
-      بازه زمانی:
+      {{ props.strings.rangeText }}:
     </span>
     <input
       class="RangePickerInputUI__input"
       readonly
-      value="18 مهر 1400 تا 26 مهر 1400"
+      :value="props.value"
     >
     <ArrowDownIcon />
   </div>
@@ -44,7 +52,7 @@ const emit = defineEmits<Events>();
 
   &__text {
     color: $em-gray-color;
-    margin-left: math.div($em-global-padding, 2);
+    @include endMargin(math.div($em-global-padding, 2));
   }
 
   &__input {

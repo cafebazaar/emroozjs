@@ -13,6 +13,13 @@ export type SetDateItem = (date: DateItem) => void;
 
 export type CurrentDate = TupleDate;
 
+type CommonDate = {
+  from: Date;
+  to: Date;
+  label: string;
+};
+export type CommonDates = CommonDate[];
+
 export type UnifyDateItem = Date | null;
 export type SetUnifyDateItem = (date: UnifyDateItem) => void;
 
@@ -30,3 +37,10 @@ export type GeneralDateUtil = {
   tupleToDate: (tuple: TupleDate) => Date;
   isClosed: (tuple: TupleDate) => boolean;
 };
+
+// RangePicker
+
+export interface RangePickerSelectOutput {
+  from: Date;
+  to: Date;
+}

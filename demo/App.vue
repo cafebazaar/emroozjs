@@ -3,6 +3,8 @@ import './stylesheets/main.scss';
 import { ref } from 'vue';
 import { EMRangePicker, EMDatePicker, EMRangePickerInput } from '@lib';
 
+const range = ref(null);
+
 const lastWeek = new Date();
 lastWeek.setDate(lastWeek.getDate() - 7);
 
@@ -15,6 +17,11 @@ function toggleType() {
 
 function toggleLang() {
   isPersian.value = !isPersian.value;
+}
+
+function changeRange(r) {
+  console.log('HERE', r);
+  range.value = r;
 }
 </script>
 
@@ -45,6 +52,7 @@ function toggleLang() {
     />
     <hr>
     <EMRangePickerInput
+      v-model="range"
       :type="isShamsi ? 'shamsi' : 'miladi'"
       :lang="isPersian ? 'fa' : 'en'"
     />

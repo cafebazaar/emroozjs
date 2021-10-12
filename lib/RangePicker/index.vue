@@ -3,13 +3,12 @@ import {
   toRef, ref, Ref, computed,
 } from 'vue-demi';
 import {
-  AllowedDates, CalendarType, Lang, SetUnifyDateItem, UnifyDateItem,
+  AllowedDates, CalendarType, CommonDates, Lang,
+  RangePickerSelectOutput, SetUnifyDateItem, UnifyDateItem,
 } from '@lib/shared/types';
-import {
-  CommonDates,
-} from './shared/types';
 import RangePickerShamsi from './RangePickerShamsi/index.vue';
 import RangePickerMiladi from './RangePickerMiladi/index.vue';
+import { SelectRange } from './shared/types';
 
 interface Props {
   lang?: Lang;
@@ -18,12 +17,18 @@ interface Props {
   type?: CalendarType;
 }
 
+interface Events {
+  (e: 'select', rangePickerSelectOutput: RangePickerSelectOutput): void;
+}
+
 const props = withDefaults(defineProps<Props>(), {
   lang: 'fa',
   commonDates: () => [],
   allowedDates: () => null,
   type: 'shamsi',
 });
+
+const emit = defineEmits<Events>();
 
 const RANGE_PICKER_TYPE_TO_COMPONENT = {
   shamsi: RangePickerShamsi,
@@ -39,6 +44,15 @@ const setFromDate: SetUnifyDateItem = (date) => {
 
 const setToDate: SetUnifyDateItem = (date) => {
   toDate.value = date;
+};
+
+const selectRange: SelectRange = () => {
+  if (fromDate.value && toDate.value) {
+    emit('select', {
+      from: fromDate.value,
+      to: toDate.value,
+    });
+  }
 };
 
 const lang = toRef(props, 'lang');
@@ -64,6 +78,7 @@ const direction = computed(() => (lang.value === 'fa' ? 'rtl' : 'ltr'));
       :set-to-date="setToDate"
       :common-dates="commonDates"
       :allowed-dates="allowedDates"
+      :select-range="selectRange"
     />
   </div>
 </template>

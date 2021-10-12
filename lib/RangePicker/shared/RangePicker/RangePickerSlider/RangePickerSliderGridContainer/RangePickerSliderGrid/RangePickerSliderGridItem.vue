@@ -3,6 +3,7 @@ import { toRefs, computed } from 'vue-demi';
 import GridItemUI from '@lib/shared/components/GridItemUI.vue';
 import useCalendar from '../../../shared/hooks/useRangePicker';
 import useDateCompares from './shared/hooks/useDateCompares';
+import useRangeHelpers from '../../../shared/hooks/useRangeHelpers';
 
 interface Props {
   currentYear: number
@@ -28,8 +29,9 @@ const {
   isToday,
   isEdge,
   isBeforeStartingEdge,
-  isRangeSelected,
 } = useDateCompares({ currentMonth, currentYear, currentDay });
+
+const { isRangeSelected } = useRangeHelpers();
 
 const dateOfTuple = computed(
   () => date.tupleToDate([currentYear.value, currentMonth.value, currentDay.value]),

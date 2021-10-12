@@ -1,3 +1,4 @@
+import useRangeHelpers from '@lib/RangePicker/shared/RangePicker/shared/hooks/useRangeHelpers';
 import { TupleDate } from '@lib/shared/types';
 import { Ref, computed } from 'vue-demi';
 import useCalendar from '../../../../../shared/hooks/useRangePicker';
@@ -15,11 +16,11 @@ export default function useDateCompares(
     date, currentDate, fromDate, toDate,
   } = useCalendar();
 
+  const { isRangeSelected } = useRangeHelpers();
+
   const toBeComparedDayTuple = computed<TupleDate>(
     () => [currentYear.value, currentMonth.value, currentDay.value],
   );
-
-  const isRangeSelected = computed(() => Boolean(fromDate.value && toDate.value));
 
   const isStartingRangeEdge = computed(() => {
     // There is no range!
@@ -91,6 +92,5 @@ export default function useDateCompares(
     isEndingRangeEdge,
     isStartingRangeEdge,
     isToday,
-    isRangeSelected,
   };
 }

@@ -103,3 +103,12 @@ export const miladi = {
     ],
   },
 };
+
+export const general = {
+  fa: {
+    to: 'تا',
+  },
+  en: {
+    to: 'To',
+  },
+};
