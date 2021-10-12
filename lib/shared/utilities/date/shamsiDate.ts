@@ -13,7 +13,25 @@ const monthDays = [
   () => 30,
   () => 30,
   () => 30,
-  ({ year }: { year: number }) => (year % 4 === 3 ? 30 : 29),
+  ({ year }: { year: number }) => {
+    // https://fa.wikipedia.org/wiki/%D8%B3%D8%A7%D9%84_%DA%A9%D8%A8%DB%8C%D8%B3%D9%87
+    let isLeap = false;
+    if (year > 1243 && year < 1473) {
+      isLeap = [
+        1,
+        5,
+        9,
+        13,
+        17,
+        year < 1343 ? 21 : 22,
+        26,
+        30,
+      ].includes(year % 33);
+    } else {
+      isLeap = year % 4 === (year <= 1243 ? 3 : 1);
+    }
+    return isLeap ? 30 : 29;
+  },
 ];
 
 const shamsiDate: GeneralDateUtil = {
