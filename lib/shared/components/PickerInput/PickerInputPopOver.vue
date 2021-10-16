@@ -33,7 +33,7 @@ watch(props, () => {
   el.value.style.top = `${props.domRect.top + props.domRect.height + scrollTop}px`;
 
   if (props.direction === 'rtl') {
-    el.value.style.right = `${window.innerWidth - props.domRect.right - scrollLeft}px`;
+    el.value.style.right = `${document.body.offsetWidth - props.domRect.right - scrollLeft}px`;
     return;
   }
   el.value.style.left = `${props.domRect.left + scrollLeft}px`;
