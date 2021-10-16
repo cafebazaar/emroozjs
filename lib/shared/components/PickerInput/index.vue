@@ -2,6 +2,7 @@
 import { ref } from 'vue-demi';
 import PickerInputBox from './PickerInputBox/index.vue';
 import PickerInputPopOver from './PickerInputPopOver.vue';
+import PickerInputTransition from './PickerInputTransition.vue';
 
 // @todo: Import this from types
 interface Props {
@@ -26,17 +27,19 @@ function toggleIsOpen() {
       @click="toggleIsOpen"
     />
 
-    <PickerInputPopOver
-      v-show="isOpen"
-      class="PickerInput__input"
-      v-bind="props"
-    >
-      <slot />
-    </PickerInputPopOver>
+    <PickerInputTransition>
+      <PickerInputPopOver
+        v-show="isOpen"
+        class="PickerInput__input"
+        v-bind="props"
+      >
+        <slot />
+      </PickerInputPopOver>
+    </PickerInputTransition>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .PickerInput {
   width: 100%;
 
