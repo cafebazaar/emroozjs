@@ -4,7 +4,7 @@ import {
   AllowedDates, CalendarType, CommonDates, Lang, RangePickerSelectOutput,
 } from '@lib/shared/types';
 import { toJalali } from '@lib/shared/utilities/convertor';
-import RangePickerInput from '../shared/RangePickerInput/index.vue';
+import RangePickerInput from '../shared/RangePickerInput.vue';
 import strings from '../shared/strings';
 
 // @todo: Import this from types

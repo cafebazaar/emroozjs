@@ -1,74 +1,57 @@
 <script setup lang="ts">
-import ArrowDownIcon from './ArrowDownIcon.vue';
+import { ref } from 'vue-demi';
+import PickerInputBox from './PickerInputBox/index.vue';
+import PickerInputPopOver from './PickerInputPopOver.vue';
 
+// @todo: Import this from types
 interface Props {
-  value: string;
   text: string;
+  value: string;
 }
 
 const props = defineProps<Props>();
 
-const emit = defineEmits<{(e: 'click'): void;}>();
+const isOpen = ref(false);
+
+function toggleIsOpen() {
+  isOpen.value = !isOpen.value;
+}
 </script>
 
 <template>
-  <div
-    class="PickerInput"
-    @click="emit('click')"
-  >
-    <span class="PickerInput__text">
-      {{ props.text }}:
-    </span>
-    <input
-      class="PickerInput__input"
-      readonly
+  <div class="PickerInput">
+    <PickerInputBox
       :value="props.value"
+      :text="props.text"
+      @click="toggleIsOpen"
+    />
+
+    <PickerInputPopOver
+      v-show="isOpen"
+      class="PickerInput__input"
+      v-bind="props"
     >
-    <ArrowDownIcon class="PickerInput__icon" />
+      <slot />
+    </PickerInputPopOver>
   </div>
 </template>
 
 <style lang="scss">
 .PickerInput {
-  background-color: $em-white;
-  display: inline-flex;
-  align-items: center;
-
-  padding: $em-global-padding $em-global-padding * 1.6;
-  border: $em-border;
-  border-radius: $em-border-radius;
-
-  cursor: pointer;
-
-  box-sizing: border-box;
   width: 100%;
 
-  direction: rtl;
-  @include ltr {
-    direction: ltr;
-  }
-
-  &__text {
-    color: $em-gray-color;
-    @include endMargin(math.div($em-global-padding, 2));
-  }
+  display: inline-block;
+  position: relative;
 
   &__input {
-    border: none;
-    outline: none;
-    cursor: pointer;
+    top: 100%;
+    margin-top: math.div($em-global-margin, 2);
+    right: 0;
 
-    flex: 1;
-    width: 100%;
-
-    font-family: inherit;
-
-    text-align: center;
-  }
-
-  &__icon {
-    color: $em-dark-gray;
-    @include startMargin(auto);
+    @include ltr() {
+      left: 0;
+      right: auto;
+    }
   }
 }
 </style>
