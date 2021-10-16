@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { RangePickerInputLanguageStrings } from '../types';
 import ArrowDownIcon from './ArrowDownIcon.vue';
 
 interface Props {
   value: string;
-  strings: RangePickerInputLanguageStrings;
+  text: string;
 }
 
 interface Events {
@@ -18,23 +17,23 @@ const emit = defineEmits<Events>();
 
 <template>
   <div
-    class="RangePickerInputUI"
+    class="PickerInput"
     @click="emit('click')"
   >
-    <span class="RangePickerInputUI__text">
-      {{ props.strings.rangeText }}:
+    <span class="PickerInput__text">
+      {{ props.text }}:
     </span>
     <input
-      class="RangePickerInputUI__input"
+      class="PickerInput__input"
       readonly
       :value="props.value"
     >
-    <ArrowDownIcon />
+    <ArrowDownIcon class="PickerInput__icon" />
   </div>
 </template>
 
 <style lang="scss">
-.RangePickerInputUI {
+.PickerInput {
   background-color: $em-white;
   display: inline-flex;
   align-items: center;
@@ -44,6 +43,9 @@ const emit = defineEmits<Events>();
   border-radius: $em-border-radius;
 
   cursor: pointer;
+
+  box-sizing: border-box;
+  width: 100%;
 
   direction: rtl;
   @include ltr {
@@ -60,11 +62,17 @@ const emit = defineEmits<Events>();
     outline: none;
     cursor: pointer;
 
+    flex: 1;
+    width: 100%;
+
     font-family: inherit;
+
+    text-align: center;
   }
 
   &__icon {
     color: $em-dark-gray;
+    @include startMargin(auto);
   }
 }
 </style>

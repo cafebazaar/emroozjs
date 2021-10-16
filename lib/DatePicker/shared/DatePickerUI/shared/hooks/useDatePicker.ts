@@ -1,6 +1,6 @@
 import { inject, Ref } from 'vue-demi';
 import {
-  DatePickerDate, DatePickerLanguageStrings,
+  DatePickerDate, DatePickerLanguageStrings, SelectDate,
 } from '@lib/DatePicker/shared/types';
 import {
   AllowedDates, CurrentDate, DateItem, Direction, SetDateItem,
@@ -14,6 +14,7 @@ export default function useDatePicker(): {
   direction: Ref<Direction>;
   setSelectedDate: SetDateItem;
   allowedDates: AllowedDates;
+  selectDate: SelectDate;
   } {
   return {
     date: inject('date') as DatePickerDate,
@@ -23,5 +24,6 @@ export default function useDatePicker(): {
     direction: inject('direction') as Ref<Direction>,
     setSelectedDate: inject('setSelectedDate') as SetDateItem,
     allowedDates: inject('allowedDates') as AllowedDates,
+    selectDate: inject('selectDate') as SelectDate,
   };
 }

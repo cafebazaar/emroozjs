@@ -7,6 +7,7 @@ import DatePickerUI from '../shared/DatePickerUI/index.vue';
 
 import date from './date';
 import strings from './strings';
+import { SelectDate } from '../shared/types';
 
 const props = defineProps<{
   lang: Lang;
@@ -14,6 +15,7 @@ const props = defineProps<{
   selectedDate: UnifyDateItem;
   setSelectedDate: SetUnifyDateItem;
   allowedDates: AllowedDates;
+  selectDate: SelectDate;
 }>();
 
 const selectedDateTuple = computed(() => (props.selectedDate ? [
@@ -51,5 +53,6 @@ const allowedDates = toRef(props, 'allowedDates');
     :strings="selectedLanguageStrings"
     :current-date="currentDate"
     :allowed-dates="allowedDates"
+    :select-date="selectDate"
   />
 </template>

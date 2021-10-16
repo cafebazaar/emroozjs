@@ -1,6 +1,3 @@
-export interface RangePickerInputDate {
-}
-
 export interface RangePickerInputLanguageStrings {
   readonly notSpecified: string;
   readonly rangeText: string;
