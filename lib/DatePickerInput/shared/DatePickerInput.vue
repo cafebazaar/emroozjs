@@ -27,12 +27,17 @@ const props = defineProps<DatePickerProps>();
     :value="props.value"
     :text="props.strings.dateText"
   >
-    <DatePicker
-      :common-dates="props.commonDates"
-      :allowed-dates="props.allowedDates"
-      :lang="props.lang"
-      :type="props.type"
-      @select="(date) => emit('select', date)"
-    />
+    <template #default="{close}">
+      <DatePicker
+        :common-dates="props.commonDates"
+        :allowed-dates="props.allowedDates"
+        :lang="props.lang"
+        :type="props.type"
+        @select="(date)=>{
+          emit('select', date);
+          close();
+        }"
+      />
+    </template>
   </PickerInput>
 </template>

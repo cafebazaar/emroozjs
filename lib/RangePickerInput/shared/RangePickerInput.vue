@@ -32,12 +32,17 @@ function setSelectedRangeAndEmit(rangeInfo: RangePickerSelectOutput) {
     :value="props.value"
     :text="props.strings.rangeText"
   >
-    <RangePicker
-      :common-dates="props.commonDates"
-      :allowed-dates="props.allowedDates"
-      :lang="props.lang"
-      :type="props.type"
-      @select="setSelectedRangeAndEmit"
-    />
+    <template #default="{ close }">
+      <RangePicker
+        :common-dates="props.commonDates"
+        :allowed-dates="props.allowedDates"
+        :lang="props.lang"
+        :type="props.type"
+        @select="(rangeInfo)=>{
+          setSelectedRangeAndEmit(rangeInfo);
+          close();
+        }"
+      />
+    </template>
   </PickerInput>
 </template>

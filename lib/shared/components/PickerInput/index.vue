@@ -48,7 +48,7 @@ onBeforeUnmount(() => {
         class="PickerInput__input"
         v-bind="props"
       >
-        <slot />
+        <slot :close="handleBodySelect" />
       </PickerInputPopOver>
     </PickerInputTransition>
   </div>
