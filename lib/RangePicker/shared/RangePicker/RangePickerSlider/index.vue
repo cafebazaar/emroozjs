@@ -76,7 +76,7 @@ function decreaseStartingMonth() {
           :key="`${currentSecondDate.year}-${currentSecondDate.month}`"
           :current-month="currentSecondDate.month"
           :current-year="currentSecondDate.year"
-          class="RangePickerSlider__grid-item"
+          class="RangePickerSlider__grid-item RangePickerSlider__grid-item--second"
         />
       </SlideAnimation>
     </div>
@@ -89,6 +89,10 @@ function decreaseStartingMonth() {
   flex-direction: column;
 
   overflow: hidden;
+
+  @include mobile(){
+    box-sizing: border-box;
+  }
 
   &__content {
     position: relative;
@@ -106,6 +110,12 @@ function decreaseStartingMonth() {
     display: inline-block;
 
     height: 100%;
+
+    &--second {
+      @include mobile(){
+        display: none!important;
+      }
+    }
   }
 }
 </style>

@@ -38,7 +38,7 @@ provide('selectDate', props.selectDate);
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .DatePickerUI {
   direction: rtl;
   @include ltr {

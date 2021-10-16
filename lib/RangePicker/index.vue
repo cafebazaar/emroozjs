@@ -15,6 +15,7 @@ interface Props {
   commonDates?: CommonDates;
   allowedDates?: AllowedDates;
   type?: CalendarType;
+  rangePickerClass?: any;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -22,6 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
   commonDates: () => [],
   allowedDates: () => null,
   type: 'shamsi',
+  rangePickerClass: '',
 });
 
 const emit = defineEmits<{(e: 'select', rangePickerSelectOutput: RangePickerSelectOutput): void;
@@ -76,6 +78,7 @@ const direction = computed(() => (lang.value === 'fa' ? 'rtl' : 'ltr'));
       :common-dates="commonDates"
       :allowed-dates="allowedDates"
       :select-range="selectRange"
+      :class="props.rangePickerClass"
     />
   </div>
 </template>

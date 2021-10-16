@@ -9,6 +9,7 @@ $em-text-color: #606266 !default;
 $em-red-color: #F56C6C !default;
 $em-gray-color: #d0d0d2 !default;
 $em-dark-gray: #C0C4CC !default;
+$em-light-gray: #F1F2F9 !default;
 
 $mobile-width: 500px !default;
 
@@ -17,6 +18,9 @@ $em-small-font-size: 12px !default;
 
 $em-global-margin: 10px;
 $em-global-padding: 10px;
+
+// Wrapper
+$em-mobile-corners-border-radius: $em-border-radius * 6 !default;
 
 // Button
 $em-button-background-color: $em-primary-color !default;
@@ -42,6 +46,8 @@ $em-grid-closed-color: $em-red-color !default;
 $em-mostly-used-font-size: $em-font-size !default;
 $em-mostly-used-active-color: $em-primary-color !default;
 $em-mostly-used-transition-duration: $em-transition-duration !default;
+$em-mostly-used-border-radius: $em-border-radius * 2 !default;
+$em-mostly-used-not-active-back-color: $em-light-gray !default;
 
 // Footer
 $em-footer-report-text-color: #909399 !default;

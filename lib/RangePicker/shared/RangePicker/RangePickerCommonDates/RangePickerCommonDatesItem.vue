@@ -56,16 +56,27 @@ const isActive = computed(() => {
   text-overflow: ellipsis;
   overflow: hidden;
 
-  &:not(:first-child) {
-    margin-top: 8px;
+  @include mobile(){
+    padding: math.div($em-global-padding, 2) $em-global-padding * 1.6;
+    border-radius: $em-mostly-used-border-radius;
+    background-color: $em-mostly-used-not-active-back-color;
   }
 
   &:hover {
     color: $em-mostly-used-active-color;
+
+    @include mobile(){
+      color: white;
+    }
   }
 
   &--active {
     color: $em-mostly-used-active-color;
+
+    @include mobile(){
+      color: white;
+      background-color: $em-mostly-used-active-color;
+    }
   }
 }
 </style>

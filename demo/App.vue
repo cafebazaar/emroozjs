@@ -10,6 +10,8 @@ const date = ref(null);
 
 const lastWeek = new Date();
 lastWeek.setDate(lastWeek.getDate() - 7);
+const last2Week = new Date();
+last2Week.setDate(lastWeek.getDate() - 14);
 
 const isShamsi = ref(true);
 const isPersian = ref(true);
@@ -46,7 +48,62 @@ function toggleLang() {
           to: new Date(),
           from: lastWeek,
           label: 'هفته اخیر'
-        }
+        },
+        {
+          to: new Date(),
+          from: last2Week,
+          label: '۲ هفته  اخیر'
+        },
+        {
+          to: new Date(),
+          from: lastWeek,
+          label: 'هفته اخیر'
+        },
+        {
+          to: new Date(),
+          from: last2Week,
+          label: '۲ هفته  اخیر'
+        },
+        {
+          to: new Date(),
+          from: lastWeek,
+          label: 'هفته اخیر'
+        },
+        {
+          to: new Date(),
+          from: last2Week,
+          label: '۲ هفته  اخیر'
+        },
+        {
+          to: new Date(),
+          from: lastWeek,
+          label: 'هفته اخیر'
+        },
+        {
+          to: new Date(),
+          from: last2Week,
+          label: '۲ هفته  اخیر'
+        },
+        {
+          to: new Date(),
+          from: lastWeek,
+          label: 'هفته اخیر'
+        },
+        {
+          to: new Date(),
+          from: last2Week,
+          label: '۲ هفته  اخیر'
+        },
+        {
+          to: new Date(),
+          from: lastWeek,
+          label: 'هفته اخیر'
+        },
+        {
+          to: new Date(),
+          from: last2Week,
+          label: '۲ هفته  اخیر'
+        },
       ]"
     />
 

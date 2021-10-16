@@ -31,6 +31,7 @@ const direction = useDirection(lang);
     :value="props.value"
     :text="props.strings.dateText"
     :direction="direction"
+    class="DatePickerInputUI"
   >
     <template #default="{close}">
       <DatePicker
@@ -51,7 +52,8 @@ const direction = useDirection(lang);
 <style lang="scss">
 .DatePickerInputUI {
   &__date-picker {
-    border-radius: 24px;
+    border-top-right-radius: $em-mobile-corners-border-radius!important;
+    border-top-left-radius: $em-mobile-corners-border-radius!important;
   }
 }
 </style>

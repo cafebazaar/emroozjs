@@ -85,15 +85,29 @@ provide('selectRange', props.selectRange);
       width: 560px;
     }
 
+    @include mobile(){
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     &__content {
       display: flex;
       width: 100%;
       flex: 1;
       margin-bottom: 20px;
+
+      @include mobile(){
+        flex-direction: column;
+      }
     }
 
     &__common-dates {
       flex-basis: 160px;
+
+      @include mobile(){
+        flex-basis: 50px;
+        margin-bottom: $em-global-margin;
+      }
     }
 
     &__slider {

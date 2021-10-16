@@ -173,8 +173,8 @@ const {
     width: 20px;
     height: 20px;
     @include mobile(){
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 100%;
     }
 
     display: flex;

@@ -33,12 +33,14 @@ const direction = useDirection(lang);
 
 <template>
   <PickerInput
+    class="RangePickerInputUI"
     :direction="direction"
     :value="props.value"
     :text="props.strings.rangeText"
   >
     <template #default="{ close }">
       <RangePicker
+        range-picker-class="RangePickerInputUI__range-picker"
         :common-dates="props.commonDates"
         :allowed-dates="props.allowedDates"
         :lang="props.lang"
@@ -51,3 +53,12 @@ const direction = useDirection(lang);
     </template>
   </PickerInput>
 </template>
+
+<style lang="scss">
+.RangePickerInputUI {
+  &__range-picker {
+    border-top-right-radius: $em-mobile-corners-border-radius!important;
+    border-top-left-radius: $em-mobile-corners-border-radius!important;
+  }
+}
+</style>
