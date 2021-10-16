@@ -52,6 +52,11 @@ provide('selectDate', props.selectDate);
 
   width: 241px;
 
+  @include mobile(){
+    width: 100%;
+    padding: $em-global-padding * 2.4;
+  }
+
   box-sizing: border-box;
 
   &__footer {

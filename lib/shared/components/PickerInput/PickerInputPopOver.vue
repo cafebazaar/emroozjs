@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { POPOVER_WRAPPER_ELEMENT_ID } from '@lib/shared/config';
 import { Direction } from '@lib/shared/types';
 import {
   onMounted, ref, watch, onBeforeUnmount,
@@ -15,13 +14,7 @@ const el = ref<HTMLElement | null>(null);
 
 onMounted(() => {
   if (el.value) {
-    if (!document.body.querySelector(`#${POPOVER_WRAPPER_ELEMENT_ID}`)) {
-      const popoverWrapper = document.createElement('div');
-      popoverWrapper.setAttribute('id', POPOVER_WRAPPER_ELEMENT_ID);
-      document.body.appendChild(popoverWrapper);
-    }
-
-    document.body.querySelector(`#${POPOVER_WRAPPER_ELEMENT_ID}`)?.appendChild(el.value);
+    document.body.appendChild(el.value);
   }
 });
 
@@ -32,7 +25,6 @@ onBeforeUnmount(() => {
 });
 
 watch(props, () => {
-  console.log('props');
   if (!el.value || !props.domRect) return;
 
   const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
@@ -41,7 +33,7 @@ watch(props, () => {
   el.value.style.top = `${props.domRect.top + props.domRect.height + scrollTop}px`;
 
   if (props.direction === 'rtl') {
-    el.value.style.right = `${window.innerWidth - props.domRect.right + scrollLeft}px`;
+    el.value.style.right = `${window.innerWidth - props.domRect.right - scrollLeft}px`;
     return;
   }
   el.value.style.left = `${props.domRect.left + scrollLeft}px`;
@@ -53,7 +45,9 @@ watch(props, () => {
     ref="el"
     class="PickerInputPopOver"
   >
-    <slot />
+    <div @click.stop>
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -63,5 +57,17 @@ watch(props, () => {
   z-index: 100;
 
   transition-duration: 0.3s;
+
+  @include mobile(){
+    position: fixed;
+
+    right: 0!important;
+    bottom: 0!important;
+    top: auto !important;
+    left: 0 !important;
+
+    width: 100%;
+
+  }
 }
 </style>

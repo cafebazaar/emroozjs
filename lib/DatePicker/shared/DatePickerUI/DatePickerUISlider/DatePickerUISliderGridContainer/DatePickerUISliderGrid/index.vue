@@ -68,6 +68,10 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
 
   width: 191px;
 
+  @include mobile(){
+    width: 100%;
+  }
+
   box-sizing: border-box;
 
   border-radius: $em-grid-border-radius;

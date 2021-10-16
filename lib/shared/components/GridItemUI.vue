@@ -75,6 +75,11 @@ const {
   width: 27px;
   height: 20px;
 
+  @include mobile(){
+    width: calc(100% / 7);
+    height: 40px;
+  }
+
   cursor: pointer;
   user-select: none;
 
@@ -167,6 +172,11 @@ const {
 
     width: 20px;
     height: 20px;
+    @include mobile(){
+      width: 30px;
+      height: 30px;
+    }
+
     display: flex;
     align-items: center;
     justify-content: center;

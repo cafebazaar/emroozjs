@@ -59,7 +59,6 @@ onBeforeUnmount(() => {
         class="PickerInput__input"
         :dom-rect="domRect"
         :direction="props.direction"
-        @click.stop
       >
         <slot :close="handleBodySelect" />
       </PickerInputPopOver>

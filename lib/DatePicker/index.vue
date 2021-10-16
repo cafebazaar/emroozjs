@@ -13,6 +13,7 @@ interface Props {
   lang?: Lang;
   allowedDates?: AllowedDates;
   type?: CalendarType;
+  datePickerClass?: any;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -20,6 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
   commonDates: () => [],
   allowedDates: () => null,
   type: 'shamsi',
+  datePickerClass: '',
 });
 
 const emit = defineEmits<{(e: 'select', date: DatePickerSelectOutput): void;}>();
@@ -62,6 +64,7 @@ const direction = computed(() => (lang.value === 'fa' ? 'rtl' : 'ltr'));
       :set-selected-date="setSelectedDate"
       :allowed-dates="allowedDates"
       :select-date="selectDate"
+      :class="props.datePickerClass"
     />
   </div>
 </template>
