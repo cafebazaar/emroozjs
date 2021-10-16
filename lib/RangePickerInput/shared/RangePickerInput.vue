@@ -57,8 +57,10 @@ const direction = useDirection(lang);
 <style lang="scss">
 .RangePickerInputUI {
   &__range-picker {
-    border-top-right-radius: $em-mobile-corners-border-radius!important;
-    border-top-left-radius: $em-mobile-corners-border-radius!important;
+    @include mobile(){
+      border-top-right-radius: $em-mobile-corners-border-radius!important;
+      border-top-left-radius: $em-mobile-corners-border-radius!important;
+    }
   }
 }
 </style>
