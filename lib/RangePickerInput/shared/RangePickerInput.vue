@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { toRefs } from 'vue-demi';
+import { toRef } from 'vue-demi';
 import {
   AllowedDates, CalendarType, CommonDates, Lang, RangePickerSelectOutput,
 } from '@lib/shared/types';
 import RangePicker from '@lib/RangePicker/index.vue';
 import PickerInput from '@lib/shared/components/PickerInput/index.vue';
+import useDirection from '@lib/shared/hooks/useDirection';
 import { RangePickerInputLanguageStrings } from './types';
 
 // @todo: Import this from types
@@ -21,14 +22,18 @@ interface RangePickerProps {
 const emit = defineEmits<{(e: 'select', rangePickerSelectOutput: RangePickerSelectOutput): void;}>();
 
 const props = defineProps<RangePickerProps>();
+const lang = toRef(props, 'lang');
 
 function setSelectedRangeAndEmit(rangeInfo: RangePickerSelectOutput) {
   emit('select', rangeInfo);
 }
+
+const direction = useDirection(lang);
 </script>
 
 <template>
   <PickerInput
+    :direction="direction"
     :value="props.value"
     :text="props.strings.rangeText"
   >

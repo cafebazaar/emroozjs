@@ -25,6 +25,19 @@ function toggleLang() {
 
 <template>
   <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <hr>
+    <EMRangePickerInput
+      v-model="range"
+      :type="isShamsi ? 'shamsi' : 'miladi'"
+      :lang="isPersian ? 'fa' : 'en'"
+    />
+    <hr>
+    <EMDatePickerInput
+      v-model="date"
+      :type="isShamsi ? 'shamsi' : 'miladi'"
+      :lang="isPersian ? 'fa' : 'en'"
+    />
+    <hr>
     <EMRangePicker
       :type="isShamsi ? 'shamsi' : 'miladi'"
       :lang="isPersian ? 'fa' : 'en'"
@@ -45,18 +58,6 @@ function toggleLang() {
     </button>
     <hr>
     <EMDatePicker
-      :type="isShamsi ? 'shamsi' : 'miladi'"
-      :lang="isPersian ? 'fa' : 'en'"
-    />
-    <hr>
-    <EMRangePickerInput
-      v-model="range"
-      :type="isShamsi ? 'shamsi' : 'miladi'"
-      :lang="isPersian ? 'fa' : 'en'"
-    />
-    <hr>
-    <EMDatePickerInput
-      v-model="date"
       :type="isShamsi ? 'shamsi' : 'miladi'"
       :lang="isPersian ? 'fa' : 'en'"
     />

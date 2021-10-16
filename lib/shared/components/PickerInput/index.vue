@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue-demi';
+import { Direction } from '@lib/shared/types';
+import {
+  ref, onMounted, onBeforeUnmount,
+} from 'vue-demi';
 import PickerInputBox from './PickerInputBox/index.vue';
 import PickerInputPopOver from './PickerInputPopOver.vue';
 import PickerInputTransition from './PickerInputTransition.vue';
@@ -8,14 +11,21 @@ import PickerInputTransition from './PickerInputTransition.vue';
 interface Props {
   text: string;
   value: string;
+  direction: Direction;
 }
 
 const props = defineProps<Props>();
 
+const inputRef = ref<HTMLElement | null>(null);
 const isOpen = ref(false);
+const domRect = ref<DOMRect | null>(null);
 
 function toggleIsOpen() {
   isOpen.value = !isOpen.value;
+
+  if (isOpen.value && inputRef.value) {
+    domRect.value = inputRef.value.getBoundingClientRect();
+  }
 }
 
 function handleBodySelect() {
@@ -33,6 +43,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div
+    ref="inputRef"
     class="PickerInput"
     @click.stop
   >
@@ -46,7 +57,9 @@ onBeforeUnmount(() => {
       <PickerInputPopOver
         v-show="isOpen"
         class="PickerInput__input"
-        v-bind="props"
+        :dom-rect="domRect"
+        :direction="props.direction"
+        @click.stop
       >
         <slot :close="handleBodySelect" />
       </PickerInputPopOver>
@@ -62,14 +75,7 @@ onBeforeUnmount(() => {
   position: relative;
 
   &__input {
-    top: 100%;
     margin-top: math.div($em-global-margin, 2);
-    right: 0;
-
-    @include ltr() {
-      left: 0;
-      right: auto;
-    }
   }
 }
 </style>
