@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue-demi';
+import { ref, onMounted, onBeforeUnmount } from 'vue-demi';
 import PickerInputBox from './PickerInputBox/index.vue';
 import PickerInputPopOver from './PickerInputPopOver.vue';
 import PickerInputTransition from './PickerInputTransition.vue';
@@ -17,10 +17,25 @@ const isOpen = ref(false);
 function toggleIsOpen() {
   isOpen.value = !isOpen.value;
 }
+
+function handleBodySelect() {
+  isOpen.value = false;
+}
+
+onMounted(() => {
+  document.body.addEventListener('click', handleBodySelect);
+});
+
+onBeforeUnmount(() => {
+  document.body.removeEventListener('click', handleBodySelect);
+});
 </script>
 
 <template>
-  <div class="PickerInput">
+  <div
+    class="PickerInput"
+    @click.stop
+  >
     <PickerInputBox
       :value="props.value"
       :text="props.text"
