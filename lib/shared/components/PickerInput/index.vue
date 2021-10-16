@@ -6,13 +6,9 @@ interface Props {
   text: string;
 }
 
-interface Events {
-  (e: 'click'): void;
-}
-
 const props = defineProps<Props>();
 
-const emit = defineEmits<Events>();
+const emit = defineEmits<{(e: 'click'): void;}>();
 </script>
 
 <template>

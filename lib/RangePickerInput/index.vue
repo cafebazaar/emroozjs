@@ -20,10 +20,6 @@ interface RangePickerProps {
   modelValue?: RangePickerSelectOutput | null;
 }
 
-interface Events {
-  (e: 'update:modelValue', rangeInfo: RangePickerSelectOutput): void;
-}
-
 const props = withDefaults(defineProps<RangePickerProps>(), {
   lang: 'fa',
   commonDates: () => [],
@@ -32,7 +28,8 @@ const props = withDefaults(defineProps<RangePickerProps>(), {
   modelValue: () => null,
 });
 
-const emit = defineEmits<Events>();
+const emit = defineEmits<{(e: 'update:modelValue', rangeInfo: RangePickerSelectOutput): void;
+}>();
 
 const CalendarComponent = computed(() => RANGE_PICKER_INPUT_TYPE_TO_COMPONENT[props.type]);
 

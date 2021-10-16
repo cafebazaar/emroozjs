@@ -19,11 +19,7 @@ interface DatePickerProps {
 }
 
 // @todo: Import this from types
-interface Events {
-  (e: 'select', date: DatePickerSelectOutput): void;
-}
-
-const emit = defineEmits<Events>();
+const emit = defineEmits<{(e: 'select', date: DatePickerSelectOutput): void;}>();
 
 const props = defineProps<DatePickerProps>();
 

@@ -19,11 +19,7 @@ interface RangePickerProps {
 }
 
 // @todo: Import this from types
-interface Events {
-  (e: 'select', rangePickerSelectOutput: RangePickerSelectOutput): void;
-}
-
-const emit = defineEmits<Events>();
+const emit = defineEmits<{(e: 'select', rangePickerSelectOutput: RangePickerSelectOutput): void;}>();
 
 const props = defineProps<RangePickerProps>();
 

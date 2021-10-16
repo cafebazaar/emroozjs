@@ -9,12 +9,8 @@ interface Props {
   direction: Direction;
 }
 
-interface Events {
-  (e: 'click'): void;
-}
-
 const props = defineProps<Props>();
-const emit = defineEmits<Events>();
+const emit = defineEmits<{(e: 'click'): void;}>();
 
 const ArrowStart = computed(() => (props.direction === 'ltr' ? ArrowLeft : ArrowRight));
 </script>

@@ -17,10 +17,6 @@ interface Props {
   type?: CalendarType;
 }
 
-interface Events {
-  (e: 'select', rangePickerSelectOutput: RangePickerSelectOutput): void;
-}
-
 const props = withDefaults(defineProps<Props>(), {
   lang: 'fa',
   commonDates: () => [],
@@ -28,7 +24,8 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'shamsi',
 });
 
-const emit = defineEmits<Events>();
+const emit = defineEmits<{(e: 'select', rangePickerSelectOutput: RangePickerSelectOutput): void;
+}>();
 
 const RANGE_PICKER_TYPE_TO_COMPONENT = {
   shamsi: RangePickerShamsi,

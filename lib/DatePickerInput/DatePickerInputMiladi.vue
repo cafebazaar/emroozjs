@@ -15,12 +15,8 @@ interface RangePickerProps {
   type: CalendarType;
 }
 
-interface Events {
-  (e: 'select', date: DatePickerSelectOutput): void;
-}
-
 const props = defineProps<RangePickerProps>();
-const emit = defineEmits<Events>();
+const emit = defineEmits<{(e: 'select', date: DatePickerSelectOutput): void;}>();
 
 const selectedLanguageStrings = computed(() => strings[props.lang]);
 

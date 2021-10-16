@@ -15,10 +15,6 @@ interface Props {
   type?: CalendarType;
 }
 
-interface Events {
-  (e: 'select', date: DatePickerSelectOutput): void;
-}
-
 const props = withDefaults(defineProps<Props>(), {
   lang: 'fa',
   commonDates: () => [],
@@ -26,7 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'shamsi',
 });
 
-const emit = defineEmits<Events>();
+const emit = defineEmits<{(e: 'select', date: DatePickerSelectOutput): void;}>();
 
 const DATE_PICKER_TYPE_TO_COMPONENT = {
   shamsi: DatePickerShamsi,

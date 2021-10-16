@@ -13,10 +13,6 @@ interface Props {
   isClosed?: boolean;
 }
 
-interface Events {
-  (e: 'click'): void;
-}
-
 const props = withDefaults(defineProps<Props>(), {
   isHeader: false,
   isActiveStart: false,
@@ -29,7 +25,8 @@ const props = withDefaults(defineProps<Props>(), {
   isClosed: false,
 });
 
-const emit = defineEmits<Events>();
+const emit = defineEmits<{(e: 'click'): void;
+}>();
 
 const {
   isHeader,

@@ -10,16 +10,12 @@ interface Props {
   currentDay: number;
 }
 
-interface Events {
-  (e: 'click'): void;
-}
-
 const { allowedDates, date } = useDatePicker();
 
 const props = defineProps<Props>();
 const { currentDay, currentMonth, currentYear } = toRefs(props);
 
-const emit = defineEmits<Events>();
+const emit = defineEmits<{(e: 'click'): void;}>();
 
 const {
   isActive,

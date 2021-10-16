@@ -6,16 +6,12 @@ interface Props {
   disabled?: boolean;
 }
 
-interface Events {
-  (e: 'click'): void;
-}
-
 const props = withDefaults(defineProps<Props>(), {
   icon: false,
   disabled: false,
 });
 
-const emit = defineEmits<Events>();
+const emit = defineEmits<{(e: 'click'): void;}>();
 
 const icon = toRef(props, 'icon');
 const disabled = toRef(props, 'disabled');
