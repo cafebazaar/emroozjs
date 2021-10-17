@@ -5,7 +5,7 @@ import {
 } from '@lib/shared/types';
 import RangePickerCommonDates from './RangePickerCommonDates/index.vue';
 import RangePickerSlider from './RangePickerSlider/index.vue';
-import RangePickerFooter from './RangePickerFooter.vue';
+import RangePickerFooter from './RangePickerFooter/index.vue';
 import {
   RangePickerDate, RangePickerLanguageStrings,
   LocalCommonDates,

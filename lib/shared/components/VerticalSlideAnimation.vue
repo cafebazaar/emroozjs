@@ -18,7 +18,6 @@
     opacity: 0;
   }
   &-leave-active {
-    position: absolute;
     user-select: none;
     pointer-events: none;
   }

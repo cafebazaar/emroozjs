@@ -28,6 +28,7 @@ const strings: RangePickerStrings = {
     action: 'Apply',
     to: 'To',
     commonDates: 'Common Dates',
+    goToToday: 'Go to today',
   },
   fa: {
     monthNames: [
@@ -56,6 +57,7 @@ const strings: RangePickerStrings = {
     action: 'اعمال تاریخ',
     to: 'تا',
     commonDates: 'زمان‌های پر استفاده',
+    goToToday: 'برو به امروز',
   },
 };
 

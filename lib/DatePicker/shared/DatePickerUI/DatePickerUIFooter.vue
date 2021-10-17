@@ -5,7 +5,9 @@ import VerticalSlideAnimation from '@lib/shared/components/VerticalSlideAnimatio
 import useDatePicker from './shared/hooks/useDatePicker';
 import useDateHelpers from './shared/hooks/useDateHelpers';
 
-const { strings, selectedDate, selectDate } = useDatePicker();
+const {
+  strings, selectedDate, selectDate,
+} = useDatePicker();
 const { isDateSelected } = useDateHelpers();
 
 const datePreviewString = computed(() => {
@@ -29,6 +31,7 @@ const datePreviewString = computed(() => {
     </VerticalSlideAnimation>
 
     <Button
+      class="DatePickerUIFooter__action"
       :disabled="!isDateSelected"
       @click="selectDate"
     >
@@ -40,7 +43,6 @@ const datePreviewString = computed(() => {
 <style lang="scss">
 .DatePickerUIFooter {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
   padding-top: $em-global-padding * 1.6;
@@ -50,6 +52,10 @@ const datePreviewString = computed(() => {
     font-size: $em-footer-font-size;
 
     transition-duration: $em-transition-duration;
+  }
+
+  &__action {
+    @include startMargin(auto);
   }
 }
 </style>

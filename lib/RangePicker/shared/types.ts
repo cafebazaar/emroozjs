@@ -19,6 +19,7 @@ export interface RangePickerLanguageStrings {
   readonly action: string;
   readonly to: string;
   readonly commonDates: string;
+  readonly goToToday: string;
 }
 
 export interface RangePickerStrings {
