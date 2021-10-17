@@ -6,6 +6,7 @@ import {
   AllowedDates, CalendarType, CommonDates, Lang,
   RangePickerSelectOutput, SetUnifyDateItem, UnifyDateItem,
 } from '@lib/shared/types';
+import useDirection from '@lib/shared/hooks/useDirection';
 import RangePickerShamsi from './RangePickerShamsi/index.vue';
 import RangePickerMiladi from './RangePickerMiladi/index.vue';
 import { SelectRange } from './shared/types';
@@ -59,7 +60,7 @@ const allowedDates = toRef(props, 'allowedDates');
 
 const CalendarComponent = computed(() => RANGE_PICKER_TYPE_TO_COMPONENT[props.type]);
 
-const direction = computed(() => (lang.value === 'fa' ? 'rtl' : 'ltr'));
+const direction = useDirection(lang);
 </script>
 
 <template>

@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue-demi';
+import { computed, toRef } from 'vue-demi';
 import {
   AllowedDates, CalendarType, CommonDates, Lang, DatePickerSelectOutput,
 } from '@lib/shared/types';
+import useDirection from '@lib/shared/hooks/useDirection';
 import DatePickerInputShamsi from './DatePickerInputShamsi.vue';
 import DatePickerInputMiladi from './DatePickerInputMiladi.vue';
 
@@ -32,8 +33,8 @@ const emit = defineEmits<{(e: 'update:modelValue', date: DatePickerSelectOutput)
 }>();
 
 const CalendarComponent = computed(() => DATE_PICKER_INPUT_TYPE_TO_COMPONENT[props.type]);
-
-const direction = computed(() => (props.lang === 'fa' ? 'rtl' : 'ltr'));
+const lang = toRef(props, 'lang');
+const direction = useDirection(lang);
 
 function emitSelectedRange(date: DatePickerSelectOutput) {
   emit('update:modelValue', date);

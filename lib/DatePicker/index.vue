@@ -5,6 +5,7 @@ import {
 import {
   Lang, AllowedDates, CalendarType, UnifyDateItem, SetUnifyDateItem, DatePickerSelectOutput,
 } from '@lib/shared/types';
+import useDirection from '@lib/shared/hooks/useDirection';
 import DatePickerShamsi from './DatePickerShamsi/index.vue';
 import DatePickerMiladi from './DatePickerMiladi/index.vue';
 import { SelectDate } from './shared/types';
@@ -48,7 +49,7 @@ const allowedDates = toRef(props, 'allowedDates');
 
 const CalendarComponent = computed(() => DATE_PICKER_TYPE_TO_COMPONENT[props.type]);
 
-const direction = computed(() => (lang.value === 'fa' ? 'rtl' : 'ltr'));
+const direction = useDirection(lang);
 </script>
 
 <template>

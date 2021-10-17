@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue-demi';
+import { computed, toRef } from 'vue-demi';
 import {
   AllowedDates, CalendarType, CommonDates, Lang, RangePickerSelectOutput,
 } from '@lib/shared/types';
+import useDirection from '@lib/shared/hooks/useDirection';
 import RangePickerInputShamsi from './RangePickerInputShamsi/index.vue';
 import RangePickerInputMiladi from './RangePickerInputMiladi/index.vue';
 
@@ -33,7 +34,8 @@ const emit = defineEmits<{(e: 'update:modelValue', rangeInfo: RangePickerSelectO
 
 const CalendarComponent = computed(() => RANGE_PICKER_INPUT_TYPE_TO_COMPONENT[props.type]);
 
-const direction = computed(() => (props.lang === 'fa' ? 'rtl' : 'ltr'));
+const lang = toRef(props, 'lang');
+const direction = useDirection(lang);
 
 function emitSelectedRange(rangeInfo: RangePickerSelectOutput) {
   emit('update:modelValue', rangeInfo);
