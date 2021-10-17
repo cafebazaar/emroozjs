@@ -107,8 +107,14 @@ export const miladi = {
 export const general = {
   fa: {
     to: 'تا',
+    goToToday: 'برو به امروز',
+    apply: 'اعمال تاریخ',
+    commonDates: 'زمان‌های پر استفاده',
   },
   en: {
     to: 'To',
+    goToToday: 'Go to today',
+    apply: 'Apply',
+    commonDates: 'Common dates',
   },
 };

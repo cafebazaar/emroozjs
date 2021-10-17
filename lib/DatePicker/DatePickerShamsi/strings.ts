@@ -1,14 +1,14 @@
-import { shamsi } from '@lib/shared/strings';
+import { general, shamsi } from '@lib/shared/strings';
 import { DatePickerStrings } from '../shared/types';
 
 const strings: DatePickerStrings = {
   en: {
     ...shamsi.en,
-    action: 'Apply',
+    action: general.en.apply,
   },
   fa: {
     ...shamsi.fa,
-    action: 'اعمال تاریخ',
+    action: general.fa.apply,
   },
 };
 

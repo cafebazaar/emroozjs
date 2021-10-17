@@ -47,6 +47,6 @@ const selectedRangeString = computed(() => {
     :model-value="props.modelValue"
     :selected-range-string="selectedRangeString"
     :strings="selectedLanguageStrings"
-    @select="emitSelectedRange"
+    @update:modelValue="emitSelectedRange"
   />
 </template>
