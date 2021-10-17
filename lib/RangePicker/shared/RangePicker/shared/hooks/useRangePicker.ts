@@ -7,6 +7,7 @@ import {
 import {
   AllowedDates, CurrentDate, DateItem, Direction, SetDateItem,
 } from '@lib/shared/types';
+import { CurrentFirstSliderDate, SetCurrentFirstSliderDate } from '../types';
 
 export default function useRangePicker(): {
   date: RangePickerDate;
@@ -20,6 +21,8 @@ export default function useRangePicker(): {
   setToDate: SetDateItem;
   allowedDates: AllowedDates;
   selectRange: SelectRange;
+  currentFirstSliderDate: Readonly<Ref<CurrentFirstSliderDate>>;
+  setCurrentFirstSliderDate: SetCurrentFirstSliderDate;
   } {
   return {
     date: inject('date') as RangePickerDate,
@@ -33,5 +36,7 @@ export default function useRangePicker(): {
     setToDate: inject('setToDate') as SetDateItem,
     allowedDates: inject('allowedDates') as AllowedDates,
     selectRange: inject('selectRange') as SelectRange,
+    currentFirstSliderDate: inject('currentFirstSliderDate') as Readonly<Ref<CurrentFirstSliderDate>>,
+    setCurrentFirstSliderDate: inject('setCurrentFirstSliderDate') as SetCurrentFirstSliderDate,
   };
 }

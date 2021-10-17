@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue-demi';
+import { ref, watch } from 'vue-demi';
 import SlideAnimation from '@lib/shared/components/SlideAnimation.vue';
 import StartingArrowButton from '@lib/shared/components/arrow-buttons/StartingArrowButton.vue';
 import EndingArrowButton from '@lib/shared/components/arrow-buttons/EndingArrowButton.vue';
@@ -12,19 +12,16 @@ const props = defineProps<{
   firstYear: number;
   secondMonth: number;
   secondYear: number;
+  isAnimationInverted: boolean;
 }>();
 
 const emit = defineEmits<{(e: 'next'): void; (e: 'prev'): void;}>();
 
-const isAnimationInverted = ref(false);
-
 function next() {
-  isAnimationInverted.value = false;
   emit('next');
 }
 
 function prev() {
-  isAnimationInverted.value = true;
   emit('prev');
 }
 </script>

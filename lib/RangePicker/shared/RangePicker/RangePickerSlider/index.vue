@@ -1,58 +1,58 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue-demi';
+import { ref, computed, watch } from 'vue-demi';
 import SlideAnimation from '@lib/shared/components/SlideAnimation.vue';
 import RangePickerSliderControllers from './RangePickerSliderControllers.vue';
 import useCalendar from '../shared/hooks/useRangePicker';
 import RangePickerSliderGridContainer from './RangePickerSliderGridContainer/index.vue';
 
-const { currentDate, date, direction } = useCalendar();
-
-const currentFirstDate = ref({
-  year: currentDate.value[0],
-  month: currentDate.value[1],
-});
+const {
+  date, direction, currentFirstSliderDate, setCurrentFirstSliderDate,
+} = useCalendar();
 
 const currentSecondDate = computed(() => date.getNextMonth(
-  { year: currentFirstDate.value.year, month: currentFirstDate.value.month },
+  { year: currentFirstSliderDate.value.year, month: currentFirstSliderDate.value.month },
 ));
 
 const isAnimationInverted = ref(false);
 
 function incrementStartingMonth() {
   const { month, year } = date.getNextMonth({
-    month: currentFirstDate.value.month,
-    year: currentFirstDate.value.year,
+    month: currentFirstSliderDate.value.month,
+    year: currentFirstSliderDate.value.year,
   });
 
-  isAnimationInverted.value = false;
-
-  currentFirstDate.value = {
-    year,
-    month,
-  };
+  setCurrentFirstSliderDate({
+    year, month,
+  });
 }
 
 function decreaseStartingMonth() {
   const { month, year } = date.getPrevMonth({
-    month: currentFirstDate.value.month,
-    year: currentFirstDate.value.year,
+    month: currentFirstSliderDate.value.month,
+    year: currentFirstSliderDate.value.year,
   });
 
-  isAnimationInverted.value = true;
-
-  currentFirstDate.value = {
-    year,
-    month,
-  };
+  setCurrentFirstSliderDate({
+    year, month,
+  });
 }
+
+watch(currentFirstSliderDate, (old, newVal) => {
+  if (date.compare([old.year, old.month, 1], [newVal.year, newVal.month, 1]) === -1) {
+    isAnimationInverted.value = false;
+  } else {
+    isAnimationInverted.value = true;
+  }
+});
 </script>
 
 <template>
   <div class="RangePickerSlider">
     <header>
       <RangePickerSliderControllers
-        :first-month="currentFirstDate.month"
-        :first-year="currentFirstDate.year"
+        :is-animation-inverted="isAnimationInverted"
+        :first-month="currentFirstSliderDate.month"
+        :first-year="currentFirstSliderDate.year"
         :second-month="currentSecondDate.month"
         :second-year="currentSecondDate.year"
         @prev="decreaseStartingMonth"
@@ -66,9 +66,9 @@ function decreaseStartingMonth() {
         :direction="direction"
       >
         <RangePickerSliderGridContainer
-          :key="`${currentFirstDate.year}-${currentFirstDate.month}`"
-          :current-month="currentFirstDate.month"
-          :current-year="currentFirstDate.year"
+          :key="`${currentFirstSliderDate.year}-${currentFirstSliderDate.month}`"
+          :current-month="currentFirstSliderDate.month"
+          :current-year="currentFirstSliderDate.year"
           class="RangePickerSlider__grid-item"
         />
 

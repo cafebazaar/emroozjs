@@ -29,6 +29,9 @@ $em-button-border-radius: $em-border-radius !default;
 $em-button-color: $em-white !default;
 $em-button-disabled-color: #909399 !default;
 $em-button-disabled-background-color: #EAEEF4 !default;
+$em-button-plain-color: $em-text-color !default;
+$em-button-plain-hover-color: $em-primary-color !default;
+$em-button-transition-duration: $em-transition-duration !default;
 
 // Grid
 $em-grid-header-color: $em-dark-gray !default;

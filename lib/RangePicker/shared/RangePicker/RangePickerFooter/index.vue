@@ -7,7 +7,8 @@ import useRangeHelpers from '../shared/hooks/useRangeHelpers';
 import RangePickerFooterClose from './RangePickerFooterClose.vue';
 
 const {
-  strings, fromDate, toDate, selectRange, setToDate, setFromDate,
+  strings, fromDate, toDate, selectRange, setToDate,
+  setFromDate, setCurrentFirstSliderDate, currentDate,
 } = useCalendar();
 const { isRangeSelected } = useRangeHelpers();
 
@@ -25,13 +26,23 @@ function removeRange() {
   setToDate(null);
   setFromDate(null);
 }
+
+function resetSlider() {
+  setCurrentFirstSliderDate({
+    year: currentDate.value[0],
+    month: currentDate.value[1],
+  });
+}
 </script>
 
 <template>
   <div class="RangePickerFooter">
-    <span>
+    <Button
+      plain
+      @click="resetSlider"
+    >
       {{ strings.goToToday }}
-    </span>
+    </Button>
     <div class="RangePickerFooter__sep" />
     <VerticalSlideAnimation>
       <span

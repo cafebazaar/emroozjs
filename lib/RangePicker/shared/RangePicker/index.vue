@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { provide, toRefs, reactive } from 'vue-demi';
+import {
+  provide, toRefs, reactive, ref, Ref,
+} from 'vue-demi';
 import {
   AllowedDates, CurrentDate, DateItem, Direction, SetDateItem,
 } from '@lib/shared/types';
@@ -11,6 +13,7 @@ import {
   LocalCommonDates,
   SelectRange,
 } from '../types';
+import { CurrentFirstSliderDate, SetCurrentFirstSliderDate } from './shared/types';
 
 interface Props {
   date: RangePickerDate,
@@ -30,6 +33,18 @@ const props = defineProps<Props>();
 
 const refProps = toRefs(props);
 
+const currentFirstSliderDate: Ref<CurrentFirstSliderDate> = ref({
+  year: props.currentDate[0],
+  month: props.currentDate[1],
+});
+
+const setCurrentFirstSliderDate: SetCurrentFirstSliderDate = (slideInfo) => {
+  currentFirstSliderDate.value = {
+    year: slideInfo.year,
+    month: slideInfo.month,
+  };
+};
+
 provide('date', props.date);
 provide('strings', refProps.strings);
 provide('fromDate', refProps.fromDate);
@@ -41,6 +56,8 @@ provide('setFromDate', props.setFromDate);
 provide('setToDate', props.setToDate);
 provide('allowedDates', props.allowedDates);
 provide('selectRange', props.selectRange);
+provide('currentFirstSliderDate', currentFirstSliderDate);
+provide('setCurrentFirstSliderDate', setCurrentFirstSliderDate);
 </script>
 
 <template>
