@@ -75,6 +75,36 @@ export default function useDateCompares(
     return false;
   });
 
+  const isMiddleEmpty = computed(() => {
+    if (!isRangeSelected.value) return false;
+
+    // If starting range edge is the first day of month
+    if (
+      toBeComparedDayTuple.value[2] === 1
+      && date.compare(fromDate.value as TupleDate, toBeComparedDayTuple.value) === 0
+    ) {
+      return false;
+    }
+
+    const currentEndRangeEdgeMonthDays = date.getMonthDays(
+      { year: toBeComparedDayTuple.value[0], month: toBeComparedDayTuple.value[1] },
+    );
+    // If ending range edge is the last day of month
+    if (
+      toBeComparedDayTuple.value[2] === currentEndRangeEdgeMonthDays
+      && date.compare(toDate.value as TupleDate, toBeComparedDayTuple.value) === 0
+    ) {
+      return false;
+    }
+
+    if (
+      date.compare(fromDate.value as TupleDate, toBeComparedDayTuple.value) >= 0
+      && date.compare(toBeComparedDayTuple.value, toDate.value as TupleDate) >= 0
+    ) return true;
+
+    return false;
+  });
+
   const isBeforeStartingEdge = computed(() => {
     if (!fromDate.value) return false;
 
@@ -92,5 +122,6 @@ export default function useDateCompares(
     isEndingRangeEdge,
     isStartingRangeEdge,
     isToday,
+    isMiddleEmpty,
   };
 }
