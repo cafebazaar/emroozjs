@@ -44,19 +44,21 @@ function resetSlider() {
       {{ strings.goToToday }}
     </Button>
     <div class="RangePickerFooter__sep" />
-    <VerticalSlideAnimation>
-      <span
-        v-show="datePreviewString"
-        :key="datePreviewString"
-        class="RangePickerFooter__report"
-      >
-        <RangePickerFooterClose
-          class="RangePickerFooter__close"
-          @click="removeRange"
-        />
-        {{ datePreviewString }}
-      </span>
-    </VerticalSlideAnimation>
+    <div>
+      <VerticalSlideAnimation>
+        <span
+          v-show="datePreviewString"
+          :key="datePreviewString"
+          class="RangePickerFooter__report"
+        >
+          <RangePickerFooterClose
+            class="RangePickerFooter__close"
+            @click="removeRange"
+          />
+          {{ datePreviewString }}
+        </span>
+      </VerticalSlideAnimation>
+    </div>
 
     <Button
       class="RangePickerFooter__action"

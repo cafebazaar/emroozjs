@@ -13,11 +13,12 @@
     opacity: 0;
     transform: translateY(-100%);
   }
-  &-leave-active {
+  &-leave-to {
     transform: translateY(100%);
     opacity: 0;
   }
   &-leave-active {
+    position: absolute;
     user-select: none;
     pointer-events: none;
   }
