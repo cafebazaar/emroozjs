@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { toRef } from 'vue-demi';
 import {
-  AllowedDates, CalendarType, CommonDates, Lang, DatePickerSelectOutput,
+  AllowedDates, CalendarType, CommonDates, Lang, DatePickerSelectOutput, DatePickerSelectInput,
 } from '@lib/shared/types';
 import DatePicker from '@lib/DatePicker/index.vue';
 import PickerInput from '@lib/shared/components/PickerInput/index.vue';
@@ -14,12 +14,13 @@ interface DatePickerProps {
   commonDates: CommonDates;
   allowedDates: AllowedDates;
   type: CalendarType;
-  value: string;
+  selectedDateString: string;
   strings: DatePickerInputLanguageStrings;
+  modelValue: DatePickerSelectInput;
 }
 
 // @todo: Import this from types
-const emit = defineEmits<{(e: 'select', date: DatePickerSelectOutput): void;}>();
+const emit = defineEmits<{(e: 'update:modelValue', date: DatePickerSelectOutput): void;}>();
 
 const props = defineProps<DatePickerProps>();
 const lang = toRef(props, 'lang');
@@ -28,20 +29,21 @@ const direction = useDirection(lang);
 
 <template>
   <PickerInput
-    :value="props.value"
+    :value="props.selectedDateString"
     :text="props.strings.dateText"
     :direction="direction"
     class="DatePickerInputUI"
   >
     <template #default="{close}">
       <DatePicker
+        :model-value="props.modelValue"
         :common-dates="props.commonDates"
         :allowed-dates="props.allowedDates"
         :lang="props.lang"
         :type="props.type"
         date-picker-class="DatePickerInputUI__date-picker"
-        @select="(date)=>{
-          emit('select', date);
+        @update:model-value="(date)=>{
+          emit('update:modelValue', date);
           close();
         }"
       />

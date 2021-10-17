@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import {
-  toRef, ref, Ref, computed,
+  toRef, ref, Ref, computed, watch,
 } from 'vue-demi';
 import {
   AllowedDates, CalendarType, CommonDates, Lang,
   RangePickerSelectOutput, SetUnifyDateItem, UnifyDateItem,
+  RangePickerSelectInput,
 } from '@lib/shared/types';
 import useDirection from '@lib/shared/hooks/useDirection';
 import RangePickerShamsi from './RangePickerShamsi/index.vue';
@@ -17,6 +18,7 @@ interface Props {
   allowedDates?: AllowedDates;
   type?: CalendarType;
   rangePickerClass?: any;
+  modelValue?: RangePickerSelectInput;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -25,9 +27,10 @@ const props = withDefaults(defineProps<Props>(), {
   allowedDates: () => null,
   type: 'shamsi',
   rangePickerClass: '',
+  modelValue: () => null,
 });
 
-const emit = defineEmits<{(e: 'select', rangePickerSelectOutput: RangePickerSelectOutput): void;
+const emit = defineEmits<{(e: 'update:modelValue', rangePickerSelectOutput: RangePickerSelectOutput): void;
 }>();
 
 const RANGE_PICKER_TYPE_TO_COMPONENT = {
@@ -35,8 +38,12 @@ const RANGE_PICKER_TYPE_TO_COMPONENT = {
   miladi: RangePickerMiladi,
 };
 
-const fromDate: Ref<UnifyDateItem> = ref(null);
-const toDate: Ref<UnifyDateItem> = ref(null);
+const fromDate: Ref<UnifyDateItem> = ref(props.modelValue?.from || null);
+const toDate: Ref<UnifyDateItem> = ref(props.modelValue?.to || null);
+watch(() => props.modelValue, () => {
+  fromDate.value = props.modelValue?.from || null;
+  toDate.value = props.modelValue?.to || null;
+});
 
 const setFromDate: SetUnifyDateItem = (date) => {
   fromDate.value = date;
@@ -48,7 +55,7 @@ const setToDate: SetUnifyDateItem = (date) => {
 
 const selectRange: SelectRange = () => {
   if (fromDate.value && toDate.value) {
-    emit('select', {
+    emit('update:modelValue', {
       from: fromDate.value,
       to: toDate.value,
     });

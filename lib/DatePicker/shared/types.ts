@@ -1,4 +1,4 @@
-import { GeneralDateUtil } from '@lib/shared/types';
+import { DatePickerSelectInput, GeneralDateUtil } from '@lib/shared/types';
 
 export type DatePickerDate = GeneralDateUtil;
 
@@ -14,3 +14,4 @@ export interface DatePickerStrings {
 }
 
 export type SelectDate = () => void;
+export type SetDatePickerSelectInput = (date: DatePickerSelectInput)=>void;

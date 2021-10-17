@@ -1,20 +1,22 @@
 <script setup lang="ts">
 import {
-  toRef, ref, Ref, computed,
+  toRef, ref, Ref, computed, watch,
 } from 'vue-demi';
 import {
   Lang, AllowedDates, CalendarType, UnifyDateItem, SetUnifyDateItem, DatePickerSelectOutput,
+  DatePickerSelectInput,
 } from '@lib/shared/types';
 import useDirection from '@lib/shared/hooks/useDirection';
 import DatePickerShamsi from './DatePickerShamsi/index.vue';
 import DatePickerMiladi from './DatePickerMiladi/index.vue';
-import { SelectDate } from './shared/types';
+import { SelectDate, SetDatePickerSelectInput } from './shared/types';
 
 interface Props {
   lang?: Lang;
   allowedDates?: AllowedDates;
   type?: CalendarType;
   datePickerClass?: any;
+  modelValue?: DatePickerSelectInput;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -23,24 +25,28 @@ const props = withDefaults(defineProps<Props>(), {
   allowedDates: () => null,
   type: 'shamsi',
   datePickerClass: '',
+  modelValue: () => null,
 });
 
-const emit = defineEmits<{(e: 'select', date: DatePickerSelectOutput): void;}>();
+const emit = defineEmits<{(e: 'update:modelValue', date: DatePickerSelectOutput): void;}>();
 
 const DATE_PICKER_TYPE_TO_COMPONENT = {
   shamsi: DatePickerShamsi,
   miladi: DatePickerMiladi,
 };
 
-const selectedDate: Ref<UnifyDateItem> = ref(null);
+const selectedDate: Ref<DatePickerSelectInput> = ref(props.modelValue);
+watch(() => props.modelValue, () => {
+  selectedDate.value = props.modelValue;
+});
 
-const setSelectedDate: SetUnifyDateItem = (date) => {
+const setSelectedDate: SetDatePickerSelectInput = (date) => {
   selectedDate.value = date;
 };
 
 const selectDate: SelectDate = () => {
   if (selectedDate.value) {
-    emit('select', selectedDate.value);
+    emit('update:modelValue', selectedDate.value);
   }
 };
 

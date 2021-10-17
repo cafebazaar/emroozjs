@@ -8,6 +8,10 @@ import {
 const range = ref(null);
 const date = ref(null);
 
+setTimeout(() => {
+  range.value = null;
+}, 5000);
+
 const lastWeek = new Date();
 lastWeek.setDate(lastWeek.getDate() - 7);
 const last2Week = new Date();

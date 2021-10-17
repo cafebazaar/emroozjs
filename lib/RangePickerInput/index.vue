@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed, toRef } from 'vue-demi';
 import {
-  AllowedDates, CalendarType, CommonDates, Lang, RangePickerSelectOutput,
+  AllowedDates, CalendarType, CommonDates, Lang, RangePickerSelectInput, RangePickerSelectOutput,
 } from '@lib/shared/types';
 import useDirection from '@lib/shared/hooks/useDirection';
-import RangePickerInputShamsi from './RangePickerInputShamsi/index.vue';
-import RangePickerInputMiladi from './RangePickerInputMiladi/index.vue';
+import RangePickerInputShamsi from './RangePickerInputShamsi.vue';
+import RangePickerInputMiladi from './RangePickerInputMiladi.vue';
 
 const RANGE_PICKER_INPUT_TYPE_TO_COMPONENT = {
   shamsi: RangePickerInputShamsi,
@@ -18,7 +18,7 @@ interface RangePickerProps {
   commonDates?: CommonDates;
   allowedDates?: AllowedDates;
   type?: CalendarType;
-  modelValue?: RangePickerSelectOutput | null;
+  modelValue?: RangePickerSelectInput;
 }
 
 const props = withDefaults(defineProps<RangePickerProps>(), {
@@ -54,8 +54,8 @@ function emitSelectedRange(rangeInfo: RangePickerSelectOutput) {
       :common-dates="props.commonDates"
       :allowed-dates="props.allowedDates"
       :type="props.type"
-      :value="props.modelValue"
-      @select="emitSelectedRange"
+      :model-value="props.modelValue"
+      @update:modelValue="emitSelectedRange"
     />
   </div>
 </template>

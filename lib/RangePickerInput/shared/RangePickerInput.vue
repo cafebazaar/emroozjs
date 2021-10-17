@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { toRef } from 'vue-demi';
 import {
-  AllowedDates, CalendarType, CommonDates, Lang, RangePickerSelectOutput,
+  AllowedDates, CalendarType, CommonDates, Lang, RangePickerSelectOutput, RangePickerSelectInput,
 } from '@lib/shared/types';
 import RangePicker from '@lib/RangePicker/index.vue';
 import PickerInput from '@lib/shared/components/PickerInput/index.vue';
@@ -14,18 +14,19 @@ interface RangePickerProps {
   commonDates: CommonDates;
   allowedDates: AllowedDates;
   type: CalendarType;
-  value: string;
+  selectedRangeString: string;
+  modelValue: RangePickerSelectInput;
   strings: RangePickerInputLanguageStrings;
 }
 
 // @todo: Import this from types
-const emit = defineEmits<{(e: 'select', rangePickerSelectOutput: RangePickerSelectOutput): void;}>();
+const emit = defineEmits<{(e: 'update:modelValue', rangePickerSelectOutput: RangePickerSelectOutput): void;}>();
 
 const props = defineProps<RangePickerProps>();
 const lang = toRef(props, 'lang');
 
 function setSelectedRangeAndEmit(rangeInfo: RangePickerSelectOutput) {
-  emit('select', rangeInfo);
+  emit('update:modelValue', rangeInfo);
 }
 
 const direction = useDirection(lang);
@@ -35,7 +36,7 @@ const direction = useDirection(lang);
   <PickerInput
     class="RangePickerInputUI"
     :direction="direction"
-    :value="props.value"
+    :value="props.selectedRangeString"
     :text="props.strings.rangeText"
   >
     <template #default="{ close }">
@@ -45,7 +46,8 @@ const direction = useDirection(lang);
         :allowed-dates="props.allowedDates"
         :lang="props.lang"
         :type="props.type"
-        @select="(rangeInfo)=>{
+        :model-value="props.modelValue"
+        @update:model-value="(rangeInfo)=>{
           setSelectedRangeAndEmit(rangeInfo);
           close();
         }"

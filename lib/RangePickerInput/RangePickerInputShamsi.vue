@@ -1,28 +1,28 @@
 <script setup lang="ts">
 import { computed } from 'vue-demi';
 import {
-  AllowedDates, CalendarType, CommonDates, Lang, RangePickerSelectOutput,
+  AllowedDates, CalendarType, CommonDates, Lang, RangePickerSelectOutput, RangePickerSelectInput,
 } from '@lib/shared/types';
 import { toJalali } from '@lib/shared/utilities/convertor';
-import RangePickerInput from '../shared/RangePickerInput.vue';
-import strings from '../shared/strings';
+import RangePickerInput from './shared/RangePickerInput.vue';
+import strings from './shared/strings';
 
 // @todo: Import this from types
 interface RangePickerProps {
   lang: Lang;
   commonDates: CommonDates;
   allowedDates: AllowedDates;
-  value: RangePickerSelectOutput | null;
   type: CalendarType;
+  modelValue: RangePickerSelectInput;
 }
 
 const props = defineProps<RangePickerProps>();
-const emit = defineEmits<{(e: 'select', rangeInfo: RangePickerSelectOutput): void;}>();
+const emit = defineEmits<{(e: 'update:modelValue', rangeInfo: RangePickerSelectOutput): void;}>();
 
 const selectedLanguageStrings = computed(() => strings[props.lang]);
 
 function emitSelectedRange(rangeInfo: RangePickerSelectOutput) {
-  emit('select', rangeInfo);
+  emit('update:modelValue', rangeInfo);
 }
 
 const convertRangeItemToString = (date: Date) => {
@@ -32,13 +32,13 @@ const convertRangeItemToString = (date: Date) => {
 };
 
 const selectedRangeString = computed(() => {
-  if (!props.value) {
+  if (!props.modelValue) {
     return selectedLanguageStrings.value.notSpecified;
   }
 
-  return `${convertRangeItemToString(props.value.from)}
+  return `${convertRangeItemToString(props.modelValue.from)}
   ${selectedLanguageStrings.value.to}
-  ${convertRangeItemToString(props.value.to)}`;
+  ${convertRangeItemToString(props.modelValue.to)}`;
 });
 
 </script>
@@ -49,8 +49,9 @@ const selectedRangeString = computed(() => {
     :allowed-dates="props.allowedDates"
     :lang="props.lang"
     :type="props.type"
-    :value="selectedRangeString"
+    :model-value="props.modelValue"
+    :selected-range-string="selectedRangeString"
     :strings="selectedLanguageStrings"
-    @select="emitSelectedRange"
+    @update:modelValue="emitSelectedRange"
   />
 </template>

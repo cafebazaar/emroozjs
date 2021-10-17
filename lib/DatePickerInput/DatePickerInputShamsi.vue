@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue-demi';
 import {
-  AllowedDates, CalendarType, CommonDates, Lang, DatePickerSelectOutput,
+  AllowedDates, CalendarType, CommonDates, Lang, DatePickerSelectOutput, DatePickerSelectInput,
 } from '@lib/shared/types';
 import { toJalali } from '@lib/shared/utilities/convertor';
 import DatePickerInput from './shared/DatePickerInput.vue';
@@ -12,17 +12,17 @@ interface RangePickerProps {
   lang: Lang;
   commonDates: CommonDates;
   allowedDates: AllowedDates;
-  value: DatePickerSelectOutput | null;
+  modelValue: DatePickerSelectInput;
   type: CalendarType;
 }
 
 const props = defineProps<RangePickerProps>();
-const emit = defineEmits<{(e: 'select', date: DatePickerSelectOutput): void;}>();
+const emit = defineEmits<{(e: 'update:modelValue', date: DatePickerSelectOutput): void;}>();
 
 const selectedLanguageStrings = computed(() => strings[props.lang]);
 
 function emitSelectedRange(date: DatePickerSelectOutput) {
-  emit('select', date);
+  emit('update:modelValue', date);
 }
 
 const convertRangeItemToString = (date: Date) => {
@@ -31,12 +31,12 @@ const convertRangeItemToString = (date: Date) => {
   return `${jDate[0]}/${jDate[1]}/${jDate[2]}`;
 };
 
-const selectedRangeString = computed(() => {
-  if (!props.value) {
+const selectedDateString = computed(() => {
+  if (!props.modelValue) {
     return selectedLanguageStrings.value.notSpecified;
   }
 
-  return convertRangeItemToString(props.value);
+  return convertRangeItemToString(props.modelValue);
 });
 
 </script>
@@ -47,8 +47,9 @@ const selectedRangeString = computed(() => {
     :allowed-dates="props.allowedDates"
     :lang="props.lang"
     :type="props.type"
-    :value="selectedRangeString"
+    :model-value="props.modelValue"
+    :selected-date-string="selectedDateString"
     :strings="selectedLanguageStrings"
-    @select="emitSelectedRange"
+    @update:modelValue="emitSelectedRange"
   />
 </template>

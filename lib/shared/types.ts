@@ -44,6 +44,8 @@ export interface RangePickerSelectOutput {
   from: Date;
   to: Date;
 }
+export type RangePickerSelectInput = RangePickerSelectOutput | null;
 
 // DatePicker
-export type DatePickerSelectOutput = Date
+export type DatePickerSelectOutput = Date;
+export type DatePickerSelectInput = DatePickerSelectOutput | null;
