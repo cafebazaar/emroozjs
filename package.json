@@ -14,13 +14,12 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "serve": "vite preview",
     "storybook": "NODE_ENV=STORYBOOK start-storybook -p 6006",
     "build-storybook": "NODE_ENV=STORYBOOK build-storybook"
   },
   "dependencies": {
-    "vue": "^3.2.18",
     "vue-demi": "^0.11.4"
   },
   "peerDependencies": {
@@ -33,6 +32,7 @@
     }
   },
   "devDependencies": {
+    "vue": "^3.2.18",
     "@babel/core": "^7.15.8",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-docs": "^6.3.12",
