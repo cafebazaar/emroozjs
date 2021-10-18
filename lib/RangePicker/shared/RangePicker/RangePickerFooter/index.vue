@@ -38,7 +38,7 @@ function resetSlider() {
 <template>
   <div class="RangePickerFooter">
     <Button
-      plain
+      :plain="true"
       @click="resetSlider"
     >
       {{ strings.goToToday }}
