@@ -1,9 +1,26 @@
 {
-  "name": "emrooz",
+  "name": "@cafebazaar/emrooz",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cafebazaar/emroozjs.git"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "calendar",
+    "shamsi",
+    "miladi",
+    "gregorian",
+    "persian calendar",
+    "datepicker",
+    "rangepicker",
+    "date"
+  ],
   "files": [
     "dist"
   ],
+  "author": "CafeBazaar Front-End Chapter",
   "main": "./dist/emrooz.umd.js",
   "module": "./dist/emrooz.es.js",
   "exports": {
