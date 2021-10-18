@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { EMRangePickerInput } from '../lib/index';
 import EMRangePickerStories from './EMRangePicker.stories';
 
@@ -16,13 +16,12 @@ const Template = (args) => ({
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     const val = ref(null);
-    const direction = computed(() => (args.lang === 'fa' ? 'rtl' : 'ltr'));
     // Story args can be mapped to keys in the returned object
-    return { args, val, direction };
+    return { args, val };
   },
   // Then, those values can be accessed directly in the template
   template: `
-    <div :direction="direction" style="max-width: 300px; width: 100%;">
+    <div style="max-width: 300px; width: 100%; margin: auto;">
       <EMRangePickerInput v-bind="args" v-model="val" />
     </div>
     `,
