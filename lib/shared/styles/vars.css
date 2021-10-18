@@ -21,10 +21,10 @@
   --em-global-margin: 10px;
   --em-global-padding: 10px;
 
-  // Wrapper
+  /* Wrapper */
   --em-mobile-corners-border-radius: calc(var(--em-border-radius) * 6);
 
-  // Button
+  /* Button */
   --em-button-background-color: var(--em-primary-color);
   --em-button-border-radius: var(--em-border-radius);
   --em-button-color: var(--em-white);
@@ -34,7 +34,7 @@
   --em-button-plain-hover-color: var(--em-primary-color);
   --em-button-transition-duration: var(--em-transition-duration);
 
-  // Grid
+  /* Grid */
   --em-grid-header-color: var(--em-dark-gray);
   --em-grid-active-color: var(--em-primary-color);
   --em-grid-active-background-color: #E7F7F0;
@@ -47,19 +47,19 @@
   --em-grid-transition-duration: var(--em-transition-duration);
   --em-grid-closed-color: var(--em-red-color);
 
-  // Common Dates
+  /* Common Dates */
   --em-mostly-used-font-size: var(--em-font-size);
   --em-mostly-used-active-color: var(--em-primary-color);
   --em-mostly-used-transition-duration: var(--em-transition-duration);
   --em-mostly-used-border-radius: calc(var(--em-border-radius) * 2);
   --em-mostly-used-not-active-back-color: var(--em-light-gray);
 
-  // Footer
+  /* Footer */
   --em-footer-report-text-color: #909399;
   --em-footer-font-size: var(--em-font-size);
   --em-footer-border-top: var(--em-border);
   --em-footer-sep-color: var(--em-light-gray);
 
-  // Controllers
+  /* Controllers */
   --em-controllers-font-size: var(--em-font-size);
 }

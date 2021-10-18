@@ -6,6 +6,8 @@ import type {
   DatePickerInputProps, DatePickerProps, RangePickerInputProps, RangePickerProps,
 } from './shared/types';
 
+import './shared/styles/vars.css';
+
 export {
   RangePicker as EMRangePicker,
   DatePicker as EMDatePicker,
