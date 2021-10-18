@@ -67,7 +67,7 @@
     "yarn": "1.22.11"
   },
   "license": "MIT",
-  "peerDependencies": {
+  "dependencies": {
     "vue": "^3.2.20"
   }
 }
