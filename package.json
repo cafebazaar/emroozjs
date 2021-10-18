@@ -35,7 +35,7 @@
     "serve": "vite preview",
     "storybook": "NODE_ENV=STORYBOOK start-storybook -p 6006",
     "build-storybook": "NODE_ENV=STORYBOOK build-storybook",
-    "prepublishOnly": "rm -rf ./dist && yarn build"
+    "prepublishOnly": "rm -rf ./dist && yarn build && rm -rf ./dist/assets"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
