@@ -1,0 +1,17 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Theming" />
+
+# Theming
+
+Pretty much everything is configured to be a CSS variable in Emrooz, so the theme of the calendar can be changed
+by overriding CSS variables.
+
+```CSS
+:root {
+  --em-primary-color: red;
+  /* And so on */
+}
+```
+
+The list of CSS variables used in Emrooz can be found in [here](https://github.com/cafebazaar/emroozjs/blob/master/lib/shared/styles/abstracts/_vars.scss).
