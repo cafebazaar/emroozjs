@@ -11,6 +11,8 @@ export {
   DatePicker as EMDatePicker,
   RangePickerInput as EMRangePickerInput,
   DatePickerInput as EMDatePickerInput,
+
+  // Props
   DatePickerInputProps as EMDatePickerInputProps,
   DatePickerProps as EMDatePickerProps,
   RangePickerInputProps as EMDRangePickerInputProps,
