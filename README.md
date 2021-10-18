@@ -20,7 +20,7 @@ $ yarn add @cafebazaar/emrooz
 <script setup>
 import { ref } from 'vue';
 import { EMDatePicker } from '@cafebazaar/emrooz';
-import '@cafebazaar/emrooz/emrooz.css';
+import '@cafebazaar/emrooz/dist/style.css';
 
 const value = ref(null)
 </script>
