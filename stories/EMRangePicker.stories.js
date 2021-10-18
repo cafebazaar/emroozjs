@@ -179,19 +179,19 @@ WithCommonDates.parameters = {
   docs: {
     source: {
       code: `
-      <script setup>
-        const lastWeek = new Date();
-        lastWeek.setDate(lastWeek.getDate() - 7);
-      </script>
-      <template>
-        <EMRangePicker :commonDates="[
-          {
-            to: new Date(),
-            from: lastWeek,
-            label: 'هفته اخیر',
-          },
-        ]" />
-      </template>
+<script setup>
+  const lastWeek = new Date();
+  lastWeek.setDate(lastWeek.getDate() - 7);
+</script>
+<template>
+  <EMRangePicker :commonDates="[
+    {
+      to: new Date(),
+      from: lastWeek,
+      label: 'هفته اخیر',
+    },
+  ]" />
+</template>
       `,
     },
   },
