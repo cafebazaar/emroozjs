@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue-demi';
+import { ref, computed, watch } from 'vue';
 import SlideAnimation from '@lib/shared/components/SlideAnimation.vue';
 import RangePickerSliderControllers from './RangePickerSliderControllers.vue';
 import useCalendar from '../shared/hooks/useRangePicker';

@@ -1,4 +1,4 @@
-import { computed } from 'vue-demi';
+import { computed } from 'vue';
 import useDatePicker from './useDatePicker';
 
 export default function useDateHelpers() {

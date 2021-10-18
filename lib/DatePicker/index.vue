@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {
   toRef, ref, Ref, computed, watch,
-} from 'vue-demi';
+} from 'vue';
 import {
   Lang, AllowedDates, CalendarType, DatePickerSelectOutput,
   DatePickerSelectInput,

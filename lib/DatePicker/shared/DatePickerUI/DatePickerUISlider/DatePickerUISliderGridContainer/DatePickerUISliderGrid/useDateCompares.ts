@@ -1,4 +1,4 @@
-import { Ref, computed } from 'vue-demi';
+import { Ref, computed } from 'vue';
 import { TupleDate } from '@lib/shared/types';
 import useDatePicker from '../../../shared/hooks/useDatePicker';
 

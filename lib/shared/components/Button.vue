@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { toRef } from 'vue-demi';
+import { toRef } from 'vue';
 
 interface Props {
   icon?: boolean;

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue-demi';
+import { ref } from 'vue';
 import StartingArrowButton from '@lib/shared/components/arrow-buttons/StartingArrowButton.vue';
 import EndingArrowButton from '@lib/shared/components/arrow-buttons/EndingArrowButton.vue';
 import useDatePicker from '../shared/hooks/useDatePicker';

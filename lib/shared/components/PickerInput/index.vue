@@ -2,7 +2,7 @@
 import { Direction } from '@lib/shared/types';
 import {
   ref, onMounted, onBeforeUnmount,
-} from 'vue-demi';
+} from 'vue';
 import PickerInputBox from './PickerInputBox/index.vue';
 import PickerInputPopOver from './PickerInputPopOver.vue';
 import PickerInputTransition from './PickerInputTransition.vue';

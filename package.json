@@ -19,20 +19,7 @@
     "storybook": "NODE_ENV=STORYBOOK start-storybook -p 6006",
     "build-storybook": "NODE_ENV=STORYBOOK build-storybook"
   },
-  "dependencies": {
-    "vue-demi": "^0.11.4"
-  },
-  "peerDependencies": {
-    "@vue/composition-api": "^1.2.2",
-    "vue": "^2.0.0 || >=3.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
-  },
   "devDependencies": {
-    "vue": "^3.2.18",
     "@babel/core": "^7.15.8",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-docs": "^6.3.12",
@@ -55,6 +42,7 @@
     "typescript": "^4.4.3",
     "vite": "^2.5.10",
     "vite-plugin-dts": "^0.8.2",
+    "vue": "^3.2.18",
     "vue-loader": "^16.8.1",
     "vue-tsc": "^0.3.0"
   },

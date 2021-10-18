@@ -31,9 +31,6 @@ const buildConfig = process.env.NODE_ENV !== 'STORYBOOK' ? {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), dts()],
-  optimizeDeps: {
-    exclude: ['vue-demi'],
-  },
   resolve: {
     alias: {
       '@lib': resolve('./lib'),

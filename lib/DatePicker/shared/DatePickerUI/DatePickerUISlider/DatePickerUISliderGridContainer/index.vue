@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DateItem } from '@lib/shared/types';
-import { computed } from 'vue-demi';
+import { computed } from 'vue';
 import useDatePicker from '../../shared/hooks/useDatePicker';
 import DatePickerUISliderGrid from './DatePickerUISliderGrid/index.vue';
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, toRef } from 'vue-demi';
+import { computed, toRef } from 'vue';
 import GridItemUI from '@lib/shared/components/GridItemUI.vue';
 import RangePickerSliderGridEmptyItem from './RangePickerSliderGridEmptyItem.vue';
 import RangePickerSliderGridItem from './RangePickerSliderGridItem.vue';

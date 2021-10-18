@@ -2,7 +2,7 @@
 import { Direction } from '@lib/shared/types';
 import {
   onMounted, ref, watch, onBeforeUnmount,
-} from 'vue-demi';
+} from 'vue';
 
 interface Props {
   domRect: DOMRect | null;

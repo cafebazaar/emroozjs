@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue-demi';
+import { computed } from 'vue';
 import {
   AllowedDates, CalendarType, CommonDates, Lang, DatePickerSelectOutput, DatePickerSelectInput,
 } from '@lib/shared/types';

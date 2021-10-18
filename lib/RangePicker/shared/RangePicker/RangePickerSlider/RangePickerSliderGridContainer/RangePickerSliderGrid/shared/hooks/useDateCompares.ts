@@ -1,6 +1,6 @@
 import useRangeHelpers from '@lib/RangePicker/shared/RangePicker/shared/hooks/useRangeHelpers';
 import { TupleDate } from '@lib/shared/types';
-import { Ref, computed } from 'vue-demi';
+import { Ref, computed } from 'vue';
 import useCalendar from '../../../../../shared/hooks/useRangePicker';
 
 export default function useDateCompares(

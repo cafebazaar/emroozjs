@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {
   provide, toRefs, reactive, ref, Ref,
-} from 'vue-demi';
+} from 'vue';
 import {
   AllowedDates, CurrentDate, DateItem, Direction, SetDateItem,
 } from '@lib/shared/types';

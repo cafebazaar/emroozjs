@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue-demi';
+import { computed } from 'vue';
 import { Direction } from '@lib/shared/types';
 import Button from '@lib/shared/components/Button.vue';
 import ArrowLeft from './icons/ArrowLeft.vue';

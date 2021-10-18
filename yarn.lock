@@ -10535,11 +10535,6 @@ vscode-vue-languageservice@^0.27.0:
     vscode-pug-languageservice "^0.27.24"
     vscode-typescript-languageservice "^0.27.25"
 
-vue-demi@^0.11.4:
-  version "0.11.4"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.11.4.tgz#6101992fe4724cf5634018a16e953f3052e94e2a"
-  integrity sha512-/3xFwzSykLW2HiiLie43a+FFgNOcokbBJ+fzvFXd0r2T8MYohqvphUyDQ8lbAwzQ3Dlcrb1c9ykifGkhSIAk6A==
-
 vue-docgen-api@^4.38.0:
   version "4.41.2"
   resolved "https://registry.yarnpkg.com/vue-docgen-api/-/vue-docgen-api-4.41.2.tgz#1d0cca6e754f8cef30a0f2befcc87cba3d92880b"

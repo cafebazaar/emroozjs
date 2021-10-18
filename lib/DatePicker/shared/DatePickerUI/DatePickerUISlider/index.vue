@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue-demi';
+import { ref } from 'vue';
 import SlideAnimation from '@lib/shared/components/SlideAnimation.vue';
 import useDatePicker from '../shared/hooks/useDatePicker';
 import DatePickerUISliderControllers from './DatePickerUISliderControllers.vue';

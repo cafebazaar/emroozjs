@@ -1,4 +1,4 @@
-import { inject, Ref } from 'vue-demi';
+import { inject, Ref } from 'vue';
 import {
   RangePickerDate, RangePickerLanguageStrings,
   LocalCommonDates,

@@ -1,4 +1,4 @@
-import { computed } from 'vue-demi';
+import { computed } from 'vue';
 import useRangePicker from './useRangePicker';
 
 export default function useRangeHelpers() {

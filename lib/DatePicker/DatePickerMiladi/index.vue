@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, toRef } from 'vue-demi';
+import { computed, toRef } from 'vue';
 import {
   AllowedDates, Direction, Lang, SetDateItem, SetUnifyDateItem, TupleDate, UnifyDateItem,
 } from '@lib/shared/types';

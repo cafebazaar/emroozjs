@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue-demi';
+import { computed } from 'vue';
 import Button from '@lib/shared/components/Button.vue';
 import VerticalSlideAnimation from '@lib/shared/components/VerticalSlideAnimation.vue';
 import useDatePicker from './shared/hooks/useDatePicker';
