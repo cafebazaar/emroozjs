@@ -1,7 +1,7 @@
-body, body button {
+[lang=fa], [lang=fa] button {
   font-family: IRANSans, Ubuntu, 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
 
-  &[dir=ltr]{
-    font-family: EnIRANSans, Ubuntu, 'Droid Sans', 'Helvetica Neue', sans-serif;
-  }
+[lang=en], [lang=en] button {
+  font-family: EnIRANSans, Ubuntu, 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
