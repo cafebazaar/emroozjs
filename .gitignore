@@ -5,3 +5,4 @@ dist-ssr
 *.local
 package-lock.json
 storybook-docs
+yarn-error.log
