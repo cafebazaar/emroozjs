@@ -45,7 +45,24 @@ export interface RangePickerSelectOutput {
   to: Date;
 }
 export type RangePickerSelectInput = RangePickerSelectOutput | null;
+export interface RangePickerProps {
+  lang?: Lang;
+  commonDates?: CommonDates;
+  allowedDates?: AllowedDates;
+  type?: CalendarType;
+  rangePickerClass?: any;
+  modelValue?: RangePickerSelectInput;
+}
+export type RangePickerInputProps = Omit<RangePickerProps, 'rangePickerClass'>;
 
 // DatePicker
 export type DatePickerSelectOutput = Date;
 export type DatePickerSelectInput = DatePickerSelectOutput | null;
+export interface DatePickerProps {
+  lang?: Lang;
+  allowedDates?: AllowedDates;
+  type?: CalendarType;
+  datePickerClass?: any;
+  modelValue?: DatePickerSelectInput;
+}
+export type DatePickerInputProps = Omit<DatePickerProps, 'datePickerClass'>;

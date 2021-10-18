@@ -11,7 +11,8 @@ import DatePickerShamsi from './DatePickerShamsi/index.vue';
 import DatePickerMiladi from './DatePickerMiladi/index.vue';
 import { SelectDate, SetDatePickerSelectInput } from './shared/types';
 
-interface Props {
+// @todo: Import this from types
+interface DatePickerProps {
   lang?: Lang;
   allowedDates?: AllowedDates;
   type?: CalendarType;
@@ -19,7 +20,7 @@ interface Props {
   modelValue?: DatePickerSelectInput;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<DatePickerProps>(), {
   lang: 'fa',
   commonDates: () => [],
   allowedDates: () => null,

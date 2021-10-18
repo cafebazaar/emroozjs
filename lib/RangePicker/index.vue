@@ -12,7 +12,8 @@ import RangePickerShamsi from './RangePickerShamsi/index.vue';
 import RangePickerMiladi from './RangePickerMiladi/index.vue';
 import { SelectRange } from './shared/types';
 
-interface Props {
+// @todo: Import this from types
+interface RangePickerProps {
   lang?: Lang;
   commonDates?: CommonDates;
   allowedDates?: AllowedDates;
@@ -21,7 +22,7 @@ interface Props {
   modelValue?: RangePickerSelectInput;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<RangePickerProps>(), {
   lang: 'fa',
   commonDates: () => [],
   allowedDates: () => null,

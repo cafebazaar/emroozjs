@@ -13,7 +13,7 @@ const RANGE_PICKER_INPUT_TYPE_TO_COMPONENT = {
 };
 
 // @todo: Import this from types
-interface RangePickerProps {
+interface RangePickerInputProps {
   lang?: Lang;
   commonDates?: CommonDates;
   allowedDates?: AllowedDates;
@@ -21,7 +21,7 @@ interface RangePickerProps {
   modelValue?: RangePickerSelectInput;
 }
 
-const props = withDefaults(defineProps<RangePickerProps>(), {
+const props = withDefaults(defineProps<RangePickerInputProps>(), {
   lang: 'fa',
   commonDates: () => [],
   allowedDates: () => null,
