@@ -1,22 +1,12 @@
 import { ref, computed } from 'vue';
 import { EMRangePickerInput } from '../lib/index';
+import EMRangePickerStories from './EMRangePicker.stories';
 
 export default {
   title: 'Example/RangePickerInput',
   component: EMRangePickerInput,
   argTypes: {
-    lang: {
-      options: ['fa', 'en'],
-      control: {
-        type: 'select',
-      },
-    },
-    type: {
-      options: ['shamsi', 'miladi'],
-      control: {
-        type: 'select',
-      },
-    },
+    ...EMRangePickerStories.argTypes,
   },
 };
 
@@ -42,20 +32,56 @@ export const Persian = Template.bind({});
 Persian.args = {
   lang: 'fa',
 };
+Persian.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMRangePickerInput />
+      `,
+    },
+  },
+};
 
 export const English = Template.bind({});
 English.args = {
   lang: 'en',
+};
+English.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMRangePickerInput lang="en" />
+      `,
+    },
+  },
 };
 
 export const Miladi = Template.bind({});
 Miladi.args = {
   type: 'miladi',
 };
+Miladi.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMRangePickerInput type="miladi" />
+      `,
+    },
+  },
+};
 
 export const Shamsi = Template.bind({});
 Shamsi.args = {
   type: 'shamsi',
+};
+Shamsi.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMRangePickerInput type="shamsi" />
+      `,
+    },
+  },
 };
 
 const lastWeek = new Date();
@@ -70,8 +96,38 @@ WithCommonDates.args = {
     },
   ],
 };
+WithCommonDates.parameters = {
+  docs: {
+    source: {
+      code: `
+      <script setup>
+        const lastWeek = new Date();
+        lastWeek.setDate(lastWeek.getDate() - 7);
+      </script>
+      <template>
+        <EMRangePickerInput :commonDates="[
+          {
+            to: new Date(),
+            from: lastWeek,
+            label: 'هفته اخیر',
+          },
+        ]" />
+      </template>
+      `,
+    },
+  },
+};
 
-export const OnlyOddDays = Template.bind({});
-OnlyOddDays.args = {
-  allowedDates: (date) => date.getDay() % 2 === 1,
+export const OnlyEvenDaysAllowed = Template.bind({});
+OnlyEvenDaysAllowed.args = {
+  allowedDates: (date) => date.getDay() % 2 === 0,
+};
+OnlyEvenDaysAllowed.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMRangePickerInput :allowedDates="(date) => date.getDay() % 2 === 0" />
+      `,
+    },
+  },
 };

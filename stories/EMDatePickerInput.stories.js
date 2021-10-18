@@ -1,22 +1,12 @@
 import { ref } from 'vue';
 import { EMDatePickerInput } from '../lib/index';
+import EMDatePickerStories from './EMDatePicker.stories';
 
 export default {
   title: 'Example/DatePickerInput',
   component: EMDatePickerInput,
   argTypes: {
-    lang: {
-      options: ['fa', 'en'],
-      control: {
-        type: 'select',
-      },
-    },
-    type: {
-      options: ['shamsi', 'miladi'],
-      control: {
-        type: 'select',
-      },
-    },
+    ...EMDatePickerStories.argTypes,
   },
 };
 
@@ -37,18 +27,68 @@ export const Persian = Template.bind({});
 Persian.args = {
   lang: 'fa',
 };
+Persian.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMDatePickerInput />
+      `,
+    },
+  },
+};
 
 export const English = Template.bind({});
 English.args = {
   lang: 'en',
+};
+English.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMDatePickerInput lang="en" />
+      `,
+    },
+  },
 };
 
 export const Miladi = Template.bind({});
 Miladi.args = {
   type: 'miladi',
 };
+Miladi.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMDatePickerInput type="miladi" />
+      `,
+    },
+  },
+};
 
 export const Shamsi = Template.bind({});
 Shamsi.args = {
   type: 'shamsi',
+};
+Shamsi.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMDatePickerInput type="shamsi" />
+      `,
+    },
+  },
+};
+
+export const OnlyEvenDaysAllowed = Template.bind({});
+OnlyEvenDaysAllowed.args = {
+  allowedDates: (date) => date.getDate() % 2 === 0,
+};
+OnlyEvenDaysAllowed.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMDatePickerInput :allowedDates="(date) => date.getDate() % 2 === 0" />
+      `,
+    },
+  },
 };

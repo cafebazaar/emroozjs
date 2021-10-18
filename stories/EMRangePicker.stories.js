@@ -9,11 +9,87 @@ export default {
       control: {
         type: 'select',
       },
+      table: {
+        defaultValue: {
+          summary: 'fa',
+        },
+        type: {
+          summary: 'fa | en',
+        },
+      },
     },
     type: {
       options: ['shamsi', 'miladi'],
       control: {
         type: 'select',
+      },
+      table: {
+        defaultValue: {
+          summary: 'shamsi',
+        },
+        type: {
+          summary: 'shamsi | miladi',
+        },
+      },
+    },
+    allowedDates: {
+      description: 'A function which receives date as arg and returns boolean to specify whether the date should be disabled or not.',
+      table: {
+        defaultValue: {
+          summary: 'null',
+        },
+        type: {
+          summary: '(date: Date) => boolean',
+        },
+      },
+    },
+    commonDates: {
+      description: 'List of common dates which can be selected by used.',
+      table: {
+        defaultValue: {
+          summary: '[]',
+        },
+        type: {
+          summary: `{
+              label: string;
+              from: Date;
+              to: Date;
+            }[]`,
+        },
+      },
+    },
+    rangePickerClass: {
+      description: 'A class which will be added directly to RangePicker.',
+      table: {
+        defaultValue: {
+          summary: '',
+        },
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    modelValue: {
+      table: {
+        defaultValue: {
+          summary: 'null',
+        },
+        type: {
+          summary: 'Date',
+        },
+      },
+    },
+    '@update:modelValue': {
+      control: {
+        action: 'update:modelValue',
+      },
+      table: {
+        type: {
+          summary: `{
+              from: Date;
+              to: Date;
+            }`,
+        },
       },
     },
   },
@@ -35,20 +111,56 @@ export const Persian = Template.bind({});
 Persian.args = {
   lang: 'fa',
 };
+Persian.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMRangePicker />
+      `,
+    },
+  },
+};
 
 export const English = Template.bind({});
 English.args = {
   lang: 'en',
+};
+English.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMRangePicker lang="en" />
+      `,
+    },
+  },
 };
 
 export const Miladi = Template.bind({});
 Miladi.args = {
   type: 'miladi',
 };
+Miladi.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMRangePicker type="miladi" />
+      `,
+    },
+  },
+};
 
 export const Shamsi = Template.bind({});
 Shamsi.args = {
   type: 'shamsi',
+};
+Shamsi.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMRangePicker type="shamsi" />
+      `,
+    },
+  },
 };
 
 const lastWeek = new Date();
@@ -63,8 +175,38 @@ WithCommonDates.args = {
     },
   ],
 };
+WithCommonDates.parameters = {
+  docs: {
+    source: {
+      code: `
+      <script setup>
+        const lastWeek = new Date();
+        lastWeek.setDate(lastWeek.getDate() - 7);
+      </script>
+      <template>
+        <EMRangePicker :commonDates="[
+          {
+            to: new Date(),
+            from: lastWeek,
+            label: 'هفته اخیر',
+          },
+        ]" />
+      </template>
+      `,
+    },
+  },
+};
 
-export const OnlyOddDays = Template.bind({});
-OnlyOddDays.args = {
-  allowedDates: (date) => date.getDay() % 2 === 1,
+export const OnlyEvenDaysAllowed = Template.bind({});
+OnlyEvenDaysAllowed.args = {
+  allowedDates: (date) => date.getDay() % 2 === 0,
+};
+OnlyEvenDaysAllowed.parameters = {
+  docs: {
+    source: {
+      code: `
+        <EMRangePicker :allowedDates="(date) => date.getDay() % 2 === 0" />
+      `,
+    },
+  },
 };

@@ -3,7 +3,7 @@ import {
   toRef, ref, Ref, computed, watch,
 } from 'vue-demi';
 import {
-  Lang, AllowedDates, CalendarType, UnifyDateItem, SetUnifyDateItem, DatePickerSelectOutput,
+  Lang, AllowedDates, CalendarType, DatePickerSelectOutput,
   DatePickerSelectInput,
 } from '@lib/shared/types';
 import useDirection from '@lib/shared/hooks/useDirection';
