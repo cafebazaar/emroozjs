@@ -1,11 +1,35 @@
-# Vue 3 + Typescript + Vite
+# Emrooz
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Emrooz is a multilingual calendar built for Vue3. It also supports both Shamsi (Persian / Jalali) and Gregorian (English) calendars.
 
-## Recommended IDE Setup
+![Emrooz Calendar](https://user-images.githubusercontent.com/11475858/137792765-9812bd4f-4e88-4cb7-869b-0816eefb95c7.png)
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+## Installation
 
-## Type Support For `.vue` Imports in TS
+```
+$ npm i @cafebazaar/emrooz
+```
+Or
+```
+$ yarn add @cafebazaar/emrooz
+```
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+## Basic Usage
+
+```js
+<script setup>
+import { ref } from 'vue';
+import { EMDatePicker } from '@cafebazaar/emrooz';
+import '@cafebazaar/emrooz/emrooz.css';
+
+const value = ref(null)
+</script>
+<template>
+  <EMDatePicker v-model="value" />
+</template>
+```
+
+For further and more advanced usages please visit our storybook [here](https://emroozjs.netlify.app/).
+
+## License
+MIT
