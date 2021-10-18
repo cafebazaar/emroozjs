@@ -70,6 +70,7 @@ function checkAndEmitClick() {
     &--plain {
       background-color: transparent;
       color: $em-button-plain-color;
+      padding: 0;
 
       &:hover {
         color: $em-button-plain-hover-color;

@@ -92,7 +92,7 @@ function resetSlider() {
     align-self: stretch;
     width: 1px;
     background-color: $em-footer-sep-color;
-    margin: math.div($em-global-margin, 2) $em-global-margin * 2.4;
+    margin: math.div($em-global-margin, 2) $em-global-margin * 1.5;
   }
 
   &__close {
