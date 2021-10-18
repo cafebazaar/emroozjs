@@ -6,7 +6,7 @@ import dts from 'vite-plugin-dts';
 
 const resolve = (addr: string) => path.resolve(__dirname, addr);
 
-const buildConfig = process.env.NODE_ENV !== 'STORYBOOK_BUILD' ? {
+const buildConfig = process.env.NODE_ENV !== 'STORYBOOK' ? {
   build: {
     lib: {
       entry: path.resolve(__dirname, 'lib/index.ts'),

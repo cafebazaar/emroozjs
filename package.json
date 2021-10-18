@@ -16,8 +16,8 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "NODE_ENV=STORYBOOK start-storybook -p 6006",
+    "build-storybook": "NODE_ENV=STORYBOOK build-storybook"
   },
   "dependencies": {
     "vue": "^3.2.18",
