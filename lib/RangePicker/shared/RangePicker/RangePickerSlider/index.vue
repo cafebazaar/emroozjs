@@ -105,7 +105,7 @@ watch(currentFirstSliderDate, (old, newVal) => {
   }
 
   &__grid-item {
-    transition-duration: $em-transition-duration;
+    transition-duration: var(--em-transition-duration);
     transition-property: transform, opacity;
     display: inline-block;
 

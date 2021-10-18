@@ -60,8 +60,8 @@ const direction = useDirection(lang);
 .RangePickerInputUI {
   &__range-picker {
     @include mobile(){
-      border-top-right-radius: $em-mobile-corners-border-radius!important;
-      border-top-left-radius: $em-mobile-corners-border-radius!important;
+      border-top-right-radius: var(--em-mobile-corners-border-radius)!important;
+      border-top-left-radius: var(--em-mobile-corners-border-radius)!important;
     }
   }
 }

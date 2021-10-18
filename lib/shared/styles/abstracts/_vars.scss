@@ -1,63 +1,65 @@
-$em-white: #fff !default;
+:root {
+  --em-white: #fff;
 
-$em-primary-color: #0EA960 !default;
-$em-border-radius: 4px !default;
-$em-background-color: $em-white !default;
-$em-border: 1px solid #EAEEF4 !default;
-$em-transition-duration: 0.3s !default;
-$em-text-color: #606266 !default;
-$em-red-color: #F56C6C !default;
-$em-gray-color: #d0d0d2 !default;
-$em-dark-gray: #C0C4CC !default;
-$em-light-gray: #F1F2F9 !default;
-$em-grey-90: #20222A;
+  --em-primary-color: #0EA960;
+  --em-border-radius: 4px;
+  --em-background-color: var(--em-white);
+  --em-border: 1px solid #EAEEF4;
+  --em-transition-duration: 0.3s;
+  --em-text-color: #606266;
+  --em-red-color: #F56C6C;
+  --em-gray-color: #d0d0d2;
+  --em-dark-gray: #C0C4CC;
+  --em-light-gray: #F1F2F9;
+  --em-grey-90: #20222A;
 
-$mobile-width: 500px !default;
+  --mobile-width: 500px;
 
-$em-font-size: 14px !default;
-$em-small-font-size: 12px !default;
+  --em-font-size: 14px;
+  --em-small-font-size: 12px;
 
-$em-global-margin: 10px;
-$em-global-padding: 10px;
+  --em-global-margin: 10px;
+  --em-global-padding: 10px;
 
-// Wrapper
-$em-mobile-corners-border-radius: $em-border-radius * 6 !default;
+  // Wrapper
+  --em-mobile-corners-border-radius: calc(var(--em-border-radius) * 6);
 
-// Button
-$em-button-background-color: $em-primary-color !default;
-$em-button-border-radius: $em-border-radius !default;
-$em-button-color: $em-white !default;
-$em-button-disabled-color: #909399 !default;
-$em-button-disabled-background-color: #EAEEF4 !default;
-$em-button-plain-color: $em-text-color !default;
-$em-button-plain-hover-color: $em-primary-color !default;
-$em-button-transition-duration: $em-transition-duration !default;
+  // Button
+  --em-button-background-color: var(--em-primary-color);
+  --em-button-border-radius: var(--em-border-radius);
+  --em-button-color: var(--em-white);
+  --em-button-disabled-color: #909399;
+  --em-button-disabled-background-color: #EAEEF4;
+  --em-button-plain-color: var(--em-text-color);
+  --em-button-plain-hover-color: var(--em-primary-color);
+  --em-button-transition-duration: var(--em-transition-duration);
 
-// Grid
-$em-grid-header-color: $em-dark-gray !default;
-$em-grid-active-color: $em-primary-color !default;
-$em-grid-active-background-color: #E7F7F0 !default;
-$em-grid-active-text-color: $em-white !default;
-$em-grid-item-font-size: $em-small-font-size !default;
-$em-grid-border: $em-border !default;
-$em-grid-border-radius: $em-border-radius !default;
-$em-grid-disabled-color: $em-gray-color !default;
-$em-grid-hover-color: $em-primary-color !default;
-$em-grid-transition-duration: $em-transition-duration !default;
-$em-grid-closed-color: $em-red-color !default;
+  // Grid
+  --em-grid-header-color: var(--em-dark-gray);
+  --em-grid-active-color: var(--em-primary-color);
+  --em-grid-active-background-color: #E7F7F0;
+  --em-grid-active-text-color: var(--em-white);
+  --em-grid-item-font-size: var(--em-small-font-size);
+  --em-grid-border: var(--em-border);
+  --em-grid-border-radius: var(--em-border-radius);
+  --em-grid-disabled-color: var(--em-gray-color);
+  --em-grid-hover-color: var(--em-primary-color);
+  --em-grid-transition-duration: var(--em-transition-duration);
+  --em-grid-closed-color: var(--em-red-color);
 
-// Common Dates
-$em-mostly-used-font-size: $em-font-size !default;
-$em-mostly-used-active-color: $em-primary-color !default;
-$em-mostly-used-transition-duration: $em-transition-duration !default;
-$em-mostly-used-border-radius: $em-border-radius * 2 !default;
-$em-mostly-used-not-active-back-color: $em-light-gray !default;
+  // Common Dates
+  --em-mostly-used-font-size: var(--em-font-size);
+  --em-mostly-used-active-color: var(--em-primary-color);
+  --em-mostly-used-transition-duration: var(--em-transition-duration);
+  --em-mostly-used-border-radius: calc(var(--em-border-radius) * 2);
+  --em-mostly-used-not-active-back-color: var(--em-light-gray);
 
-// Footer
-$em-footer-report-text-color: #909399 !default;
-$em-footer-font-size: $em-font-size !default;
-$em-footer-border-top: $em-border !default;
-$em-footer-sep-color: $em-light-gray !default;
+  // Footer
+  --em-footer-report-text-color: #909399;
+  --em-footer-font-size: var(--em-font-size);
+  --em-footer-border-top: var(--em-border);
+  --em-footer-sep-color: var(--em-light-gray);
 
-// Controllers
-$em-controllers-font-size: $em-font-size !default;
+  // Controllers
+  --em-controllers-font-size: var(--em-font-size);
+}

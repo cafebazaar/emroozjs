@@ -45,13 +45,13 @@ const datePreviewString = computed(() => {
   display: flex;
   align-items: center;
 
-  padding-top: $em-global-padding * 1.6;
+  padding-top: calc(var(--em-global-padding) * 1.6);
 
   &__report {
-    color: $em-footer-report-text-color;
-    font-size: $em-footer-font-size;
+    color: var(--em-footer-report-text-color);
+    font-size: var(--em-footer-font-size);
 
-    transition-duration: $em-transition-duration;
+    transition-duration: var(--em-transition-duration);
   }
 
   &__action {

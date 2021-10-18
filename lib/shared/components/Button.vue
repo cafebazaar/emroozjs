@@ -42,11 +42,11 @@ function checkAndEmitClick() {
 <style lang="scss" scoped>
 
   .Button {
-    background-color: $em-button-background-color;
-    border-radius: $em-button-border-radius;
-    color: $em-button-color;
+    background-color: var(--em-button-background-color);
+    border-radius: var(--em-button-border-radius);
+    color: var(--em-button-color);
 
-    transition-duration: $em-button-transition-duration;
+    transition-duration: var(--em-button-transition-duration);
 
     cursor: pointer;
 
@@ -62,18 +62,18 @@ function checkAndEmitClick() {
     }
 
     &--disabled {
-      background-color: $em-button-disabled-background-color;
-      color: $em-button-disabled-color;
+      background-color: var(--em-button-disabled-background-color);
+      color: var(--em-button-disabled-color);
       cursor: not-allowed;
     }
 
     &--plain {
       background-color: transparent;
-      color: $em-button-plain-color;
+      color: var(--em-button-plain-color);
       padding: 0;
 
       &:hover {
-        color: $em-button-plain-hover-color;
+        color: var(--em-button-plain-hover-color);
       }
     }
   }

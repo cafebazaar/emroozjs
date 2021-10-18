@@ -80,10 +80,10 @@ function prevMonth() {
 
   &__grid {
     box-sizing: border-box;
-    margin-top: $em-global-margin;
-    margin-bottom: $em-global-margin * 2;
+    margin-top: var(--em-global-margin);
+    margin-bottom: calc(var(--em-global-margin) * 2);
 
-    transition-duration: $em-transition-duration;
+    transition-duration: var(--em-transition-duration);
     transition-property: transform, opacity;
 
     height: 100%;

@@ -45,22 +45,22 @@ provide('selectDate', props.selectDate);
     direction: ltr;
   }
 
-  padding: $em-global-padding * 1.6 $em-global-padding * 2.4;
-  background-color: $em-background-color;
-  border-radius: $em-border-radius;
-  border: $em-border;
+  padding: calc(var(--em-global-padding) * 1.6) calc(var(--em-global-padding) * 2.4);
+  background-color: var(--em-background-color);
+  border-radius: var(--em-border-radius);
+  border: var(--em-border);
 
   width: 241px;
 
   @include mobile(){
     width: 100%;
-    padding: $em-global-padding * 2.4;
+    padding: calc(var(--em-global-padding) * 2.4);
   }
 
   box-sizing: border-box;
 
   &__footer {
-    border-top: $em-footer-border-top;
+    border-top: var(--em-footer-border-top);
   }
 }
 </style>

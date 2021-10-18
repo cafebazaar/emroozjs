@@ -64,7 +64,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
 <style lang="scss" scoped>
 
 .DatePickerUISliderGrid {
-  border: $em-grid-border;
+  border: var(--em-grid-border);
 
   width: 191px;
 
@@ -74,7 +74,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
 
   box-sizing: border-box;
 
-  border-radius: $em-grid-border-radius;
+  border-radius: var(--em-grid-border-radius);
 
   display: flex;
   flex-wrap: wrap;

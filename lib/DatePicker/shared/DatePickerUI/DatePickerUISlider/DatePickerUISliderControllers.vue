@@ -51,7 +51,7 @@ function prev() {
   display: flex;
   align-items: center;
 
-  font-size: $em-controllers-font-size;
+  font-size: var(--em-controllers-font-size);
 
   &__month {
     flex: 1;

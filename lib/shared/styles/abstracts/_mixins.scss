@@ -41,7 +41,7 @@
 }
 
 @mixin mobile(){
-  @media only screen and (max-width: #{$mobile-width}) {
+  @media only screen and (max-width: var(--mobile-width)) {
     & {
       @content;
     }

@@ -32,7 +32,7 @@ const {
 <style lang="scss" scoped>
 
 .RangePickerCommonDates {
-  font-size: $em-mostly-used-font-size;
+  font-size: var(--em-mostly-used-font-size);
   display: flex;
   flex-direction: column;
 
@@ -43,7 +43,7 @@ const {
     overflow-x: auto;
   }
 
-  @include endPadding(1.6 * $em-global-padding);
+  @include endPadding(calc(1.6 * var(--em-global-padding)));
 
   box-sizing: border-box;
 
@@ -78,7 +78,7 @@ const {
 
         @include mobile(){
           margin-top: 0;
-          @include startMargin($em-global-margin);
+          @include startMargin(var(--em-global-margin));
         }
       }
     }

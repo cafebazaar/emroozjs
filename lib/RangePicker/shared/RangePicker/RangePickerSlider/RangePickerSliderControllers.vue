@@ -63,7 +63,7 @@ function prev() {
 <style lang="scss" scoped>
 
 .RangePickerSliderControllers {
-  font-size: $em-controllers-font-size;
+  font-size: var(--em-controllers-font-size);
 
   display: flex;
   align-items: center;
@@ -75,11 +75,11 @@ function prev() {
     flex: 1;
     position: relative;
 
-    padding: 0 $em-global-padding;
+    padding: 0 var(--em-global-padding);
   }
 
   &__month {
-    transition-duration: $em-transition-duration;
+    transition-duration: var(--em-transition-duration);
     transition-property: transform, opacity;
     display: inline-block;
   }

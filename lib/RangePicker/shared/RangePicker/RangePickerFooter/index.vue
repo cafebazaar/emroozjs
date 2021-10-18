@@ -72,17 +72,17 @@ function resetSlider() {
 
 <style lang="scss" scoped>
 .RangePickerFooter {
-  padding-top: $em-global-padding * 1.6;
+  padding-top: calc(var(--em-global-padding) * 1.6);
   box-sizing: border-box;
 
   display: flex;
   align-items: center;
 
-  color: $em-footer-report-text-color;
-  font-size: $em-footer-font-size;
+  color: var(--em-footer-report-text-color);
+  font-size: var(--em-footer-font-size);
 
   &__report {
-    transition-duration: $em-transition-duration;
+    transition-duration: var(--em-transition-duration);
 
     display: flex;
     align-items: center;
@@ -91,14 +91,14 @@ function resetSlider() {
   &__sep {
     align-self: stretch;
     width: 1px;
-    background-color: $em-footer-sep-color;
-    margin: math.div($em-global-margin, 2) $em-global-margin * 1.5;
+    background-color: var(--em-footer-sep-color);
+    margin: calc(var(--em-global-margin) / 2) calc(var(--em-global-margin) * 1.5);
   }
 
   &__close {
-    color: $em-grey-90;
+    color: var(--em-grey-90);
     cursor: pointer;
-    @include endMargin($em-global-margin);
+    @include endMargin(var(--em-global-margin));
   }
 
   &__action {

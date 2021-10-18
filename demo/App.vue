@@ -30,7 +30,9 @@ function toggleLang() {
 </script>
 
 <template>
-  <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+  <div
+    style="display: flex; align-items: center; justify-content: center; flex-direction: column;"
+  >
     <hr>
     <EMRangePickerInput
       v-model="range"

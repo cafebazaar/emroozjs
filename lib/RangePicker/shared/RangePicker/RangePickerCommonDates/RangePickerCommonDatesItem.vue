@@ -46,24 +46,24 @@ const isActive = computed(() => {
 
 .RangePickerCommonDatesItem {
   cursor: pointer;
-  transition: $em-mostly-used-transition-duration;
+  transition: var(--em-mostly-used-transition-duration);
 
   user-select: none;
 
-  color: $em-text-color;
+  color: var(--em-text-color);
 
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 
   @include mobile(){
-    padding: math.div($em-global-padding, 2) $em-global-padding * 1.6;
-    border-radius: $em-mostly-used-border-radius;
-    background-color: $em-mostly-used-not-active-back-color;
+    padding: calc(var(--em-global-padding) / 2) calc(var(--em-global-padding) * 1.6);
+    border-radius: var(--em-mostly-used-border-radius);
+    background-color: var(--em-mostly-used-not-active-back-color);
   }
 
   &:hover {
-    color: $em-mostly-used-active-color;
+    color: var(--em-mostly-used-active-color);
 
     @include mobile(){
       color: white;
@@ -71,11 +71,11 @@ const isActive = computed(() => {
   }
 
   &--active {
-    color: $em-mostly-used-active-color;
+    color: var(--em-mostly-used-active-color);
 
     @include mobile(){
       color: white;
-      background-color: $em-mostly-used-active-color;
+      background-color: var(--em-mostly-used-active-color);
     }
   }
 }

@@ -74,7 +74,7 @@ onBeforeUnmount(() => {
   position: relative;
 
   &__input {
-    margin-top: math.div($em-global-margin, 2);
+    margin-top: calc(var(--em-global-margin) / 2);
   }
 }
 </style>

@@ -30,13 +30,13 @@ const emit = defineEmits<{(e: 'click'): void;}>();
 
 <style lang="scss">
 .PickerInputBox {
-  background-color: $em-white;
+  background-color: var(--em-white);
   display: inline-flex;
   align-items: center;
 
-  padding: $em-global-padding $em-global-padding * 1.6;
-  border: $em-border;
-  border-radius: $em-border-radius;
+  padding: var(--em-global-padding) calc(var(--em-global-padding) * 1.6);
+  border: var(--em-border);
+  border-radius: var(--em-border-radius);
 
   cursor: pointer;
 
@@ -49,8 +49,8 @@ const emit = defineEmits<{(e: 'click'): void;}>();
   }
 
   &__text {
-    color: $em-gray-color;
-    @include endMargin(math.div($em-global-padding, 2));
+    color: var(--em-gray-color);
+    @include endMargin(calc(var(--em-global-padding) / 2));
   }
 
   &__input {
@@ -67,7 +67,7 @@ const emit = defineEmits<{(e: 'click'): void;}>();
   }
 
   &__icon {
-    color: $em-dark-gray;
+    color: var(--em-dark-gray);
     @include startMargin(auto);
   }
 }

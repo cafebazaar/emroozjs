@@ -70,7 +70,7 @@ const {
 <style lang="scss" scoped>
 
 .GridItemUI {
-  transition-duration: $em-grid-transition-duration;
+  transition-duration: var(--em-grid-transition-duration);
 
   width: 27px;
   height: 20px;
@@ -87,13 +87,13 @@ const {
   align-items: center;
   justify-content: center;
 
-  font-size: $em-grid-item-font-size;
-  color: $em-text-color;
+  font-size: var(--em-grid-item-font-size);
+  color: var(--em-text-color);
 
   margin: 4px 0;
 
   &--header {
-    color: $em-grid-header-color;
+    color: var(--em-grid-header-color);
     cursor: default;
   }
 
@@ -102,16 +102,16 @@ const {
   }
 
   &--closed {
-    color: $em-grid-closed-color;
+    color: var(--em-grid-closed-color);
   }
 
   &--disabled {
     cursor: not-allowed;
-    color: $em-grid-disabled-color;
+    color: var(--em-grid-disabled-color);
   }
 
   &--active {
-    background: $em-grid-active-background-color;
+    background: var(--em-grid-active-background-color);
 
     &-start {
       background:
@@ -119,8 +119,8 @@ const {
           to left,
           transparent 0%,
           transparent 50%,
-          $em-grid-active-background-color 50%,
-          $em-grid-active-background-color 100%
+          var(--em-grid-active-background-color) 50%,
+          var(--em-grid-active-background-color) 100%
         );
       @include ltr {
         background:
@@ -128,8 +128,8 @@ const {
             to right,
             transparent 0%,
             transparent 50%,
-            $em-grid-active-background-color 50%,
-            $em-grid-active-background-color 100%
+            var(--em-grid-active-background-color) 50%,
+            var(--em-grid-active-background-color) 100%
         );
       }
     }
@@ -139,8 +139,8 @@ const {
           to right,
           transparent 0%,
           transparent 50%,
-          $em-grid-active-background-color 50%,
-          $em-grid-active-background-color 100%
+          var(--em-grid-active-background-color) 50%,
+          var(--em-grid-active-background-color) 100%
         );
       @include ltr {
         background:
@@ -148,25 +148,25 @@ const {
             to left,
             transparent 0%,
             transparent 50%,
-            $em-grid-active-background-color 50%,
-            $em-grid-active-background-color 100%
+            var(--em-grid-active-background-color) 50%,
+            var(--em-grid-active-background-color) 100%
           );
       }
     }
   }
 
   &--today:not(&--active):not(&--disabled) {
-    color: $em-grid-hover-color;
+    color: var(--em-grid-hover-color);
   }
 
   &:not(&--header):not(&--active):not(&--disabled) {
     &:hover {
-      color: $em-grid-hover-color;
+      color: var(--em-grid-hover-color);
     }
   }
 
   &__inner {
-    transition-duration: $em-grid-transition-duration;
+    transition-duration: var(--em-grid-transition-duration);
 
     border-radius: 50%;
 
@@ -182,8 +182,8 @@ const {
     justify-content: center;
 
     &--active {
-      background-color: $em-grid-active-color;
-      color: $em-grid-active-text-color;
+      background-color: var(--em-grid-active-color);
+      color: var(--em-grid-active-text-color);
     }
   }
 }

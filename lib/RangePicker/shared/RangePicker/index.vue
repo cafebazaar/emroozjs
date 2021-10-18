@@ -88,13 +88,13 @@ provide('setCurrentFirstSliderDate', setCurrentFirstSliderDate);
       direction: ltr;
     }
 
-    background-color: $em-background-color;
-    border-radius: $em-border-radius;
+    background-color: var(--em-background-color);
+    border-radius: var(--em-border-radius);
 
     display: flex;
     flex-direction: column;
 
-    border: $em-border;
+    border: var(--em-border);
     padding: 16px 24px;
     width: 400px;
 
@@ -123,7 +123,7 @@ provide('setCurrentFirstSliderDate', setCurrentFirstSliderDate);
 
       @include mobile(){
         flex-basis: 50px;
-        margin-bottom: $em-global-margin;
+        margin-bottom: var(--em-global-margin);
       }
     }
 
@@ -132,7 +132,7 @@ provide('setCurrentFirstSliderDate', setCurrentFirstSliderDate);
     }
 
     &__footer {
-      border-top: $em-footer-border-top;
+      border-top: var(--em-footer-border-top);
     }
   }
 </style>
