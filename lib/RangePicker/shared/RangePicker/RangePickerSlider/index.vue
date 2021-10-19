@@ -49,6 +49,7 @@ watch(currentFirstSliderDate, (old, newVal) => {
 });
 
 const isMobile = ref(false);
+let mql: MediaQueryList;
 
 function detectMobile(mqEvent: MediaQueryListEvent): undefined {
   if (mqEvent.matches) {
@@ -59,11 +60,14 @@ function detectMobile(mqEvent: MediaQueryListEvent): undefined {
 }
 
 onMounted(() => {
-  const mql = window.matchMedia(`(max-width: ${MOBILE_WIDTH_VIEWPORT})`);
+  mql = window.matchMedia(`(max-width: ${MOBILE_WIDTH_VIEWPORT})`);
 
   mql.addEventListener('change', detectMobile);
 
   isMobile.value = mql.matches;
+});
+onBeforeUnmount(() => {
+  mql.removeEventListener('change', detectMobile);
 });
 </script>
 
