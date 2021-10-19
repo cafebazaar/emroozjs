@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { action } from '@storybook/addon-actions';
 import { EMRangePicker } from '../lib/index';
 
 export default {
@@ -100,11 +102,12 @@ const Template = (args) => ({
   components: { EMRangePicker },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
+    const updateModelValue = action('update:modelValue');
     // Story args can be mapped to keys in the returned object
-    return { args };
+    return { args, updateModelValue };
   },
   // Then, those values can be accessed directly in the template
-  template: '<EMRangePicker v-bind="args" />',
+  template: '<EMRangePicker @update:modelValue="updateModelValue" v-bind="args" />',
 });
 
 export const Persian = Template.bind({});

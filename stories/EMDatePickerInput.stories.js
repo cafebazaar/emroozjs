@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { action } from '@storybook/addon-actions';
 import { ref } from 'vue';
 import { EMDatePickerInput } from '../lib/index';
 import EMDatePickerStories from './EMDatePicker.stories';
@@ -16,11 +18,20 @@ const Template = (args) => ({
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     const val = ref(null);
+    const updateModelValue = action('update:modelValue');
+
+    function update(value) {
+      updateModelValue(value);
+      val.value = value;
+    }
     // Story args can be mapped to keys in the returned object
-    return { args, val };
+    return { args, val, update };
   },
   // Then, those values can be accessed directly in the template
-  template: '<div style="max-width: 300px; width: 100%;"><EMDatePickerInput v-model="val" v-bind="args" /></div>',
+  template: `
+  <div style="max-width: 300px; width: 100%;">
+    <EMDatePickerInput @update:modelValue="update" :modelValue="val" v-bind="args" />
+  </div>`,
 });
 
 export const Persian = Template.bind({});
