@@ -40,6 +40,7 @@ module.exports = {
         map: [
           ['@lib', './lib'],
           ['@lib-shared', './lib/shared'],
+          ['@config', './config'],
         ],
         extensions: ['.js', '.ts', '.vue'],
       },

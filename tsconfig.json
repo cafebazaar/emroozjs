@@ -14,7 +14,8 @@
     "paths": {
       "@lib/*": ["lib/*"],
       "@lib": ["lib/index.ts"],
-      "@lib-shared/*": ["lib-shared/*"]
+      "@lib-shared/*": ["lib-shared/*"],
+      "@config/*": ["config/*"]
     }
   },
   "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.vue", "env.d.ts"]

@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
+import {
+  ref, computed, watch, onMounted, onBeforeUnmount,
+} from 'vue';
 import SlideAnimation from '@lib/shared/components/SlideAnimation.vue';
+import { MOBILE_WIDTH_VIEWPORT } from '@config/UI';
 import RangePickerSliderControllers from './RangePickerSliderControllers.vue';
 import useCalendar from '../shared/hooks/useRangePicker';
 import RangePickerSliderGridContainer from './RangePickerSliderGridContainer/index.vue';
@@ -44,6 +47,24 @@ watch(currentFirstSliderDate, (old, newVal) => {
     isAnimationInverted.value = true;
   }
 });
+
+const isMobile = ref(false);
+
+function detectMobile(mqEvent: MediaQueryListEvent): undefined {
+  if (mqEvent.matches) {
+    isMobile.value = true;
+    return;
+  }
+  isMobile.value = false;
+}
+
+onMounted(() => {
+  const mql = window.matchMedia(`(max-width: ${MOBILE_WIDTH_VIEWPORT})`);
+
+  mql.addEventListener('change', detectMobile);
+
+  isMobile.value = mql.matches;
+});
 </script>
 
 <template>
@@ -73,10 +94,11 @@ watch(currentFirstSliderDate, (old, newVal) => {
         />
 
         <RangePickerSliderGridContainer
+          v-if="!isMobile"
           :key="`${currentSecondDate.year}-${currentSecondDate.month}`"
           :current-month="currentSecondDate.month"
           :current-year="currentSecondDate.year"
-          class="RangePickerSlider__grid-item RangePickerSlider__grid-item--second"
+          class="RangePickerSlider__grid-item"
         />
       </SlideAnimation>
     </div>
@@ -110,12 +132,6 @@ watch(currentFirstSliderDate, (old, newVal) => {
     display: inline-block;
 
     height: 100%;
-
-    &--second {
-      @include mobile(){
-        display: none!important;
-      }
-    }
   }
 }
 </style>

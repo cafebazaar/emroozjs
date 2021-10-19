@@ -3,7 +3,8 @@ import './stylesheets/main.scss';
 import { ref } from 'vue';
 import {
   EMRangePicker, EMDatePicker, EMRangePickerInput, EMDatePickerInput,
-} from '@lib';
+} from '../dist/emrooz.es.js';
+import '../dist/style.css';
 
 const range = ref(null);
 const date = ref(null);
