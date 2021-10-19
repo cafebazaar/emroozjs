@@ -20,18 +20,18 @@ const datePreviewString = computed(() => {
 </script>
 
 <template>
-  <div class="DatePickerUIFooter">
+  <div class="EMDatePickerUIFooter">
     <VerticalSlideAnimation>
       <span
         :key="datePreviewString"
-        class="DatePickerUIFooter__report"
+        class="EMDatePickerUIFooter__report"
       >
         {{ datePreviewString }}
       </span>
     </VerticalSlideAnimation>
 
     <Button
-      class="DatePickerUIFooter__action"
+      class="EMDatePickerUIFooter__action"
       :disabled="!isDateSelected"
       @click="selectDate"
     >
@@ -40,8 +40,8 @@ const datePreviewString = computed(() => {
   </div>
 </template>
 
-<style lang="scss">
-.DatePickerUIFooter {
+<style lang="scss" scoped>
+.EMDatePickerUIFooter {
   display: flex;
   align-items: center;
 

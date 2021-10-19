@@ -44,7 +44,7 @@ onBeforeUnmount(() => {
 <template>
   <div
     ref="inputRef"
-    class="PickerInput"
+    class="EMPickerInput"
     @click.stop
   >
     <PickerInputBox
@@ -56,7 +56,7 @@ onBeforeUnmount(() => {
     <PickerInputTransition>
       <PickerInputPopOver
         v-show="isOpen"
-        class="PickerInput__input"
+        class="EMPickerInput__input"
         :dom-rect="domRect"
         :direction="props.direction"
       >
@@ -67,7 +67,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
-.PickerInput {
+.EMPickerInput {
   width: 100%;
 
   display: inline-block;

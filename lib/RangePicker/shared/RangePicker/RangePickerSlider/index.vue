@@ -68,7 +68,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="RangePickerSlider">
+  <div class="EMRangePickerSlider">
     <header>
       <RangePickerSliderControllers
         :is-animation-inverted="isAnimationInverted"
@@ -81,32 +81,38 @@ onMounted(() => {
       />
     </header>
 
-    <div class="RangePickerSlider__content">
+    <div class="EMRangePickerSlider__content">
       <SlideAnimation
         :is-inverted="isAnimationInverted"
         :direction="direction"
       >
-        <RangePickerSliderGridContainer
+        <div
           :key="`${currentFirstSliderDate.year}-${currentFirstSliderDate.month}`"
-          :current-month="currentFirstSliderDate.month"
-          :current-year="currentFirstSliderDate.year"
-          class="RangePickerSlider__grid-item"
-        />
+          class="EMRangePickerSlider__grid-item"
+        >
+          <RangePickerSliderGridContainer
+            :current-month="currentFirstSliderDate.month"
+            :current-year="currentFirstSliderDate.year"
+          />
+        </div>
 
-        <RangePickerSliderGridContainer
+        <div
           v-if="!isMobile"
           :key="`${currentSecondDate.year}-${currentSecondDate.month}`"
-          :current-month="currentSecondDate.month"
-          :current-year="currentSecondDate.year"
-          class="RangePickerSlider__grid-item"
-        />
+          class="EMRangePickerSlider__grid-item"
+        >
+          <RangePickerSliderGridContainer
+            :current-month="currentSecondDate.month"
+            :current-year="currentSecondDate.year"
+          />
+        </div>
       </SlideAnimation>
     </div>
   </div>
 </template>
 
-<style lang="scss">
-.RangePickerSlider {
+<style lang="scss" scoped>
+.EMRangePickerSlider {
   display: flex;
   flex-direction: column;
 

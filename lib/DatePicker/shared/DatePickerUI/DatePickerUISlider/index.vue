@@ -46,7 +46,7 @@ function prevMonth() {
 </script>
 
 <template>
-  <div class="DatePickerUISlider">
+  <div class="EMDatePickerUISlider">
     <DatePickerUISliderControllers
       :current-month="currentDateSlide.month"
       :current-year="currentDateSlide.year"
@@ -54,7 +54,7 @@ function prevMonth() {
       @prev="prevMonth"
     />
 
-    <div class="DatePickerUISlider__content">
+    <div class="EMDatePickerUISlider__content">
       <SlideAnimation
         :is-inverted="isAnimationInverted"
         :direction="direction"
@@ -63,15 +63,15 @@ function prevMonth() {
           :key="`${currentDateSlide.year}-${currentDateSlide.month}`"
           :current-month="currentDateSlide.month"
           :current-year="currentDateSlide.year"
-          class="DatePickerUISlider__grid"
+          class="EMDatePickerUISlider__grid"
         />
       </SlideAnimation>
     </div>
   </div>
 </template>
 
-<style lang="scss">
-.DatePickerUISlider {
+<style lang="scss" scoped>
+.EMDatePickerUISlider {
   overflow: hidden;
 
   &__content {

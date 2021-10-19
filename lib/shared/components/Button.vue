@@ -27,11 +27,11 @@ function checkAndEmitClick() {
 
 <template>
   <button
-    class="Button"
+    class="EMButton"
     :class="{
-      'Button--icon': icon,
-      'Button--disabled': disabled,
-      'Button--plain': plain
+      'EMButton--icon': icon,
+      'EMButton--disabled': disabled,
+      'EMButton--plain': plain
     }"
     @click="checkAndEmitClick"
   >
@@ -41,7 +41,7 @@ function checkAndEmitClick() {
 
 <style lang="scss" scoped>
 
-  .Button {
+  .EMButton {
     background-color: var(--em-button-background-color);
     border-radius: var(--em-button-border-radius);
     color: var(--em-button-color);

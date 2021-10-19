@@ -12,11 +12,11 @@ const props = withDefaults(defineProps<Props>(), {
 
 const animationName = computed(() => {
   if (props.isInverted) {
-    if (props.direction === 'rtl') return 'em-slide-prev';
-    return 'em-slide';
+    if (props.direction === 'rtl') return 'EMSlide-prev';
+    return 'EMSlide';
   }
-  if (props.direction === 'rtl') return 'em-slide';
-  return 'em-slide-prev';
+  if (props.direction === 'rtl') return 'EMSlide';
+  return 'EMSlide-prev';
 });
 </script>
 
@@ -30,7 +30,7 @@ const animationName = computed(() => {
 </template>
 
 <style lang="scss">
-.em-slide {
+.EMSlide {
   &-enter-from{
     opacity: 0;
     transform: translateX(-100%);

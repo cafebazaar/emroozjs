@@ -43,7 +43,7 @@ watch(props, () => {
 <template>
   <div
     ref="el"
-    class="PickerInputPopOver"
+    class="EMPickerInputPopOver"
   >
     <div @click.stop>
       <slot />
@@ -51,8 +51,8 @@ watch(props, () => {
   </div>
 </template>
 
-<style lang="scss">
-.PickerInputPopOver {
+<style lang="scss" scoped>
+.EMPickerInputPopOver {
   position: absolute;
   z-index: 100;
 

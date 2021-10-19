@@ -34,14 +34,14 @@ const direction = useDirection(lang);
 
 <template>
   <PickerInput
-    class="RangePickerInputUI"
+    class="EMRangePickerInputUI"
     :direction="direction"
     :value="props.selectedRangeString"
     :text="props.strings.rangeText"
   >
     <template #default="{ close }">
       <RangePicker
-        range-picker-class="RangePickerInputUI__range-picker"
+        range-picker-class="EMRangePickerInputUI__range-picker"
         :common-dates="props.commonDates"
         :allowed-dates="props.allowedDates"
         :lang="props.lang"
@@ -56,8 +56,8 @@ const direction = useDirection(lang);
   </PickerInput>
 </template>
 
-<style lang="scss">
-.RangePickerInputUI {
+<style lang="scss" scoped>
+.EMRangePickerInputUI {
   &__range-picker {
     @include mobile(){
       border-top-right-radius: var(--em-mobile-corners-border-radius)!important;

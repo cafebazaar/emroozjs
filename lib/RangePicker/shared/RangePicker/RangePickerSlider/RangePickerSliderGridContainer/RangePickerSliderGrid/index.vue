@@ -30,7 +30,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
 </script>
 
 <template>
-  <div class="RangePickerSliderGrid">
+  <div class="EMRangePickerSliderGrid">
     <GridItemUI
       v-for="i of props.headerNames"
       :key="i"
@@ -68,7 +68,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
 
 <style lang="scss" scoped>
 
-.RangePickerSliderGrid {
+.EMRangePickerSliderGrid {
   border: var(--em-grid-border);
 
   width: 191px;

@@ -36,23 +36,23 @@ function resetSlider() {
 </script>
 
 <template>
-  <div class="RangePickerFooter">
+  <div class="EMRangePickerFooter">
     <Button
       :plain="true"
       @click="resetSlider"
     >
       {{ strings.goToToday }}
     </Button>
-    <div class="RangePickerFooter__sep" />
+    <div class="EMRangePickerFooter__sep" />
     <div>
       <VerticalSlideAnimation>
         <span
           v-show="datePreviewString"
           :key="datePreviewString"
-          class="RangePickerFooter__report"
+          class="EMRangePickerFooter__report"
         >
           <RangePickerFooterClose
-            class="RangePickerFooter__close"
+            class="EMRangePickerFooter__close"
             @click="removeRange"
           />
           {{ datePreviewString }}
@@ -61,7 +61,7 @@ function resetSlider() {
     </div>
 
     <Button
-      class="RangePickerFooter__action"
+      class="EMRangePickerFooter__action"
       :disabled="!isRangeSelected"
       @click="selectRange"
     >
@@ -71,7 +71,7 @@ function resetSlider() {
 </template>
 
 <style lang="scss" scoped>
-.RangePickerFooter {
+.EMRangePickerFooter {
   padding-top: calc(var(--em-global-padding) * 1.6);
   box-sizing: border-box;
 

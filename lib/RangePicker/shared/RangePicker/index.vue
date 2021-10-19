@@ -62,27 +62,27 @@ provide('setCurrentFirstSliderDate', setCurrentFirstSliderDate);
 
 <template>
   <div
-    class="RangePicker"
+    class="EMRangePicker"
     :class="{
-      'RangePicker--with-common-dates': commonDates?.length
+      'EMRangePicker--with-common-dates': commonDates?.length
     }"
   >
-    <div class="RangePicker__content">
+    <div class="EMRangePicker__content">
       <RangePickerCommonDates
         v-if="commonDates?.length"
-        class="RangePicker__common-dates"
+        class="EMRangePicker__common-dates"
       />
 
-      <RangePickerSlider class="RangePicker__slider" />
+      <RangePickerSlider class="EMRangePicker__slider" />
     </div>
-    <footer class="RangePicker__footer">
+    <footer class="EMRangePicker__footer">
       <RangePickerFooter />
     </footer>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  .RangePicker {
+  .EMRangePicker {
     direction: rtl;
     @include ltr {
       direction: ltr;

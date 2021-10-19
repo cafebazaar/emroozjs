@@ -2,13 +2,13 @@
 </script>
 
 <template>
-  <Transition name="em-slide-up-fade">
+  <Transition name="EMSlideUpFade">
     <slot />
   </Transition>
 </template>
 
 <style lang="scss">
-.em-slide-up-fade {
+.EMSlideUpFade {
   &-enter-from{
     opacity: 0;
     transform: translateY(-20px);

@@ -32,9 +32,9 @@ const isActive = computed(() => {
 
 <template>
   <li
-    class="RangePickerCommonDatesItem"
+    class="EMRangePickerCommonDatesItem"
     :class="{
-      'RangePickerCommonDatesItem--active': isActive,
+      'EMRangePickerCommonDatesItem--active': isActive,
     }"
     @click="setRange"
   >
@@ -44,7 +44,7 @@ const isActive = computed(() => {
 
 <style lang="scss" scoped>
 
-.RangePickerCommonDatesItem {
+.EMRangePickerCommonDatesItem {
   cursor: pointer;
   transition: var(--em-mostly-used-transition-duration);
 

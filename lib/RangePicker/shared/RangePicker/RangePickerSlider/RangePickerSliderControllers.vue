@@ -26,19 +26,19 @@ function prev() {
 }
 </script>
 <template>
-  <div class="RangePickerSliderControllers">
+  <div class="EMRangePickerSliderControllers">
     <StartingArrowButton
       :direction="direction"
       @click="prev"
     />
-    <div class="RangePickerSliderControllers__month-wrapper">
+    <div class="EMRangePickerSliderControllers__month-wrapper">
       <SlideAnimation
         :direction="direction"
         :is-inverted="isAnimationInverted"
       >
         <span
           :key="`${props.firstYear}-${props.firstMonth}`"
-          class="RangePickerSliderControllers__month"
+          class="EMRangePickerSliderControllers__month"
         >
           {{ strings.monthNames[props.firstMonth] }}
           {{ props.firstYear }}
@@ -46,7 +46,7 @@ function prev() {
 
         <span
           :key="`${props.secondYear}-${props.secondMonth}`"
-          class="RangePickerSliderControllers__month"
+          class="EMRangePickerSliderControllers__month"
         >
           {{ strings.monthNames[props.secondMonth] }}
           {{ props.secondYear }}
@@ -62,7 +62,7 @@ function prev() {
 
 <style lang="scss" scoped>
 
-.RangePickerSliderControllers {
+.EMRangePickerSliderControllers {
   font-size: var(--em-controllers-font-size);
 
   display: flex;

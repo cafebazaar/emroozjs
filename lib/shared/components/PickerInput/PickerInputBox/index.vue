@@ -13,23 +13,23 @@ const emit = defineEmits<{(e: 'click'): void;}>();
 
 <template>
   <div
-    class="PickerInputBox"
+    class="EMPickerInputBox"
     @click="emit('click')"
   >
-    <span class="PickerInputBox__text">
+    <span class="EMPickerInputBox__text">
       {{ props.text }}:
     </span>
     <input
-      class="PickerInputBox__input"
+      class="EMPickerInputBox__input"
       readonly
       :value="props.value"
     >
-    <ArrowDownIcon class="PickerInputBox__icon" />
+    <ArrowDownIcon class="EMPickerInputBox__icon" />
   </div>
 </template>
 
-<style lang="scss">
-.PickerInputBox {
+<style lang="scss" scoped>
+.EMPickerInputBox {
   background-color: var(--em-white);
   display: inline-flex;
   align-items: center;

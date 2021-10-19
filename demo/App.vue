@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import './stylesheets/main.scss';
 import { ref } from 'vue';
 import {
   EMRangePicker, EMDatePicker, EMRangePickerInput, EMDatePickerInput,

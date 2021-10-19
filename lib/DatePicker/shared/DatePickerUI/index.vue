@@ -31,15 +31,15 @@ provide('selectDate', props.selectDate);
 </script>
 
 <template>
-  <div class="DatePickerUI">
+  <div class="EMDatePickerUI">
     <DatePickerUISlider />
 
-    <DatePickerUIFooter class="DatePickerUI__footer" />
+    <DatePickerUIFooter class="EMDatePickerUI__footer" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.DatePickerUI {
+.EMDatePickerUI {
   direction: rtl;
   @include ltr {
     direction: ltr;

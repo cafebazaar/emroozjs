@@ -43,23 +43,23 @@ const {
 
 <template>
   <div
-    class="GridItemUI"
+    class="EMGridItemUI"
     :class="{
-      'GridItemUI--header': isHeader,
-      'GridItemUI--empty': isEmpty,
-      'GridItemUI--active': isMiddle,
-      'GridItemUI--active-start': isActiveStart,
-      'GridItemUI--active-end': isActiveEnd,
-      'GridItemUI--disabled': isDisabled,
-      'GridItemUI--today': isToday,
-      'GridItemUI--closed': isClosed,
+      'EMGridItemUI--header': isHeader,
+      'EMGridItemUI--empty': isEmpty,
+      'EMGridItemUI--active': isMiddle,
+      'EMGridItemUI--active-start': isActiveStart,
+      'EMGridItemUI--active-end': isActiveEnd,
+      'EMGridItemUI--disabled': isDisabled,
+      'EMGridItemUI--today': isToday,
+      'EMGridItemUI--closed': isClosed,
     }"
     @click="emit('click')"
   >
     <span
-      class="GridItemUI__inner"
+      class="EMGridItemUI__inner"
       :class="{
-        'GridItemUI__inner--active': isEdge,
+        'EMGridItemUI__inner--active': isEdge,
       }"
     >
       <slot />
@@ -69,7 +69,7 @@ const {
 
 <style lang="scss" scoped>
 
-.GridItemUI {
+.EMGridItemUI {
   transition-duration: var(--em-grid-transition-duration);
 
   width: 27px;

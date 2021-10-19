@@ -32,7 +32,7 @@ const direction = useDirection(lang);
     :value="props.selectedDateString"
     :text="props.strings.dateText"
     :direction="direction"
-    class="DatePickerInputUI"
+    class="EMDatePickerInputUI"
   >
     <template #default="{close}">
       <DatePicker
@@ -41,7 +41,7 @@ const direction = useDirection(lang);
         :allowed-dates="props.allowedDates"
         :lang="props.lang"
         :type="props.type"
-        date-picker-class="DatePickerInputUI__date-picker"
+        date-picker-class="EMDatePickerInputUI__date-picker"
         @update:model-value="(date)=>{
           emit('update:modelValue', date);
           close();
@@ -51,8 +51,8 @@ const direction = useDirection(lang);
   </PickerInput>
 </template>
 
-<style lang="scss">
-.DatePickerInputUI {
+<style lang="scss" scoped>
+.EMDatePickerInputUI {
   &__date-picker {
     @include mobile(){
       border-top-right-radius: var(--em-mobile-corners-border-radius)!important;

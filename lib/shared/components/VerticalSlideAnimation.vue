@@ -1,6 +1,6 @@
 <template>
   <TransitionGroup
-    name="em-vertical-slide"
+    name="EMVerticalSlide"
     mode="out-in"
   >
     <slot />
@@ -8,7 +8,7 @@
 </template>
 
 <style lang="scss">
-.em-vertical-slide {
+.EMVerticalSlide {
   &-enter-from{
     opacity: 0;
     transform: translateY(-100%);

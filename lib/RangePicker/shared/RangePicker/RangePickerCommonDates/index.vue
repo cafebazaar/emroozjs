@@ -10,15 +10,15 @@ const {
 </script>
 
 <template>
-  <div class="RangePickerCommonDates">
-    <header class="RangePickerCommonDates__title">
+  <div class="EMRangePickerCommonDates">
+    <header class="EMRangePickerCommonDates__title">
       {{ strings.commonDates }}
     </header>
-    <ul class="RangePickerCommonDates__list">
+    <ul class="EMRangePickerCommonDates__list">
       <RangePickerCommonDatesItem
         v-for="({label,from,to}) of commonDates"
         :key="label"
-        class="RangePickerCommonDates__list-item"
+        class="EMRangePickerCommonDates__list-item"
         :label="label"
         :from="from"
         :to="to"
@@ -31,7 +31,7 @@ const {
 
 <style lang="scss" scoped>
 
-.RangePickerCommonDates {
+.EMRangePickerCommonDates {
   font-size: var(--em-mostly-used-font-size);
   display: flex;
   flex-direction: column;

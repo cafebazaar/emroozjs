@@ -29,13 +29,13 @@ function prev() {
 </script>
 
 <template>
-  <div class="DatePickerUISliderControllers">
+  <div class="EMDatePickerUISliderControllers">
     <StartingArrowButton
       :direction="direction"
       @click="prev"
     />
 
-    <span class="DatePickerUISliderControllers__month">
+    <span class="EMDatePickerUISliderControllers__month">
       {{ strings.monthNames[props.currentMonth] }} {{ props.currentYear }}
     </span>
 
@@ -46,8 +46,8 @@ function prev() {
   </div>
 </template>
 
-<style lang="scss">
-.DatePickerUISliderControllers {
+<style lang="scss" scoped>
+.EMDatePickerUISliderControllers {
   display: flex;
   align-items: center;
 
