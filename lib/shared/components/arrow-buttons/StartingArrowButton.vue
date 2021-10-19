@@ -17,7 +17,7 @@ const ArrowStart = computed(() => (props.direction === 'ltr' ? ArrowLeft : Arrow
 
 <template>
   <Button
-    icon
+    :icon="true"
     @click="emit('click')"
   >
     <ArrowStart />
