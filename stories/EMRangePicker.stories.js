@@ -118,7 +118,12 @@ Persian.parameters = {
   docs: {
     source: {
       code: `
-        <EMRangePicker />
+<script setup>
+  import { EMRangePicker } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMRangePicker />
+</template>
       `,
     },
   },
@@ -146,7 +151,12 @@ Miladi.parameters = {
   docs: {
     source: {
       code: `
-        <EMRangePicker type="miladi" />
+<script setup>
+  import { EMRangePicker } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMRangePicker type="miladi" />
+</template>
       `,
     },
   },
@@ -160,7 +170,12 @@ Shamsi.parameters = {
   docs: {
     source: {
       code: `
-        <EMRangePicker type="shamsi" />
+<script setup>
+  import { EMRangePicker } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMRangePicker type="shamsi" />
+</template>
       `,
     },
   },
@@ -183,6 +198,8 @@ WithCommonDates.parameters = {
     source: {
       code: `
 <script setup>
+  import { EMRangePicker } from '@cafebazaar/emrooz';
+
   const lastWeek = new Date();
   lastWeek.setDate(lastWeek.getDate() - 7);
 </script>
@@ -208,7 +225,12 @@ OnlyEvenDaysAllowed.parameters = {
   docs: {
     source: {
       code: `
-        <EMRangePicker :allowedDates="(date) => date.getDay() % 2 === 0" />
+<script setup>
+  import { EMRangePicker } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMRangePicker :allowedDates="(date) => date.getDay() % 2 === 0" />
+</template>
       `,
     },
   },

@@ -42,7 +42,12 @@ Persian.parameters = {
   docs: {
     source: {
       code: `
-        <EMDatePickerInput />
+<script setup>
+  import { EMDatePickerInput } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMDatePickerInput />
+</template>
       `,
     },
   },
@@ -56,7 +61,12 @@ English.parameters = {
   docs: {
     source: {
       code: `
-        <EMDatePickerInput lang="en" />
+<script setup>
+  import { EMDatePickerInput } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMDatePickerInput lang="en" />
+</template>
       `,
     },
   },
@@ -70,7 +80,12 @@ Miladi.parameters = {
   docs: {
     source: {
       code: `
-        <EMDatePickerInput type="miladi" />
+<script setup>
+  import { EMDatePickerInput } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMDatePickerInput type="miladi" />
+</template>
       `,
     },
   },
@@ -84,7 +99,12 @@ Shamsi.parameters = {
   docs: {
     source: {
       code: `
-        <EMDatePickerInput type="shamsi" />
+<script setup>
+  import { EMDatePickerInput } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMDatePickerInput type="shamsi" />
+</template>
       `,
     },
   },
@@ -98,7 +118,12 @@ OnlyEvenDaysAllowed.parameters = {
   docs: {
     source: {
       code: `
-        <EMDatePickerInput :allowedDates="(date) => date.getDate() % 2 === 0" />
+<script setup>
+  import { EMDatePickerInput } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMDatePickerInput :allowedDates="(date) => date.getDate() % 2 === 0" />
+</template>
       `,
     },
   },

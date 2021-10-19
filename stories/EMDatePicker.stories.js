@@ -97,7 +97,12 @@ Persian.parameters = {
   docs: {
     source: {
       code: `
-        <EMDatePicker />
+<script setup>
+  import { EMDatePicker } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMDatePicker />
+</template>
       `,
     },
   },
@@ -111,7 +116,12 @@ English.parameters = {
   docs: {
     source: {
       code: `
-        <EMDatePicker lang="en" />
+<script setup>
+  import { EMDatePicker } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMDatePicker lang="en" />
+</template>
       `,
     },
   },
@@ -125,7 +135,12 @@ Miladi.parameters = {
   docs: {
     source: {
       code: `
-        <EMDatePicker type="miladi" />
+<script setup>
+  import { EMDatePicker } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMDatePicker type="miladi" />
+</template>
       `,
     },
   },
@@ -139,7 +154,12 @@ Shamsi.parameters = {
   docs: {
     source: {
       code: `
-        <EMDatePicker type="shamsi" />
+<script setup>
+  import { EMDatePicker } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMDatePicker type="shamsi" />
+</template>
       `,
     },
   },
@@ -153,7 +173,12 @@ OnlyEvenDaysAllowed.parameters = {
   docs: {
     source: {
       code: `
-        <EMDatePicker :allowedDates="(date) => date.getDate() % 2 === 0" />
+<script setup>
+  import { EMDatePicker } from '@cafebazaar/emrooz';
+</script>
+<template>
+  <EMDatePicker :allowedDates="(date) => date.getDate() % 2 === 0" />
+</template>
       `,
     },
   },
