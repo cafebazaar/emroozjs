@@ -31,5 +31,9 @@ const value = ref(null)
 
 For further and more advanced usages please visit our storybook [here](https://emroozjs.netlify.app/).
 
+## Credit
+The user interface of the calendars were designed by [Soheil Najafi
+](https://twitter.com/soheilnfi)
+
 ## License
 MIT
