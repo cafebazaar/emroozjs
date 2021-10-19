@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import './stylesheets/main.scss';
 import { ref } from 'vue';
 import {
   EMRangePicker, EMDatePicker, EMRangePickerInput, EMDatePickerInput,
-} from '../dist/emrooz.es.js';
-import '../dist/style.css';
+} from '@lib';
 
 const range = ref(null);
 const date = ref(null);
