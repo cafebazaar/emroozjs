@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
 import SlideAnimation from '@lib/shared/components/SlideAnimation.vue';
 import StartingArrowButton from '@lib/shared/components/arrow-buttons/StartingArrowButton.vue';
 import EndingArrowButton from '@lib/shared/components/arrow-buttons/EndingArrowButton.vue';
