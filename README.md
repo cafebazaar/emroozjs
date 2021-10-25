@@ -33,7 +33,8 @@ For further and more advanced usages please visit our storybook [here](https://e
 
 ## Credit
 The user interface of the calendars were designed by [Soheil Najafi
-](https://twitter.com/soheilnfi)
+](https://twitter.com/soheilnfi) and [Farzad Mohsenvand
+](https://twitter.com/farzadme)
 
 ## License
 MIT
