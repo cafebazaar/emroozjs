@@ -33,7 +33,7 @@ const emptyLastDays = computed(() => fillEmpty(6 - props.lastDayOfMonth));
     <GridItemUI
       v-for="i of props.headerNames"
       :key="i"
-      is-header
+      :is-header="true"
     >
       {{ i }}
     </GridItemUI>
