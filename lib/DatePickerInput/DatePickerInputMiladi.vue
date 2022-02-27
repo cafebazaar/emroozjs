@@ -24,7 +24,7 @@ function emitSelectedRange(date: DatePickerSelectOutput) {
   emit('update:modelValue', date);
 }
 
-const convertRangeItemToString = (date: Date) => `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
+const convertRangeItemToString = (date: Date) => `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
 
 const selectedDateString = computed(() => {
   if (!props.modelValue) {

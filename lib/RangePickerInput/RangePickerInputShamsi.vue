@@ -28,7 +28,7 @@ function emitSelectedRange(rangeInfo: RangePickerSelectOutput) {
 const convertRangeItemToString = (date: Date) => {
   const jDate = toJalali(date.getFullYear(), date.getMonth(), date.getDate());
 
-  return `${jDate[0]}/${jDate[1]}/${jDate[2]}`;
+  return `${jDate[0]}/${jDate[1] + 1}/${jDate[2]}`;
 };
 
 const selectedRangeString = computed(() => {
